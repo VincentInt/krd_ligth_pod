@@ -1,0 +1,75 @@
+.item_card {
+  width: 18%;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 12px;
+  .container_img {
+    display: flex;
+    justify-content: center;
+    img {
+      object-fit: contain;
+      width: clamp(50px, 7vw, 60px);
+      height: clamp(120px, 17vw, 200px);
+    }
+  }
+  .container_text {
+    margin-top: 10px;
+    .title_name_card {
+      overflow: hidden;
+      height: 50px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    .container_info_text {
+      margin-top: 3px;
+      .container_rating {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        .container_stars {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          .star {
+            width: 18px;
+            height: 18px;
+            background: black;
+            mask-image: url(../../../../img/icon/icons8-звезда-50.png);
+            mask-size: contain;
+          }
+        }
+      }
+      .item_info_text {
+        h6 {
+          &:last-child {
+            font-weight: 500;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+          }
+        }
+      }
+      .text_price {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .item_card {
+    width: 25%;
+  }
+}
+@media (max-width: 960px) {
+  .item_card {
+    width: clamp(15%, 20vw, 24%);
+  }
+}
+@media (max-width: 520px) {
+  .item_card {
+    width: 30%;
+  }
+}

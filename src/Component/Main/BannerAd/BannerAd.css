@@ -1,0 +1,31 @@
+.section_banner_ad {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: clamp(130px, 22vw, 300px);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 254, 203, 1) 0%,
+    rgb(112, 231, 144) 100%
+  );
+  .container_banner_ad {
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    gap: clamp(10px, 2vw, 40px);
+    img {
+      width: clamp(130px, 32vw, 510px);
+    }
+    .container_text_banner_ad {
+      .container_price {
+        display: flex;
+        align-items: center;
+        margin-top: clamp(0px, 1.1vw, 10px);
+        gap: 30px;
+        h3 {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

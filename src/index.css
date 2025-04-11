@@ -1,0 +1,49 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background-color: black;
+}
+p {
+  font-size: clamp(12px, 1.6vw, 20px);
+  line-height: clamp(14px, 2.8vw, 36px);
+}
+.p_big_text {
+  font-weight: 500;
+}
+h2{
+  font-size: clamp(24px, 2.5vw, 48px);
+}
+h3 {
+  font-size: clamp(18px, 2.7vw, 40px);
+}
+h4 {
+  font-size: clamp(18px, 2.5vw, 28px);
+}
+h5{
+  font-size: clamp(16px, 1.5vw, 22px)
+}
+h6 {
+  font-size: clamp(12px, 1.5vw, 16px);
+}
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+input {
+  margin: 0;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: 1.2px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,14 @@
+.container_select_input {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  .container_select_square {
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+}

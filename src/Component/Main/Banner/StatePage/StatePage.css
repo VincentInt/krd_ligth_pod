@@ -1,0 +1,42 @@
+.state_page {
+  display: flex;
+  max-width: 200px;
+  gap: 10px;
+  transition: all 0.2s ease;
+  .small_item_state_page,
+  .medium_item_state_page,
+  .select_item_state_page {
+    width: 23px;
+    height: 5px;
+    border-radius: 8px;
+    background-color: rgb(180, 180, 180);
+    animation: small_state 0.2s ease forwards;
+  }
+  .medium_item_state_page {
+    animation: medium_state 0.2s ease forwards;
+  }
+  .select_item_state_page {
+    animation: select_state 0.2s ease forwards;
+  }
+}
+@keyframes small_state {
+  0% {
+  }
+  100% {
+    width: 20px;
+  }
+}
+@keyframes medium_state {
+  0% {
+  }
+  100% {
+    width: 40px;
+  }
+}
+@keyframes select_state {
+  0% {
+  }
+  100% {
+    width: 90px;
+  }
+}

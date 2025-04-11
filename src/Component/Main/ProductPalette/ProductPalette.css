@@ -1,0 +1,163 @@
+.section_product_palette {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 0px 20px;
+  margin-top: clamp(60px, 20vw, 100px);
+  box-shadow: 0px 0px 50px 6px white;
+  .container_product_palette {
+    width: 1200px;
+    margin: clamp(80px, 15vw, 120px) 0px;
+    .container_preview_product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      .preview_product_img {
+        width: clamp(350px, 45vw, 505px);
+      }
+      .container_text_preview_product {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        gap: clamp(5px, 1.2vw, 20px);
+        .gradient_text {
+          color: transparent;
+          background: linear-gradient(
+            90deg,
+            rgba(89, 255, 236, 1) 20%,
+            rgba(255, 119, 0, 1)
+          );
+          background-clip: text;
+          background-size: 150% 150%;
+          animation: gradient 3s infinite ease;
+        }
+
+        h3 {
+        }
+        h6 {
+          font-weight: 400;
+        }
+      }
+    }
+    .container_product_line {
+      margin-top: clamp(100px, 9vw, 200px);
+      .container_title_product_line {
+        text-align: center;
+        .gradient_text {
+          color: transparent;
+          background-image: linear-gradient(
+            90deg,
+            rgba(255, 203, 106, 1) 40%,
+            rgba(240, 53, 53, 1) 100%
+          );
+          background-clip: text;
+          background-size: 150% 150%;
+          animation: gradient 3s infinite ease;
+        }
+      }
+      .container_product_line_palette {
+        display: flex;
+        margin-top: clamp(25px, 5vw, 50px);
+        gap: clamp(5px, 12vw, 15px);
+        .container_item_product {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: clamp(90px, 12vw, 140px);
+          img {
+            transition: all 0.2s ease;
+            object-fit: contain;
+            height: clamp(200px, 22vw, 320px);
+          }
+          .container_item_color {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            gap: 5px;
+            transition: all 0.2s ease;
+            .color_ball {
+              width: clamp(10px, 1.5vw, 20px);
+              height: clamp(10px, 1.5vw, 20px);
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+      .container_about_product_line_palette {
+        margin-top: clamp(25px, 5vw, 50px);
+        p {
+          letter-spacing: 1.4px;
+          text-align: center;
+        }
+        .container_btn {
+          display: flex;
+          justify-content: center;
+          margin-top: clamp(15px, 3vw, 30px);
+        }
+      }
+    }
+  }
+}
+@media (max-width: 2160px) {
+  .section_product_palette {
+    .container_product_line {
+      .container_product_line_palette {
+        justify-content: space-between;
+        .container_item_product {
+          &:hover {
+            img {
+              transform: translateY(-30px) scale(110%);
+            }
+            .container_item_color {
+              transition: all 0.4s ease;
+              transform: translateY(-12px) scale(120%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 760px) {
+  .section_product_palette {
+    .container_product_palette {
+      .container_preview_product {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .container_product_line {
+      .container_product_line_palette {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .container_item_product {
+          min-width: clamp(80px, 20vw, 200px);
+          margin-top: 10px;
+          &:hover {
+            img {
+              transform: translateY(-15px) scale(110%);
+            }
+            .container_item_color {
+              transition: all 0.4s ease;
+              transform: translateY(-8px) scale(110%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 80% 0%;
+  }
+  50% {
+    background-position: 20% 100%;
+  }
+  100% {
+    background-position: 80% 0%;
+  }
+}

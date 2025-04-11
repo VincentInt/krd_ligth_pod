@@ -1,0 +1,10 @@
+button {
+  cursor: pointer;
+  padding: clamp(4px, 1.5vw, 12px) clamp(20px, 3vw, 30px);
+  font-size: clamp(12px, 1.5vw, 22px);
+  font-weight: 500;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 36px;
+}

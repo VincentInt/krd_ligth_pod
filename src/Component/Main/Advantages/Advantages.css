@@ -1,0 +1,82 @@
+.section_advantages {
+  display: flex;
+  justify-content: center;
+  margin: 0px 20px;
+  margin-top: clamp(100px, 22vw, 200px);
+  color: white;
+  .container_advantages {
+    width: 1200px;
+    .container_title {
+      display: flex;
+      justify-content: center;
+      .title {
+        max-width: 880px;
+        text-align: center;
+        .gradient_text {
+          color: transparent;
+          background: linear-gradient(
+            120deg,
+            rgba(0, 254, 203, 1) 0%,
+            rgb(112, 231, 144) 100%
+          );
+          background-clip: text;
+          background-size: 150% 150%;
+        }
+      }
+    }
+    .container_advantages_items {
+      display: flex;
+      flex-direction: column;
+      margin-top: clamp(50px, 15vw, 100px);
+      gap: clamp(10px, 4.5vw, 50px);
+      .advantages_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        .advantages_card {
+          display: flex;
+          align-items: center;
+          padding: clamp(10px, 1.5vw, 15px) clamp(18px, 2.8vw, 30px);
+          gap: 15px;
+          border: 1px solid white;
+          border-radius: 16px;
+          img {
+            width: clamp(14px, 2.5vw, 32px);
+          }
+          .gradient_text {
+            color: transparent;
+            background: linear-gradient(
+              120deg,
+              rgba(0, 254, 203, 1) 0%,
+              rgb(112, 231, 144) 100%
+            );
+            background-clip: text;
+            background-size: 150% 150%;
+            h4 {
+              white-space: nowrap;
+            }
+          }
+        }
+        .advantages_text {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          width: clamp(200px, 60vw, 700px);
+          p {
+            font-weight: 600;
+            letter-spacing: 1.8px;
+            text-align: right;
+          }
+          &::before {
+            content: " ";
+            width: clamp(30px, 3vw, 50px);
+            height: 1.5px;
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.section_display {
+  display: flex;
+  justify-content: center;
+  margin: 0px 20px;
+  margin-top: clamp(130px, 22vw, 300px);
+  color: white;
+  .container_display {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    gap: 30px;
+    img {
+      width: clamp(120px, 25vw, 280px);
+      object-fit: contain;
+    }
+    .container_text {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(4px, 1.5vw, 20px);
+      .gradient_text {
+        color: transparent;
+        background: linear-gradient(
+          120deg,
+          rgba(0, 254, 203, 1) 0%,
+          rgb(112, 231, 144) 100%
+        );
+        background-clip: text;
+        background-size: 150% 150%;
+      }
+      p {
+        max-width: clamp(500px, 60vw, 800px);
+      }
+    }
+  }
+}

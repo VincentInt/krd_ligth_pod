@@ -1,5 +1,5 @@
 import "./Display.css";
-import displayImg from "../../../img/image 15.png";
+import displayImg from "../../../../public/img/image 15.png";
 
 const Display = () => {
   return (

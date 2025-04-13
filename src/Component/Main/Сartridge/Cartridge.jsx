@@ -1,6 +1,6 @@
 import "./Cartridge.css";
-import lineCartridgeImg from "../../../img/image 13.png";
-import cartridgeImg from "../../../img/image 14.png";
+import lineCartridgeImg from "../../../../public/img/image 13.png";
+import cartridgeImg from "../../../../public/img/image 14.png";
 
 const Cartridge = () => {
   return (

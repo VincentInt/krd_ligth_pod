@@ -8,7 +8,7 @@
       "puffs": 300,
       "cool": "Есть",
       "chargingPort": "Micro USB",
-      "img": "/krd_ligth_pod/src/img/odnoraz.png",
+      "img": "/krd_ligth_pod/public/img/odnoraz.png",
       "popularity": 8,
       "flavor": "Черника со льдом",
       "cardInfo": [
@@ -34,7 +34,7 @@
       "puffs": 400,
       "cool": "Есть",
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/9140.750x0.jpg",
+      "img": "/krd_ligth_pod/public/img/9140.750x0.jpg",
       "popularity": 7,
       "flavor": "Манго-персик",
       "cardInfo": [
@@ -60,7 +60,7 @@
       "puffs": 400,
       "cool": "Нету",
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/223227cc8495e5319bda82f017.png",
+      "img": "/krd_ligth_pod/public/img/223227cc8495e5319bda82f017.png",
       "popularity": 9,
       "flavor": "Клубника-банан",
       "cardInfo": [
@@ -86,7 +86,7 @@
       "puffs": 350,
       "cool": "Есть",
       "chargingPort": "Нету",
-      "img": "/krd_ligth_pod/src/img/6054314925.jpg",
+      "img": "/krd_ligth_pod/public/img/6054314925.jpg",
       "popularity": 6,
       "flavor": "Сочный лёд",
       "cardInfo": [
@@ -112,7 +112,7 @@
       "puffs": 500,
       "cool": "Есть",
       "chargingPort": "Нету",
-      "img": "/krd_ligth_pod/src/img/odnoraz.png",
+      "img": "/krd_ligth_pod/public/img/odnoraz.png",
       "popularity": 5,
       "flavor": "Ананас-кокос",
       "cardInfo": [
@@ -138,7 +138,7 @@
       "puffs": 450,
       "cool": "Нету",
       "chargingPort": "Micro USB",
-      "img": "/krd_ligth_pod/src/img/9140.750x0.jpg",
+      "img": "/krd_ligth_pod/public/img/9140.750x0.jpg",
       "popularity": 7,
       "flavor": "Виноградная газировка",
       "cardInfo": [
@@ -164,7 +164,7 @@
       "puffs": 250,
       "cool": "Есть",
       "chargingPort": "Нету",
-      "img": "/krd_ligth_pod/src/img/223227cc8495e5319bda82f017.png",
+      "img": "/krd_ligth_pod/public/img/223227cc8495e5319bda82f017.png",
       "popularity": 4,
       "flavor": "Мята",
       "cardInfo": [
@@ -190,7 +190,7 @@
       "puffs": 300,
       "cool": "Есть",
       "chargingPort": "Нету",
-      "img": "/krd_ligth_pod/src/img/6054314925.jpg",
+      "img": "/krd_ligth_pod/public/img/6054314925.jpg",
       "popularity": 6,
       "flavor": "Арбуз",
       "cardInfo": [
@@ -216,7 +216,7 @@
       "puffs": 600,
       "cool": "Нету",
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/odnoraz.png",
+      "img": "/krd_ligth_pod/public/img/odnoraz.png",
       "popularity": 9,
       "flavor": "Личи со льдом",
       "cardInfo": [
@@ -242,7 +242,7 @@
       "puffs": 700,
       "cool": "Есть",
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/9140.750x0.jpg",
+      "img": "/krd_ligth_pod/public/img/9140.750x0.jpg",
       "popularity": 10,
       "flavor": "Голубая малина",
       "cardInfo": [
@@ -268,7 +268,7 @@
       "puffs": 200,
       "cool": "Нету",
       "chargingPort": "Нету",
-      "img": "/krd_ligth_pod/src/img/223227cc8495e5319bda82f017.png",
+      "img": "/krd_ligth_pod/public/img/223227cc8495e5319bda82f017.png",
       "popularity": 3,
       "flavor": "Тропический микс",
       "cardInfo": [
@@ -294,7 +294,7 @@
       "puffs": 300,
       "cool": "Есть",
       "chargingPort": "Micro USB",
-      "img": "/krd_ligth_pod/src/img/6054314925.jpg",
+      "img": "/krd_ligth_pod/public/img/6054314925.jpg",
       "popularity": 5,
       "flavor": "Зелёное яблоко",
       "cardInfo": [
@@ -320,7 +320,7 @@
       "puffs": 500,
       "cool": "Есть",
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/odnoraz.png",
+      "img": "/krd_ligth_pod/public/img/odnoraz.png",
       "popularity": 8,
       "flavor": "Клубника-киви",
       "cardInfo": [
@@ -346,7 +346,7 @@
       "puffs": 550,
       "cool": "Нету",
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/9140.750x0.jpg",
+      "img": "/krd_ligth_pod/public/img/9140.750x0.jpg",
       "popularity": 9,
       "flavor": "Персик со льдом",
       "cardInfo": [
@@ -376,7 +376,7 @@
       "battery": 1000,
       "tankVolume": 2,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 9,
       "cardInfo": [
         { "infoName": "Активация", "info": "Автовдох + кнопка" },
@@ -395,7 +395,7 @@
       "battery": 750,
       "tankVolume": 2,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Активация", "info": "Автовдох" },
@@ -414,7 +414,7 @@
       "battery": 2000,
       "tankVolume": 4.5,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 7,
       "cardInfo": [
         { "infoName": "Активация", "info": "Кнопка" },
@@ -433,7 +433,7 @@
       "battery": 1200,
       "tankVolume": 4,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 10,
       "cardInfo": [
         { "infoName": "Активация", "info": "Кнопка" },
@@ -452,7 +452,7 @@
       "battery": 3000,
       "tankVolume": 5.5,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Активация", "info": "Кнопка" },
@@ -471,7 +471,7 @@
       "battery": 900,
       "tankVolume": 2.5,
       "chargingPort": "Micro USB",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 6,
       "cardInfo": [
         { "infoName": "Активация", "info": "Автовдох" },
@@ -490,7 +490,7 @@
       "battery": 1000,
       "tankVolume": 2,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Активация", "info": "Автовдох + кнопка" },
@@ -509,7 +509,7 @@
       "battery": 1400,
       "tankVolume": 3,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 7,
       "cardInfo": [
         { "infoName": "Активация", "info": "Автовдох + кнопка" },
@@ -528,7 +528,7 @@
       "battery": 1000,
       "tankVolume": 2,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 9,
       "cardInfo": [
         { "infoName": "Активация", "info": "Автовдох + кнопка" },
@@ -547,7 +547,7 @@
       "battery": 800,
       "tankVolume": 2,
       "chargingPort": "Type-C",
-      "img": "/krd_ligth_pod/src/img/6089152449.jpg",
+      "img": "/krd_ligth_pod/public/img/6089152449.jpg",
       "popularity": 7,
       "cardInfo": [
         { "infoName": "Активация", "info": "Автовдох" },
@@ -567,7 +567,7 @@
       "volume": 30,
       "cool": "Да",
       "rating": 2.7,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Арбуз-киви" },
@@ -584,7 +584,7 @@
       "volume": 30,
       "cool": "Нет",
       "rating": 4.5,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 7,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Манго-персик" },
@@ -601,7 +601,7 @@
       "volume": 50,
       "cool": "Нет",
       "rating": 4.3,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 6,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Клубничный пончик" },
@@ -618,7 +618,7 @@
       "volume": 100,
       "cool": "Да",
       "rating": 4.8,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 9,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Цитрусовый микс" },
@@ -635,7 +635,7 @@
       "volume": 10,
       "cool": "Да",
       "rating": 4.6,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 7,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Кола со льдом" },
@@ -652,7 +652,7 @@
       "volume": 60,
       "cool": "Нет",
       "rating": 4.9,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Лимонный пирог" },
@@ -669,7 +669,7 @@
       "volume": 30,
       "cool": "Да",
       "rating": 4.7,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Манго-ананас" },
@@ -686,7 +686,7 @@
       "volume": 50,
       "cool": "Нет",
       "rating": 4.4,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 7,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Черника-малина" },
@@ -703,7 +703,7 @@
       "volume": 30,
       "cool": "Да",
       "rating": 4.8,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 9,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Мята-дыня" },
@@ -720,7 +720,7 @@
       "volume": 100,
       "cool": "Да",
       "rating": 4.5,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Апельсин-лимон" },
@@ -737,7 +737,7 @@
       "volume": 60,
       "cool": "Нет",
       "rating": 4.2,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 7,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Клубника-банан" },
@@ -754,7 +754,7 @@
       "volume": 30,
       "cool": "Нет",
       "rating": 4.6,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Манго-кокос" },
@@ -771,7 +771,7 @@
       "volume": 30,
       "cool": "Да",
       "rating": 4.7,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 9,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Виноград-лайм" },
@@ -788,7 +788,7 @@
       "volume": 20,
       "cool": "Да",
       "rating": 4.8,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 8,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Черника со льдом" },
@@ -805,7 +805,7 @@
       "volume": 60,
       "cool": "Нет",
       "rating": 4.9,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 9,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Яблоко-нектарин-клубника" },
@@ -822,7 +822,7 @@
       "volume": 50,
       "cool": "Да",
       "rating": 4.5,
-      "img": "/krd_ligth_pod/src/img/iceberries.jpg",
+      "img": "/krd_ligth_pod/public/img/iceberries.jpg",
       "popularity": 7,
       "cardInfo": [
         { "infoName": "Вкус", "info": "Арбуз-мята" },

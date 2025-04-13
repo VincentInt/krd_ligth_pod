@@ -1,7 +1,7 @@
 import "./Footer.css";
-import logoImg from "../../img/Logo.png";
-import telegramIconImg from "../../img/icon/image 18.png";
-import phoneIconImg from "../../img/icon/image 19.png";
+import logoImg from "../../../public/img/Logo.png";
+import telegramIconImg from "../../../public/img/icon/image 18.png";
+import phoneIconImg from "../../../public/img/icon/image 19.png";
 import { Link } from "react-router";
 
 const Footer = () => {
@@ -18,11 +18,21 @@ const Footer = () => {
         </div>
         <div className="item_footer">
           <div className="container_links">
-            <Link to={""}>Одноразовые</Link>
-            <Link to={""}>Под-системы</Link>
-            <Link to={""}>Жидкости</Link>
-            <Link to={""}>Xros-Pro</Link>
-            <Link to={""}>Контакты</Link>
+            <Link to={"products/disposablePods"}>
+              <h6>Одноразовые</h6>
+            </Link>
+            <Link to={"products/podSystems"}>
+              <h6>Под-системы</h6>
+            </Link>
+            <Link to={"products/eLiquids"}>
+              <h6>Жидкости</h6>
+            </Link>
+            <Link to={"/"}>
+              <h6>Xros-Pro</h6>
+            </Link>
+            <Link to={"products/contact"}>
+              <h6>Контакты</h6>
+            </Link>
           </div>
           <div className="container_contact">
             <a href="#">

@@ -1,7 +1,7 @@
 import "./FilterItem.css";
 import { useEffect, useState } from "react";
-import upArrowImg from "../../../../img/icon/icons8-стрелка-100 (1).png";
-import downArrowImg from "../../../../img/icon/icons8-стрелка-100.png";
+import upArrowImg from "../../../../../public/img/icon/icons8-стрелка-100 (1).png";
+import downArrowImg from "../../../../../public/img/icon/icons8-стрелка-100.png";
 
 const FilterItem = ({
   typeParams,
@@ -11,7 +11,7 @@ const FilterItem = ({
 }) => {
   const [stateOpen, setStateOpen] = useState(defaultStateOpen);
   const [stateMore, setStateMore] = useState(null);
-  
+
   useEffect(() => {
     setStateOpen(defaultStateOpen);
     if (children.length > 6) {
@@ -47,7 +47,7 @@ const FilterItem = ({
           {stateMore !== null ? (
             <>
               {Array.isArray(children) ? children.slice(0, stateMore * 6) : ""}
-              
+
               <button onClick={onMoreFilter} className="btn_more">
                 <img
                   src={
@@ -56,7 +56,7 @@ const FilterItem = ({
                   alt="arrow_img"
                 />
                 <h6>
-                  { children.length > stateMore * 6
+                  {children.length > stateMore * 6
                     ? "Показать еще"
                     : "Свернуть"}
                 </h6>

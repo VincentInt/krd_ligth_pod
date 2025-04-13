@@ -1,5 +1,5 @@
 import "./SelectInput.css";
-import checkMarkImg from "../../img/icon/icons8-галочка-24.png";
+import checkMarkImg from "../../../public/img/icon/icons8-галочка-24.png";
 
 const SelectInput = ({ onChange, state, children }) => {
   return (

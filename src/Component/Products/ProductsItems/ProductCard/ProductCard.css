@@ -36,7 +36,7 @@
             width: 18px;
             height: 18px;
             background: black;
-            mask-image: url(../../../../img/icon/icons8-звезда-50.png);
+            mask-image: url(../../../../../public/img/icon/icons8-звезда-50.png);
             mask-size: contain;
           }
         }

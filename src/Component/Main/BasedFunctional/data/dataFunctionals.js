@@ -1,6 +1,6 @@
-import axonChipImg from "../../../../img/image 11.png";
-import airflowImg from "../../../../img/image2.png";
-import saveFuncImg from "../../../../img/image 12.png";
+import axonChipImg from "../../../../../public/img/image 11.png";
+import airflowImg from "../../../../../public/img/image2.png";
+import saveFuncImg from "../../../../../public/img/image 12.png";
 
 export const dataFunctionals = [
   {

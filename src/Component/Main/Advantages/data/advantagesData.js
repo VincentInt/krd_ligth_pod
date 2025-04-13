@@ -1,6 +1,6 @@
-import lightningIconImg from "../../../../img/icon/Vector 1.png";
-import dropIconImg from "../../../../img/icon/Vector 4.png";
-import bicepsIconImg from "../../../../img/icon/Vector 3.png";
+import lightningIconImg from "../../../../../public/img/icon/Vector 1.png";
+import dropIconImg from "../../../../../public/img/icon/Vector 4.png";
+import bicepsIconImg from "../../../../../public/img/icon/Vector 3.png";
 
 export const advantagesData = [
   {

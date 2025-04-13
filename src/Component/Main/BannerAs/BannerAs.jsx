@@ -1,5 +1,5 @@
 import "./BannerAs.css";
-import xrosAssortImg from "../../../img/image 16.png";
+import xrosAssortImg from "../../../../public/img/image 16.png";
 
 const BannerAs = () => {
   return (

@@ -1,6 +1,6 @@
 import "./SortNav.css";
-import downArrowImg from "../../../img/icon/icons8-стрелка-100 (1).png";
-import upArrowImg from "../../../img/icon/icons8-стрелка-100.png";
+import downArrowImg from "../../../../public/img/icon/icons8-стрелка-100 (1).png";
+import upArrowImg from "../../../../public/img/icon/icons8-стрелка-100.png";
 
 const SortNav = ({ sortState, setSortState }) => {
   const dataSort = [

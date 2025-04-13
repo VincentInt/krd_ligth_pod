@@ -1,5 +1,5 @@
 import "./BannerAd.css";
-import xrosProImg from "../../../img/Intersect(1) (2) 2.png";
+import xrosProImg from "../../../../public/img/Intersect(1) (2) 2.png";
 import Button from "../../../UI/Button/Button";
 
 const BannerAd = () => {

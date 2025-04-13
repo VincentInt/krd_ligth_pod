@@ -1,10 +1,10 @@
-import blackXrosImg from "../../../../img/image 3.png";
-import lightgreyXrosImg from "../../../../img/image 4.png";
-import blueXrosImg from "../../../../img/image 5.png";
-import redXrosImg from "../../../../img/image 6.png";
-import darkslategreyXrosImg from "../../../../img/image 7.png";
-import orangeXrosImg from "../../../../img/image 8.png";
-import pinkXrosImg from "../../../../img/image 9.png";
+import blackXrosImg from "../../../../../public/img/image 3.png";
+import lightgreyXrosImg from "../../../../../public/img/image 4.png";
+import blueXrosImg from "../../../../../public/img/image 5.png";
+import redXrosImg from "../../../../../public/img/image 6.png";
+import darkslategreyXrosImg from "../../../../../public/img/image 7.png";
+import orangeXrosImg from "../../../../../public/img/image 8.png";
+import pinkXrosImg from "../../../../../public/img/image 9.png";
 
 export const dataProductLinePalette = [
   {

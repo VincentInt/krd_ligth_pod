@@ -1,5 +1,5 @@
 import "./ProductPalette.css";
-import xrosNewLvlImg from "../../../img/image.png";
+import xrosNewLvlImg from "../../../../public/img/image.png";
 import { dataProductLinePalette } from "./data/dataProductLinePalette";
 import Button from "../../../UI/Button/Button";
 

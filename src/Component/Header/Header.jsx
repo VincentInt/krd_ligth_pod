@@ -1,6 +1,6 @@
 import "./Header.css";
-import logoImg from "../../img/Logo.png";
-import burgerMenuImg from "../../img/icon/icons8-гамбургер-меню-50.png";
+import logoImg from "../../../public/img/Logo.png";
+import burgerMenuImg from "../../../public/img/icon/icons8-гамбургер-меню-50.png";
 import { Link } from "react-router";
 import { useEffect, useRef } from "react";
 

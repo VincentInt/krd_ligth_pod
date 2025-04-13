@@ -1,15 +1,16 @@
+import { useParams } from "react-router";
 import RadioInput from "../../../../../UI/RadioInput/RadioInput";
 import RangeInput from "../../../../../UI/RangeInput/RangeInput";
 import SelectInput from "../../../../../UI/SelectInput/SelectInput";
 import FilterItem from "../../FilterItem/FilterItem";
 
 const FilterOptions = ({
-  typeParams,
   item,
   indexFilterOptions,
   stateFilterOptions,
   setStateFilterOptions,
 }) => {
+  const typeParams = useParams().type;
   return (
     <FilterItem typeParams={typeParams} nameFilterItem={item.titleName}>
       {item.type === "range" ? (

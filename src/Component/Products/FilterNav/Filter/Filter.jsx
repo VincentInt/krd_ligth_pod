@@ -1,6 +1,6 @@
 import FilterOptions from "./FilterOptions/FilterOptions";
 
-const Filter = ({ typeParams, stateFilterOptions, setStateFilterOptions }) => {
+const Filter = ({ stateFilterOptions, setStateFilterOptions }) => {
   return (
     <div className="container_filter">
       <div className="content_filter">
@@ -13,7 +13,6 @@ const Filter = ({ typeParams, stateFilterOptions, setStateFilterOptions }) => {
         {stateFilterOptions?.map((item, index) => {
           return (
             <FilterOptions
-              typeParams={typeParams}
               item={item}
               indexFilterOptions={index}
               stateFilterOptions={stateFilterOptions}

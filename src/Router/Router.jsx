@@ -6,10 +6,10 @@ import ProductsPage from "../Page/ProductsPage/ProductsPage.jsx";
 const Router = () => {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <Routes >
+      <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
-          <Route path="products/:type" element={<ProductsPage />} />
+          <Route path="products/:type/:filter?" element={<ProductsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

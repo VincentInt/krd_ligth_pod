@@ -2,9 +2,13 @@ import "./ProductsItems.css";
 import ProductCard from "./ProductCard/ProductCard.jsx";
 import dataProducts from "../data/dataProducts.json";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
-const ProductsItems = ({ stateFilterOptions, typeParams, sortState }) => {
+const ProductsItems = ({ stateFilterOptions, sortState }) => {
+  const typeParams = useParams().type;
+
   const [viewProducts, setViewProducts] = useState(dataProducts[typeParams]);
+
   useEffect(() => {
     setViewProducts(() => {
       let filteredProducts = dataProducts[typeParams]

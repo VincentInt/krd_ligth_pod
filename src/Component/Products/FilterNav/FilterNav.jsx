@@ -3,7 +3,6 @@ import Filter from "./Filter/Filter.jsx";
 import FilterDrop from "./Filter/FilterDrop.jsx";
 
 const FilterNav = ({
-  typeParams,
   stateFilterOptions,
   setStateFilterOptions,
   stateDropFilter,
@@ -23,7 +22,6 @@ const FilterNav = ({
         )
       ) : (
         <Filter
-          typeParams={typeParams}
           stateFilterOptions={stateFilterOptions}
           setStateFilterOptions={setStateFilterOptions}
         />

@@ -6,12 +6,11 @@ import { useParams } from "react-router";
 
 const ProductsItems = ({ stateFilterOptions, sortState }) => {
   const typeParams = useParams().type;
-
-  const [viewProducts, setViewProducts] = useState(dataProducts[typeParams]);
+  const [viewProducts, setViewProducts] = useState([]);
 
   useEffect(() => {
     setViewProducts(() => {
-      let filteredProducts = dataProducts[typeParams]
+      let filteredProducts = [...dataProducts[typeParams]]
         ?.map((itemProducts) => {
           const statusFalseFiltered = stateFilterOptions
             ?.map((itemFilter) => {

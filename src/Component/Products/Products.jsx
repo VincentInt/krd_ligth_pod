@@ -1,11 +1,15 @@
 import "./Products.css";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import FilterNav from "./FilterNav/FilterNav";
 import SortNav from "./sortNav/SortNav";
 import ProductsItems from "./ProductsItems/ProductsItems";
+//Гдето есть зависимость
 import dataFilter from "./data/dataFilters";
+//
 import dataProducts from "./data/dataProducts.json";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import filterParamsOptions from "./module/filterParamsOptions";
+import addParamsInFilter from "./module/addParamsInFilter";
 
 const Products = () => {
   const typeParams = useParams().type;
@@ -19,59 +23,24 @@ const Products = () => {
   const [stateFilterOptions, setStateFilterOptions] = useState([]);
 
   useEffect(() => {
-    const dataFilterOptions = dataFilter[typeParams];
-    const optionsParamsFilter = filterParams.split(";").map((item) => {
-      const splitParams = item.split("=");
-      return { typeOption: splitParams[0], value: splitParams[1] };
-    });
-    optionsParamsFilter.forEach((itemParams) => {
-      const filterIndexElem = dataFilterOptions
-        .map((itemFind, index) => {
-          if (itemFind.typeDataProduct === itemParams.typeOption) {
-            return index;
-          }
-        })
-        .filter((item) => item)[0];
-
-      if (dataFilterOptions[filterIndexElem]?.type === "range") {
-        const valueRange = itemParams.value.split(",");
-        const keysRange = ["selectMin", "selectMax"];
-        valueRange.forEach((item, index) => {
-          if (
-            dataFilterOptions[filterIndexElem].max >= item &&
-            dataFilterOptions[filterIndexElem].min <= item
-          ) {
-            dataFilterOptions[filterIndexElem][keysRange[index]] = +item;
-          }
-        });
-      } else if (dataFilterOptions[filterIndexElem]?.type === "select") {
-        const valueSelect = itemParams.value
-          .split(",")
-          .map((item) => item.toLowerCase());
-        dataFilterOptions[filterIndexElem].defaultInputs.forEach((item) => {
-          if (valueSelect.includes(item.toLowerCase())) {
-            dataFilterOptions[filterIndexElem].select.push(item);
-          }
-        });
-      } else if (dataFilterOptions[filterIndexElem]?.type === "radio") {
-        const valueRadio = itemParams.value
-          .split(",")
-          .map((item) => item.toLowerCase())
-          .slice(-1)[0];
-        dataFilterOptions[filterIndexElem].defaultInputs.forEach((item) => {
-          if (item.toLowerCase() === valueRadio) {
-            dataFilterOptions[filterIndexElem].select = item;
-          }
-        });
-      }
-    });
-
-    setStateFilterOptions(dataFilterOptions);
+    const dataFilterOptions = [...dataFilter[typeParams]];
+    setStateFilterOptions(() =>
+      filterParams
+        ? filterParamsOptions(dataFilterOptions, filterParams)
+        : dataFilterOptions
+    );
     setSortState({
       sortName: "по релевантности",
       sortType: "убывание",
     });
   }, [filterParams, typeParams]);
+
+  useEffect(() => {
+    if (stateFilterOptions.length) {
+      const dataFilterOptions = [...dataFilter[typeParams]];
+      addParamsInFilter(stateFilterOptions, dataFilterOptions);
+    }
+  }, [stateFilterOptions]);
 
   useEffect(() => {
     if (stateDropFilter) {

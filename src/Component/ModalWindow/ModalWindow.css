@@ -1,0 +1,21 @@
+.section_modal_window {
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.512);
+  .modal_window {
+    padding: 100px 120px;
+    border-radius: 12px;
+    background-color: white;
+    .container_btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 10%;
+      gap: 20px;
+    }
+  }
+}

@@ -1,10 +1,29 @@
+import { useEffect, useState } from "react";
 import "./ProductCard.css";
+import { useSelector } from "react-redux";
 
 const ProductCard = ({ item }) => {
+  const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
+
+  const [statusBlurImg, setStatusBlurImg] = useState(true);
+
+  useEffect(() => {
+    if (!statusBlurImg !== cookieSelector?.adult) {
+      setStatusBlurImg(() =>
+        typeof cookieSelector?.adult === "boolean"
+          ? !cookieSelector?.adult
+          : true
+      );
+    }
+  }, [statusBlurImg, cookieSelector]);
   return (
     <div className="item_card">
       <div className="container_img">
-        <img src={item.img} alt="card_img" />
+        <img
+          style={statusBlurImg ? { filter: "blur(6px)" } : {}}
+          src={item.img}
+          alt="card_img"
+        />
       </div>
       <div className="container_text">
         <h5 className="title_name_card">

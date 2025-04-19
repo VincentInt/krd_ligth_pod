@@ -19,7 +19,7 @@ const FilterItem = ({
     } else {
       setStateMore(null);
     }
-  }, [typeParams, children]);
+  }, [typeParams]);
 
   function onMoreFilter() {
     if (children.length > stateMore * 6) {

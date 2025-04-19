@@ -22,7 +22,7 @@ const dataFilters = {
       titleName: "Оценка",
       typeDataProduct: "rating",
       type: "radio",
-      defaultInputs: ["Любой", "5", "4.5", " 4", "3", "2"],
+      defaultInputs: ["Любой", "5", "4.5", "4", "3", "2"],
       select: "Любой",
     },
     {
@@ -243,4 +243,5 @@ const dataFilters = {
     },
   ],
 };
+
 export default dataFilters;

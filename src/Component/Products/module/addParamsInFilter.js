@@ -1,30 +1,48 @@
 const addParamsInFilter = (stateFilterOptions, dataFilterOptions) => {
-  const addParamsFilterOptions = dataFilterOptions.filter(
-    (itemFilterOptions, index) => {
+  const addParamsFilterOptions = stateFilterOptions
+    ?.filter((itemFilterOptions, index) => {
       if (itemFilterOptions.type === "range") {
         const keysRange = ["selectMin", "selectMax"];
-        keysRange.forEach((keyRange) => {
+        for (const key in keysRange) {
           if (
-            stateFilterOptions[index][keyRange] !== itemFilterOptions[keyRange]
+            dataFilterOptions[index][keysRange[key]] !==
+            itemFilterOptions[keysRange[key]]
           ) {
             return true;
           }
-        });
+        }
       } else if (itemFilterOptions.type === "select") {
         if (
           itemFilterOptions.select.length !==
-          stateFilterOptions[index].select.length
+          dataFilterOptions[index].select.length
         ) {
           return true;
-        } else if (itemFilterOptions.type === "radio") {
-          if (itemFilterOptions.select !== stateFilterOptions[index].select) {
-            return true;
-          }
+        }
+      } else if (itemFilterOptions.type === "radio") {
+        if (itemFilterOptions.select !== dataFilterOptions[index].select) {
+          return true;
         }
       }
-    }
-  );
-  console.log(addParamsFilterOptions);
+    })
+    ?.map((item) => {
+      let textParams = `${item.typeDataProduct}=`;
+      if (item.type === "range") {
+        const keysRange = ["selectMin", "selectMax"];
+        keysRange.forEach((keys, index) => {
+          if (index > 0) textParams = `${textParams},${item[keys]}`;
+          else textParams = `${textParams}${item[keys]}`;
+        });
+      } else if (item.type === "select") {
+        item.select.forEach((item, index) => {
+          if (index > 0) textParams = `${textParams},${item}`;
+          else textParams = `${textParams}${item}`;
+        });
+      } else if (item.type === "radio") {
+        textParams = `${textParams}${item.select}`
+      }
+      return textParams;
+    })?.join(";");
+  return addParamsFilterOptions;
 };
 
 export default addParamsInFilter;

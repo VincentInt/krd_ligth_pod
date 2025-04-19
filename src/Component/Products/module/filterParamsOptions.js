@@ -29,7 +29,7 @@ const filterParamsOptions = (dataFilterOptions, filterParams) => {
         .map((item) => item.toLowerCase());
       itemFilterOptions.defaultInputs.forEach((item) => {
         if (valueSelect.includes(item.toLowerCase())) {
-          itemFilterOptions.select.push(item);
+          itemFilterOptions.select = [...itemFilterOptions.select, item];
         }
       });
     } else if (itemFilterOptions?.type === "radio") {

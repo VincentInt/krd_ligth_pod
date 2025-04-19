@@ -10,9 +10,12 @@ const FilterOptions = ({
   stateFilterOptions,
   setStateFilterOptions,
 }) => {
-  const typeParams = useParams().type;
+  const typeProductsParams = useParams().type;
   return (
-    <FilterItem typeParams={typeParams} nameFilterItem={item.titleName}>
+    <FilterItem
+      typeProductsParams={typeProductsParams}
+      nameFilterItem={item.titleName}
+    >
       {item.type === "range" ? (
         <RangeInput
           item={item}
@@ -34,7 +37,10 @@ const FilterOptions = ({
                 setStateFilterOptions((prev) => {
                   const clone = [...prev];
                   if (statusSelect) {
-                    clone[indexFilterOptions].select.push(itemSelect);
+                    clone[indexFilterOptions].select = [
+                      ...clone[indexFilterOptions].select,
+                      itemSelect,
+                    ];
                   } else {
                     clone[indexFilterOptions].select.splice(
                       clone[indexFilterOptions].select.indexOf(itemSelect),

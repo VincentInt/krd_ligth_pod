@@ -1,18 +1,18 @@
 import "./Products.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import FilterNav from "./FilterNav/FilterNav";
 import SortNav from "./sortNav/SortNav";
 import ProductsItems from "./ProductsItems/ProductsItems";
-//Гдето есть зависимость
-import dataFilter from "./data/dataFilters";
-//
+import dataFilters from "./data/dataFilters";
 import dataProducts from "./data/dataProducts.json";
 import filterParamsOptions from "./module/filterParamsOptions";
 import addParamsInFilter from "./module/addParamsInFilter";
 
 const Products = () => {
-  const typeParams = useParams().type;
+  const navigate = useNavigate();
+
+  const typeProductsParams = useParams().type;
   const filterParams = useParams().filter;
 
   const [stateDropFilter, setStateDropFilter] = useState(null);
@@ -23,22 +23,31 @@ const Products = () => {
   const [stateFilterOptions, setStateFilterOptions] = useState([]);
 
   useEffect(() => {
-    const dataFilterOptions = [...dataFilter[typeParams]];
+    const dataFilterOptions = dataFilters[typeProductsParams].map((item) => ({
+      ...item,
+    }));
     setStateFilterOptions(() =>
       filterParams
         ? filterParamsOptions(dataFilterOptions, filterParams)
         : dataFilterOptions
     );
+
     setSortState({
       sortName: "по релевантности",
       sortType: "убывание",
     });
-  }, [filterParams, typeParams]);
+  }, [typeProductsParams]);
 
   useEffect(() => {
     if (stateFilterOptions.length) {
-      const dataFilterOptions = [...dataFilter[typeParams]];
-      addParamsInFilter(stateFilterOptions, dataFilterOptions);
+      const dataFilterOptions = dataFilters[typeProductsParams].map((item) => ({
+        ...item,
+      }));
+      const paramsFilter = addParamsInFilter(
+        stateFilterOptions,
+        dataFilterOptions
+      );
+      navigate({ pathname: `/products/${typeProductsParams}/${paramsFilter}` });
     }
   }, [stateFilterOptions]);
 
@@ -71,7 +80,7 @@ const Products = () => {
           <div className="title">
             <h3>Одноразовые</h3>
             <h4 className="text_count_product">
-              {dataProducts[typeParams].length} товаров
+              {dataProducts[typeProductsParams].length} товаров
             </h4>
           </div>
           {stateFilterOptions ? (

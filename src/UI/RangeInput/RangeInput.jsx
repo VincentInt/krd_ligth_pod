@@ -6,12 +6,22 @@ const RangeInput = ({ item, onChange }) => {
   const containerRangeRef = useRef(null);
 
   useEffect(() => {
-      setRangeState({
-        max: item.max,
-        min: item.min,
-        minRange: { state: item.selectMin, position: 0 },
-        maxRange: { state: item.selectMax, position: 100 },
-      });
+    setRangeState({
+      max: item.max,
+      min: item.min,
+      minRange: {
+        state: item.selectMin,
+        position: Math.floor(
+          ((item.selectMin - item.min) / (item.max - item.min)) * 100
+        ),
+      },
+      maxRange: {
+        state: item.selectMax,
+        position: Math.floor(
+          ((item.selectMax - item.min) / (item.max - item.min)) * 100
+        ),
+      },
+    });
   }, [item]);
 
   useEffect(() => {
@@ -71,7 +81,7 @@ const RangeInput = ({ item, onChange }) => {
             const stateRange =
               (item.max - item.min) * (position / 100) + item.min;
             clone[rangeType].position = position;
-            clone[rangeType].state = stateRange;
+            clone[rangeType].state = Math.floor(stateRange);
             return clone;
           });
         }
@@ -87,7 +97,7 @@ const RangeInput = ({ item, onChange }) => {
         <div className="container_item_input">
           <h6>от</h6>
           <input
-            value={Math.floor(rangeState?.minRange?.state)}
+            value={rangeState ? Math.floor(rangeState.minRange.state) : 0}
             onChange={(e) => onChangeInput(e, "minRange")}
             onBlur={() => onEnterInput("minRange")}
             type="number"
@@ -97,7 +107,7 @@ const RangeInput = ({ item, onChange }) => {
         <div className="container_item_input">
           <h6>до</h6>
           <input
-            value={Math.floor(rangeState?.maxRange?.state)}
+            value={rangeState ? Math.floor(rangeState.maxRange.state) : 0}
             onChange={(e) => onChangeInput(e, "maxRange")}
             onBlur={() => onEnterInput("maxRange")}
             type="number"

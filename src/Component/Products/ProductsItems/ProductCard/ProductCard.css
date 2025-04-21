@@ -28,6 +28,7 @@
         .container_rating {
           display: flex;
           align-items: center;
+          padding: 8px 0px;
           gap: 3px;
           .container_stars {
             position: relative;
@@ -38,7 +39,7 @@
               width: 18px;
               height: 18px;
               background: black;
-              mask-image: url(../../../../../public/img/icon/icons8-звезда-50.png);
+              mask-image: url(/public/img/icon/icons8-звезда-50.png);
               mask-size: contain;
             }
           }
@@ -54,8 +55,29 @@
             }
           }
         }
-        .text_price {
-          margin-top: 10px;
+        .container_price {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .text_price {
+            margin-top: 10px;
+          }
+          .btn_add_basket,
+          .btn_delete_basket {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-radius: 64px;
+            img {
+              width: 24px;
+              height: 24px;
+              object-fit: contain;
+            }
+          }
+          .btn_delete_basket {
+            background-color: rgb(144, 1, 1);
+          }
         }
       }
     }

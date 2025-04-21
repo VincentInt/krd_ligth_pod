@@ -1,6 +1,7 @@
 import FilterOptions from "./FilterOptions/FilterOptions";
-import dataFilters from "../../data/dataFilters";
+import dataFilters from "../../../../../public/data/dataFilters";
 import { useParams } from "react-router";
+
 const Filter = ({ stateFilterOptions, setStateFilterOptions }) => {
   const typeProductsParams = useParams().type;
 

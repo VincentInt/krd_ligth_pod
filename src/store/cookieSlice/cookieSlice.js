@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cookie: document.cookie.length
-    ? JSON.parse(document.cookie.split(";").slice(0,1)[0])
+    ? JSON.parse(document.cookie.split(";").slice(0, 1)[0])
     : (document.cookie = "{}"),
 };
 export const cookieSlice = createSlice({
@@ -10,7 +10,7 @@ export const cookieSlice = createSlice({
   initialState,
   reducers: {
     getCookie: (state) => {
-      state.cookie = JSON.parse(document.cookie.split(";").slice(0,1)[0]);
+      state.cookie = JSON.parse(document.cookie.split(";").slice(0, 1)[0]);
     },
   },
 });

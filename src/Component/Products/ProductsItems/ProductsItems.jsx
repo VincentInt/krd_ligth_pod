@@ -1,16 +1,16 @@
 import "./ProductsItems.css";
+import dataProducts from "../../../../public/data/dataProducts.json";
 import ProductCard from "./ProductCard/ProductCard.jsx";
-import dataProducts from "../data/dataProducts.json";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 const ProductsItems = ({ stateFilterOptions, sortState }) => {
-  const typeParams = useParams().type;
+  const typeProductsParams = useParams().type;
   const [viewProducts, setViewProducts] = useState([]);
 
   useEffect(() => {
     setViewProducts(() => {
-      let filteredProducts = [...dataProducts[typeParams]]
+      let filteredProducts = [...dataProducts[typeProductsParams]]
         ?.map((itemProducts) => {
           const statusFalseFiltered = stateFilterOptions
             ?.map((itemFilter) => {
@@ -83,7 +83,13 @@ const ProductsItems = ({ stateFilterOptions, sortState }) => {
       <div className="cards">
         {viewProducts?.length ? (
           viewProducts?.map((item, index) => {
-            return <ProductCard item={item} key={index} />;
+            return (
+              <ProductCard
+                item={item}
+                typeProducts={typeProductsParams}
+                key={index}
+              />
+            );
           })
         ) : (
           <div>

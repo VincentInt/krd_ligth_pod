@@ -1,11 +1,22 @@
 import "./ProductCard.css";
+import addBasketImg from "../../../../../public/img/icon/icons8-shopping-basket-add-24.png";
+import deleteBasketImg from "../../../../../public/img/icon/icons8-multiply-24.png";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addBasket,
+  deleteBasket,
+} from "../../../../store/basketSlice/basketSlice";
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ item, typeProducts }) => {
+  const dispatch = useDispatch();
+
+  const addBasketReducer = addBasket;
+  const deleteBasketReducer = deleteBasket;
   const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
 
   const [statusBlurImg, setStatusBlurImg] = useState(true);
+  const [addBasketStatus, setAddBasketStatus] = useState(true);
 
   useEffect(() => {
     if (!statusBlurImg !== cookieSelector?.adult) {
@@ -16,6 +27,17 @@ const ProductCard = ({ item }) => {
       );
     }
   }, [statusBlurImg, cookieSelector]);
+
+  function onChangeAddBasket() {
+    setAddBasketStatus(false);
+
+    dispatch(addBasketReducer({ type: typeProducts, id: item.id, count: 1 }));
+  }
+  function onChangeDeleteBasket() {
+    setAddBasketStatus(true);
+
+    dispatch(deleteBasketReducer({ type: typeProducts, id: item.id }));
+  }
   return (
     <div className="container_item_card">
       <div className="item_card">
@@ -59,12 +81,29 @@ const ProductCard = ({ item }) => {
                 </div>
               );
             })}
-            <h5 className="text_price">
-              {new Intl.NumberFormat("ru", {
-                maximumFractionDigits: 0,
-              }).format(item.price)}
-              ₽
-            </h5>
+            <div className="container_price">
+              <h5 className="text_price">
+                {new Intl.NumberFormat("ru", {
+                  maximumFractionDigits: 0,
+                }).format(item.price)}
+                ₽
+              </h5>
+              {
+                <button
+                  onClick={
+                    addBasketStatus ? onChangeAddBasket : onChangeDeleteBasket
+                  }
+                  className={
+                    addBasketStatus ? "btn_add_basket" : "btn_delete_basket"
+                  }
+                >
+                  <img
+                    src={addBasketStatus ? addBasketImg : deleteBasketImg}
+                    alt="basket_img"
+                  />
+                </button>
+              }
+            </div>
           </div>
         </div>
       </div>

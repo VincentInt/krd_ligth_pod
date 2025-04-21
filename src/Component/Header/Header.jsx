@@ -77,8 +77,11 @@ const Header = () => {
             <Link to={"/"}>
               <h6>Xros-Pro</h6>
             </Link>
-            <Link to={"products/contact"}>
+            <Link to={"contact"}>
               <h6>Контакты</h6>
+            </Link>
+            <Link to={"basket"}>
+              <h6>Корзина</h6>
             </Link>
           </div>
           <div className="burger_menu">
@@ -106,7 +109,7 @@ const Header = () => {
             <Link to={"products/eLiquids"}>
               <h6>Жидкости</h6>
             </Link>
-            <Link to={'/'}>
+            <Link to={"/"}>
               <h6>Xros-Pro</h6>
             </Link>
             <Link to={"products/contact"}>

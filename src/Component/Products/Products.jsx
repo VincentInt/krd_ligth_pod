@@ -4,8 +4,8 @@ import { useNavigate, useParams } from "react-router";
 import FilterNav from "./FilterNav/FilterNav";
 import SortNav from "./sortNav/SortNav";
 import ProductsItems from "./ProductsItems/ProductsItems";
-import dataFilters from "./data/dataFilters";
-import dataProducts from "./data/dataProducts.json";
+import dataFilters from "../../../public/data/dataFilters";
+import dataProducts from "../../../public/data/dataProducts";
 import filterParamsOptions from "./module/filterParamsOptions";
 import addParamsInFilter from "./module/addParamsInFilter";
 

@@ -1,0 +1,767 @@
+{
+  "disposablePods": [
+    {
+      "id": 1,
+      "brand": "PuffBar",
+      "model": "Plus",
+      "price": 989.1,
+      "discount": 899.1,
+      "rating": 4.5,
+      "puffs": 300,
+      "cool": "Есть",
+      "chargingPort": "Micro USB",
+      "img": "/krd_ligth_pod/img/odnoraz.png",
+      "popularity": 8,
+      "flavor": "Черника со льдом",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Черника со льдом" },
+        { "infoName": "Кол-во затяжек", "info": "300 раз" }
+      ]
+    },
+    {
+      "id": 2,
+      "brand": "PuffBar",
+      "model": "Ultra",
+      "price": 1200.0,
+      "rating": 4.6,
+      "puffs": 400,
+      "cool": "Есть",
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/9140.750x0.jpg",
+      "popularity": 7,
+      "flavor": "Манго-персик",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Манго-персик" },
+        { "infoName": "Кол-во затяжек", "info": "400 раз" }
+      ]
+    },
+    {
+      "id": 3,
+      "brand": "Hyde",
+      "model": "Edge Rave",
+      "price": 1124.1,
+      "discount": 999.0,
+      "rating": 4.7,
+      "puffs": 400,
+      "cool": "Нету",
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/223227cc8495e5319bda82f017.png",
+      "popularity": 9,
+      "flavor": "Клубника-банан",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Нет" },
+        { "infoName": "Вкус", "info": "Клубника-банан" },
+        { "infoName": "Кол-во затяжек", "info": "400 раз" }
+      ]
+    },
+    {
+      "id": 4,
+      "brand": "Hyde",
+      "model": "Curve",
+      "price": 950.0,
+      "rating": 4.4,
+      "puffs": 350,
+      "cool": "Есть",
+      "chargingPort": "Нету",
+      "img": "/krd_ligth_pod/img/6054314925.jpg",
+      "popularity": 6,
+      "flavor": "Сочный лёд",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Сочный лёд" },
+        { "infoName": "Кол-во затяжек", "info": "350 раз" }
+      ]
+    },
+    {
+      "id": 5,
+      "brand": "Bang",
+      "model": "XXL",
+      "price": 899.1,
+      "discount": 799.1,
+      "rating": 4.2,
+      "puffs": 500,
+      "cool": "Есть",
+      "chargingPort": "Нету",
+      "img": "/krd_ligth_pod/img/odnoraz.png",
+      "popularity": 5,
+      "flavor": "Ананас-кокос",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Ананас-кокос" },
+        { "infoName": "Кол-во затяжек", "info": "500 раз" }
+      ]
+    },
+    {
+      "id": 6,
+      "brand": "Bang",
+      "model": "Pro",
+      "price": 1100.0,
+      "rating": 4.3,
+      "puffs": 450,
+      "cool": "Нету",
+      "chargingPort": "Micro USB",
+      "img": "/krd_ligth_pod/img/9140.750x0.jpg",
+      "popularity": 7,
+      "flavor": "Виноградная газировка",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Нет" },
+        { "infoName": "Вкус", "info": "Виноградная газировка" },
+        { "infoName": "Кол-во затяжек", "info": "450 раз" }
+      ]
+    },
+    {
+      "id": 7,
+      "brand": "Stig",
+      "model": "Disposable",
+      "price": 809.1,
+      "discount": 749.1,
+      "rating": 4.0,
+      "puffs": 250,
+      "cool": "Есть",
+      "chargingPort": "Нету",
+      "img": "/krd_ligth_pod/img/223227cc8495e5319bda82f017.png",
+      "popularity": 4,
+      "flavor": "Мята",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Мята" },
+        { "infoName": "Кол-во затяжек", "info": "250 раз" }
+      ]
+    },
+    {
+      "id": 8,
+      "brand": "Stig",
+      "model": "Super",
+      "price": 950.0,
+      "rating": 4.1,
+      "puffs": 300,
+      "cool": "Есть",
+      "chargingPort": "Нету",
+      "img": "/krd_ligth_pod/img/6054314925.jpg",
+      "popularity": 6,
+      "flavor": "Арбуз",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Арбуз" },
+        { "infoName": "Кол-во затяжек", "info": "300 раз" }
+      ]
+    },
+    {
+      "id": 9,
+      "brand": "Vaporesso",
+      "model": "Barr",
+      "price": 1349.1,
+      "discount": 1249.1,
+      "rating": 4.8,
+      "puffs": 600,
+      "cool": "Нету",
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/odnoraz.png",
+      "popularity": 9,
+      "flavor": "Личи со льдом",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Нет" },
+        { "infoName": "Вкус", "info": "Личи со льдом" },
+        { "infoName": "Кол-во затяжек", "info": "600 раз" }
+      ]
+    },
+    {
+      "id": 10,
+      "brand": "Vaporesso",
+      "model": "Xtra",
+      "price": 1500.0,
+      "rating": 4.9,
+      "puffs": 700,
+      "cool": "Есть",
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/9140.750x0.jpg",
+      "popularity": 10,
+      "flavor": "Голубая малина",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Голубая малина" },
+        { "infoName": "Кол-во затяжек", "info": "700 раз" }
+      ]
+    },
+    {
+      "id": 11,
+      "brand": "Airis",
+      "model": "Puffin",
+      "price": 850.0,
+      "rating": 4.0,
+      "puffs": 200,
+      "cool": "Нету",
+      "chargingPort": "Нету",
+      "img": "/krd_ligth_pod/img/223227cc8495e5319bda82f017.png",
+      "popularity": 3,
+      "flavor": "Тропический микс",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Нет" },
+        { "infoName": "Вкус", "info": "Тропический микс" },
+        { "infoName": "Кол-во затяжек", "info": "200 раз" }
+      ]
+    },
+    {
+      "id": 12,
+      "brand": "Airis",
+      "model": "Puffin Pro",
+      "price": 1000.0,
+      "discount": 899.0,
+      "rating": 4.2,
+      "puffs": 300,
+      "cool": "Есть",
+      "chargingPort": "Micro USB",
+      "img": "/krd_ligth_pod/img/6054314925.jpg",
+      "popularity": 5,
+      "flavor": "Зелёное яблоко",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Зелёное яблоко" },
+        { "infoName": "Кол-во затяжек", "info": "300 раз" }
+      ]
+    },
+    {
+      "id": 13,
+      "brand": "Elf Bar",
+      "model": "BC5000",
+      "price": 1300.0,
+      "rating": 4.7,
+      "puffs": 500,
+      "cool": "Есть",
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/odnoraz.png",
+      "popularity": 8,
+      "flavor": "Клубника-киви",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Есть" },
+        { "infoName": "Вкус", "info": "Клубника-киви" },
+        { "infoName": "Кол-во затяжек", "info": "500 раз" }
+      ]
+    },
+    {
+      "id": 14,
+      "brand": "Elf Bar",
+      "model": "TE5000",
+      "price": 1400.0,
+      "discount": 1299.0,
+      "rating": 4.8,
+      "puffs": 550,
+      "cool": "Нету",
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/9140.750x0.jpg",
+      "popularity": 9,
+      "flavor": "Персик со льдом",
+      "cardInfo": [
+        { "infoName": "Холодок", "info": "Нет" },
+        { "infoName": "Вкус", "info": "Персик со льдом" },
+        { "infoName": "Кол-во затяжек", "info": "550 раз" }
+      ]
+    }
+  ],
+  "podSystems": [
+    {
+      "id": 15,
+      "brand": "Vaporesso",
+      "model": "XROS 3",
+      "price": 3490,
+      "discount": 3290,
+      "rating": 4.8,
+      "activationMethod": "Автовдох + кнопка",
+      "coilType": "Меш",
+      "battery": 1000,
+      "tankVolume": 2,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 9,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Автовдох + кнопка" },
+        { "infoName": "Испаритель", "info": "Меш" },
+        { "infoName": "Аккумулятор", "info": "1000 мАч" },
+        { "infoName": "Объем бака", "info": "2 мл" }
+      ]
+    },
+    {
+      "id": 16,
+      "brand": "Uwell",
+      "model": "Caliburn G2",
+      "price": 2890,
+      "rating": 4.7,
+      "activationMethod": "Автовдох",
+      "coilType": "Двойной",
+      "battery": 750,
+      "tankVolume": 2,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Автовдох" },
+        { "infoName": "Испаритель", "info": "Двойной" },
+        { "infoName": "Аккумулятор", "info": "750 мАч" },
+        { "infoName": "Объем бака", "info": "2 мл" }
+      ]
+    },
+    {
+      "id": 17,
+      "brand": "SMOK",
+      "model": "Nord 4",
+      "price": 3790,
+      "discount": 3490,
+      "rating": 4.5,
+      "activationMethod": "Кнопка",
+      "coilType": "Меш",
+      "battery": 2000,
+      "tankVolume": 4.5,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 7,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Кнопка" },
+        { "infoName": "Испаритель", "info": "Меш" },
+        { "infoName": "Аккумулятор", "info": "2000 мАч" },
+        { "infoName": "Объем бака", "info": "4.5 мл" }
+      ]
+    },
+    {
+      "id": 18,
+      "brand": "GeekVape",
+      "model": "Aegis Hero 2",
+      "price": 4190,
+      "rating": 4.9,
+      "activationMethod": "Кнопка",
+      "coilType": "Керамика",
+      "battery": 1200,
+      "tankVolume": 4,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 10,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Кнопка" },
+        { "infoName": "Испаритель", "info": "Керамика" },
+        { "infoName": "Аккумулятор", "info": "1200 мАч" },
+        { "infoName": "Объем бака", "info": "4 мл" }
+      ]
+    },
+    {
+      "id": 19,
+      "brand": "Voopoo",
+      "model": "Drag S Pro",
+      "price": 4590,
+      "discount": 4290,
+      "rating": 4.6,
+      "activationMethod": "Кнопка",
+      "coilType": "Меш",
+      "battery": 3000,
+      "tankVolume": 5.5,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Кнопка" },
+        { "infoName": "Испаритель", "info": "Меш" },
+        { "infoName": "Аккумулятор", "info": "3000 мАч" },
+        { "infoName": "Объем бака", "info": "5.5 мл" }
+      ]
+    },
+    {
+      "id": 20,
+      "brand": "Xiaomi",
+      "model": "Mijuu",
+      "price": 2590,
+      "rating": 4.3,
+      "activationMethod": "Автовдох",
+      "coilType": "Обычный",
+      "battery": 900,
+      "tankVolume": 2.5,
+      "chargingPort": "Micro USB",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 6,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Автовдох" },
+        { "infoName": "Испаритель", "info": "Обычный" },
+        { "infoName": "Аккумулятор", "info": "900 мАч" },
+        { "infoName": "Объем бака", "info": "2.5 мл" }
+      ]
+    },
+    {
+      "id": 21,
+      "brand": "Aspire",
+      "model": "Flexus Q",
+      "price": 3290,
+      "discount": 2990,
+      "rating": 4.7,
+      "activationMethod": "Автовдох + кнопка",
+      "coilType": "Меш",
+      "battery": 1000,
+      "tankVolume": 2,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Автовдох + кнопка" },
+        { "infoName": "Испаритель", "info": "Меш" },
+        { "infoName": "Аккумулятор", "info": "1000 мАч" },
+        { "infoName": "Объем бака", "info": "2 мл" }
+      ]
+    },
+    {
+      "id": 22,
+      "brand": "Innokin",
+      "model": "Sceptre 2",
+      "price": 2990,
+      "rating": 4.6,
+      "activationMethod": "Автовдох + кнопка",
+      "coilType": "Меш",
+      "battery": 1400,
+      "tankVolume": 3,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 7,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Автовдох + кнопка" },
+        { "infoName": "Испаритель", "info": "Меш" },
+        { "infoName": "Аккумулятор", "info": "1400 мАч" },
+        { "infoName": "Объем бака", "info": "3 мл" }
+      ]
+    },
+    {
+      "id": 23,
+      "brand": "OXVA",
+      "model": "Xlim Pro",
+      "price": 3890,
+      "discount": 3590,
+      "rating": 4.8,
+      "activationMethod": "Автовдох + кнопка",
+      "coilType": "Меш",
+      "battery": 1000,
+      "tankVolume": 2,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 9,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Автовдох + кнопка" },
+        { "infoName": "Испаритель", "info": "Меш" },
+        { "infoName": "Аккумулятор", "info": "1000 мАч" },
+        { "infoName": "Объем бака", "info": "2 мл" }
+      ]
+    },
+    {
+      "id": 24,
+      "brand": "Lost Vape",
+      "model": "Orion Nano",
+      "price": 3490,
+      "rating": 4.5,
+      "activationMethod": "Автовдох",
+      "coilType": "Меш",
+      "battery": 800,
+      "tankVolume": 2,
+      "chargingPort": "Type-C",
+      "img": "/krd_ligth_pod/img/6089152449.jpg",
+      "popularity": 7,
+      "cardInfo": [
+        { "infoName": "Активация", "info": "Автовдох" },
+        { "infoName": "Испаритель", "info": "Меш" },
+        { "infoName": "Аккумулятор", "info": "800 мАч" },
+        { "infoName": "Объем бака", "info": "2 мл" }
+      ]
+    }
+  ],
+  "eLiquids": [
+    {
+      "id": 25,
+      "brand": "Husky",
+      "model": "Ice Wave",
+      "flavor": "Арбуз-киви",
+      "price": 590,
+      "discount": 490,
+      "saltNic": "Да",
+      "volume": 30,
+      "cool": "Да",
+      "rating": 2.7,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Арбуз-киви" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    },
+    {
+      "id": 26,
+      "brand": "Aroma King",
+      "model": "Tropical Blast",
+      "flavor": "Манго-персик",
+      "price": 650,
+      "saltNic": "Да",
+      "volume": 30,
+      "cool": "Нет",
+      "rating": 4.5,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 7,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Манго-персик" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Нет" }
+      ]
+    },
+    {
+      "id": 27,
+      "brand": "Elfliq",
+      "model": "Crystal Bar",
+      "flavor": "Клубничный пончик",
+      "price": 720,
+      "discount": 650,
+      "saltNic": "Нет",
+      "volume": 50,
+      "cool": "Нет",
+      "rating": 4.3,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 6,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Клубничный пончик" },
+        { "infoName": "Тип никотина", "info": "Обычный" },
+        { "infoName": "Холодок", "info": "Нет" }
+      ]
+    },
+    {
+      "id": 28,
+      "brand": "Pinkman",
+      "model": "Citrus Punch",
+      "flavor": "Цитрусовый микс",
+      "price": 850,
+      "saltNic": "Нет",
+      "volume": 100,
+      "cool": "Да",
+      "rating": 4.8,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 9,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Цитрусовый микс" },
+        { "infoName": "Тип никотина", "info": "Обычный" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    },
+    {
+      "id": 29,
+      "brand": "Riot Squad",
+      "model": "Iced Cola",
+      "flavor": "Кола со льдом",
+      "price": 480,
+      "discount": 399,
+      "saltNic": "Да",
+      "volume": 10,
+      "cool": "Да",
+      "rating": 4.6,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 7,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Кола со льдом" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    },
+    {
+      "id": 30,
+      "brand": "Dinner Lady",
+      "model": "Lemon Tart",
+      "flavor": "Лимонный пирог",
+      "price": 920,
+      "saltNic": "Нет",
+      "volume": 60,
+      "cool": "Нет",
+      "rating": 4.9,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Лимонный пирог" },
+        { "infoName": "Тип никотина", "info": "Обычный" },
+        { "infoName": "Холодок", "info": "Нет" }
+      ]
+    },
+    {
+      "id": 31,
+      "brand": "Nasty Juice",
+      "model": "Slow Blow",
+      "flavor": "Манго-ананас",
+      "price": 680,
+      "discount": 599,
+      "saltNic": "Да",
+      "volume": 30,
+      "cool": "Да",
+      "rating": 4.7,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Манго-ананас" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    },
+    {
+      "id": 32,
+      "brand": "IVG",
+      "model": "Berry Crush",
+      "flavor": "Черника-малина",
+      "price": 750,
+      "saltNic": "Нет",
+      "volume": 50,
+      "cool": "Нет",
+      "rating": 4.4,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 7,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Черника-малина" },
+        { "infoName": "Тип никотина", "info": "Обычный" },
+        { "infoName": "Холодок", "info": "Нет" }
+      ]
+    },
+    {
+      "id": 33,
+      "brand": "Pod Salt",
+      "model": "Mint Melon",
+      "flavor": "Мята-дыня",
+      "price": 600,
+      "saltNic": "Да",
+      "volume": 30,
+      "cool": "Да",
+      "rating": 4.8,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 9,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Мята-дыня" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    },
+    {
+      "id": 34,
+      "brand": "Fantasi",
+      "model": "Orange Lemonade",
+      "flavor": "Апельсин-лимон",
+      "price": 550,
+      "discount": 499,
+      "saltNic": "Нет",
+      "volume": 100,
+      "cool": "Да",
+      "rating": 4.5,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Апельсин-лимон" },
+        { "infoName": "Тип никотина", "info": "Обычный" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    },
+    {
+      "id": 35,
+      "brand": "Twist",
+      "model": "Strawberry Banana",
+      "flavor": "Клубника-банан",
+      "price": 800,
+      "saltNic": "Нет",
+      "volume": 60,
+      "cool": "Нет",
+      "rating": 4.2,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 7,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Клубника-банан" },
+        { "infoName": "Тип никотина", "info": "Обычный" },
+        { "infoName": "Холодок", "info": "Нет" }
+      ]
+    },
+    {
+      "id": 36,
+      "brand": "VGOD",
+      "model": "Mango Coconut",
+      "flavor": "Манго-кокос",
+      "price": 700,
+      "discount": 649,
+      "saltNic": "Да",
+      "volume": 30,
+      "cool": "Нет",
+      "rating": 4.6,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Манго-кокос" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Нет" }
+      ]
+    },
+    {
+      "id": 37,
+      "brand": "Riot Squad",
+      "model": "Purple Rain",
+      "flavor": "Виноград-лайм",
+      "price": 670,
+      "saltNic": "Да",
+      "volume": 30,
+      "cool": "Да",
+      "rating": 4.7,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 9,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Виноград-лайм" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    },
+    {
+      "id": 38,
+      "brand": "Bar Juice",
+      "model": "Blueberry Ice",
+      "flavor": "Черника со льдом",
+      "price": 530,
+      "discount": 479,
+      "saltNic": "Да",
+      "volume": 20,
+      "cool": "Да",
+      "rating": 4.8,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 8,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Черника со льдом" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    },
+    {
+      "id": 39,
+      "brand": "Pacha Mama",
+      "model": "Fuji Apple",
+      "flavor": "Яблоко-нектарин-клубника",
+      "price": 890,
+      "saltNic": "Нет",
+      "volume": 60,
+      "cool": "Нет",
+      "rating": 4.9,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 9,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Яблоко-нектарин-клубника" },
+        { "infoName": "Тип никотина", "info": "Обычный" },
+        { "infoName": "Холодок", "info": "Нет" }
+      ]
+    },
+    {
+      "id": 40,
+      "brand": "Doozy",
+      "model": "Lush Ice",
+      "flavor": "Арбуз-мята",
+      "price": 620,
+      "saltNic": "Да",
+      "volume": 50,
+      "cool": "Да",
+      "rating": 4.5,
+      "img": "/krd_ligth_pod/img/iceberries.jpg",
+      "popularity": 7,
+      "cardInfo": [
+        { "infoName": "Вкус", "info": "Арбуз-мята" },
+        { "infoName": "Тип никотина", "info": "Солевой" },
+        { "infoName": "Холодок", "info": "Да" }
+      ]
+    }
+  ]
+}

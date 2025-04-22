@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cookie: {},
-  //  document.cookie.length
-  //   ? JSON.parse(document.cookie.split(";").slice(0, 1)[0])
-  //   : (document.cookie = "{}"),
+  cookie: JSON.parse(document.cookie.split(";")[0]),
 };
 export const cookieSlice = createSlice({
   name: "cookie",
@@ -14,7 +11,7 @@ export const cookieSlice = createSlice({
       document.cookie = JSON.stringify({
         adult: action.payload.bool,
       });
-      state.cookie = JSON.parse(document.cookie);
+      state.cookie = document.cookie;
     },
   },
 });

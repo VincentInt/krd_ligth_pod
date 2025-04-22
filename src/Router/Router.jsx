@@ -5,8 +5,6 @@ import ProductsPage from "../Page/ProductsPage/ProductsPage.jsx";
 import BasketPage from "../Page/BasketPage/BasketPage.jsx";
 
 const Router = () => {
-  // console.log(document.cookie = "{}");
-
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>

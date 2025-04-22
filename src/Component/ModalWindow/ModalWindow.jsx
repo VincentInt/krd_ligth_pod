@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../../UI/Button/Button";
 import "./ModalWindow.css";
 import { useEffect, useState } from "react";
-import { getCookie } from "../../store/cookieSlice/cookieSlice";
+import { editCookie } from "../../store/cookieSlice/cookieSlice";
 
 const ModalWindow = () => {
   const dispatch = useDispatch();
@@ -27,11 +27,8 @@ const ModalWindow = () => {
   }, [modalWindowOpen]);
 
   function onChangeBtn(bool) {
-    document.cookie = JSON.stringify({
-      adult: bool,
-    });
     setModalWindowOpen(false);
-    dispatch(getCookie());
+    dispatch(editCookie({bool: bool}));
   }
   return (
     <>

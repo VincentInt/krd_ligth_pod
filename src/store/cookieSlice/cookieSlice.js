@@ -14,7 +14,7 @@ export const cookieSlice = createSlice({
       document.cookie = JSON.stringify({
         adult: action.payload.bool,
       });
-      state.cookie = document.cookie;
+      state.cookie = JSON.parse(document.cookie);
     },
   },
 });

@@ -1,23 +1,13 @@
 import "./Basket.css";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import dataProducts from "../../../public/data/dataProducts.json";
 import BasketProductCard from "./BasketProductCard/BasketProductCard";
-import { editCookie } from "../../store/cookieSlice/cookieSlice";
-import { addBasket } from "../../store/basketSlice/basketSlice";
 
 const Basket = () => {
-  const dispatch = useDispatch();
-  const addBasketReducer = addBasket;
-
-  const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
   const basketSelector = useSelector((state) => state.basketReducer.basket);
 
   const [stateProductsBasket, setStateProductsBasket] = useState([]);
-
-  // useEffect(() => {
-  //   dispatch(addBasketReducer(cookieSelector.basket));
-  // }, []);
 
   useEffect(() => {
     setStateProductsBasket(
@@ -28,7 +18,6 @@ const Basket = () => {
         return { ...findElement, type: item.type, count: item.count };
       })
     );
-    dispatch(editCookie({ basket: basketSelector }));
   }, [basketSelector]);
 
   return (

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  basket: [{ type: "podSystems", id: 22, count: 1 }],
+  basket: [],
 };
 
 const basketSlice = createSlice({
@@ -9,14 +9,15 @@ const basketSlice = createSlice({
   initialState: initialState,
   reducers: {
     addBasket: (state, action) => {
-      state.basket.push(action.payload);
+      state.basket = [...state.basket, ...action.payload];
     },
     deleteBasket: (state, action) => {
-      state.basket = state.basket.filter((item) => {
+      const filteredBasket = state.basket.filter((item) => {
         return (
-          item.type !== action.payload.type && item.id !== action.payload.id
+          item.type !== action.payload.type || item.id !== action.payload.id
         );
       });
+      state.basket = filteredBasket;
     },
     editBasket: (state, action) => {
       const indexFind = state.basket.findIndex((itemFind) => {

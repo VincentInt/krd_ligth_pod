@@ -4,7 +4,10 @@ import MainPage from "../Page/MainPage/MainPage.jsx";
 import ProductsPage from "../Page/ProductsPage/ProductsPage.jsx";
 import BasketPage from "../Page/BasketPage/BasketPage.jsx";
 
+
 const Router = () => {
+
+
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>

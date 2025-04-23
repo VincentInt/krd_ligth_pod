@@ -6,6 +6,8 @@ import { editCookie } from "../../store/cookieSlice/cookieSlice";
 
 const ModalWindow = () => {
   const dispatch = useDispatch();
+  const editCookieReducer = editCookie;
+
   const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
 
   const [modalWindowOpen, setModalWindowOpen] = useState();
@@ -15,6 +17,7 @@ const ModalWindow = () => {
       typeof cookieSelector?.adult === "boolean" ? !cookieSelector?.adult : true
     );
   }, []);
+
   useEffect(() => {
     if (modalWindowOpen) {
       setTimeout(() => {
@@ -28,7 +31,7 @@ const ModalWindow = () => {
 
   function onChangeBtn(bool) {
     setModalWindowOpen(false);
-    dispatch(editCookie({bool: bool}));
+    dispatch(editCookieReducer({ adult: bool }));
   }
   return (
     <>

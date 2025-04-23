@@ -13,10 +13,22 @@ const ProductCard = ({ item, typeProducts }) => {
 
   const addBasketReducer = addBasket;
   const deleteBasketReducer = deleteBasket;
+
+  const basketSelector = useSelector((state) => state.basketReducer.basket);
   const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
 
   const [statusBlurImg, setStatusBlurImg] = useState(true);
   const [addBasketStatus, setAddBasketStatus] = useState(true);
+
+  useEffect(() => {
+    const findBasket = basketSelector.find(
+      (itemFind) => itemFind.id === item.id && itemFind.type === typeProducts
+    );
+    const findBasketCookie = cookieSelector.basket.find(
+      (itemFind) => itemFind.id === item.id && itemFind.type === typeProducts
+    );
+    setAddBasketStatus(!Boolean(findBasket || findBasketCookie));
+  }, [item, basketSelector]);
 
   useEffect(() => {
     if (!statusBlurImg !== cookieSelector?.adult) {
@@ -29,13 +41,9 @@ const ProductCard = ({ item, typeProducts }) => {
   }, [statusBlurImg, cookieSelector]);
 
   function onChangeAddBasket() {
-    setAddBasketStatus(false);
-
-    dispatch(addBasketReducer({ type: typeProducts, id: item.id, count: 1 }));
+    dispatch(addBasketReducer([{ type: typeProducts, id: item.id, count: 1 }]));
   }
   function onChangeDeleteBasket() {
-    setAddBasketStatus(true);
-
     dispatch(deleteBasketReducer({ type: typeProducts, id: item.id }));
   }
   return (
@@ -88,21 +96,19 @@ const ProductCard = ({ item, typeProducts }) => {
                 }).format(item.price)}
                 ₽
               </h5>
-              {
-                <button
-                  onClick={
-                    addBasketStatus ? onChangeAddBasket : onChangeDeleteBasket
-                  }
-                  className={
-                    addBasketStatus ? "btn_add_basket" : "btn_delete_basket"
-                  }
-                >
-                  <img
-                    src={addBasketStatus ? addBasketImg : deleteBasketImg}
-                    alt="basket_img"
-                  />
-                </button>
-              }
+              <button
+                onClick={
+                  addBasketStatus ? onChangeAddBasket : onChangeDeleteBasket
+                }
+                className={
+                  addBasketStatus ? "btn_add_basket" : "btn_delete_basket"
+                }
+              >
+                <img
+                  src={addBasketStatus ? addBasketImg : deleteBasketImg}
+                  alt="basket_img"
+                />
+              </button>
             </div>
           </div>
         </div>

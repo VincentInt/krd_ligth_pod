@@ -21,6 +21,7 @@ const BasketProductCard = ({ item }) => {
       })
     );
   }
+
   function onChangeCountItemsProducts(step) {
     const nextStep = item.count + step;
     dispatch(
@@ -104,16 +105,15 @@ const BasketProductCard = ({ item }) => {
               </h4>
             </div>
             <div className="container_nav">
-              <button>
+              <button  onClick={() => onChangeDelete()}>
                 <img
-                  onClick={() => onChangeDelete()}
                   className="icon"
                   src={trashImg}
                   alt="trash_img"
                 />
               </button>
               <button>
-                <img className="icon" src={favoriteImg} alt="favorit_img" />
+                <img className="icon" src={favoriteImg} alt="favorite_img" />
               </button>
             </div>
           </div>

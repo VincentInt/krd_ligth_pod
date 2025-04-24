@@ -3,7 +3,14 @@ import dataProducts from "./dataProducts.json";
 const dataFilters = {
   disposablePods: [
     {
-      titleName: "Цена",
+      titleName: "Поиск",
+      typeDataProduct: "fullName",
+      type: "input",
+      defaultInputs: "Поиск...",
+      select: "",
+    },
+    {
+      titleName: "Цена ₽",
       type: "range",
       typeDataProduct: "price",
       max: dataProducts.disposablePods.sort((a, b) => b.price - a.price)[0]
@@ -88,7 +95,14 @@ const dataFilters = {
   ],
   podSystems: [
     {
-      titleName: "Цена",
+      titleName: "Поиск",
+      typeDataProduct: "fullName",
+      type: "input",
+      defaultInputs: "Поиск...",
+      select: "",
+    },
+    {
+      titleName: "Цена ₽",
       type: "range",
       typeDataProduct: "price",
       max: dataProducts.podSystems.sort((a, b) => b.price - a.price)[0].price,
@@ -142,7 +156,7 @@ const dataFilters = {
       select: "Любой",
     },
     {
-      titleName: "Объем бака",
+      titleName: "Объем бака мл",
       type: "range",
       typeDataProduct: "tankVolume",
       max: dataProducts.podSystems.sort(
@@ -173,7 +187,14 @@ const dataFilters = {
   ],
   eLiquids: [
     {
-      titleName: "Цена",
+      titleName: "Поиск",
+      typeDataProduct: "fullName",
+      type: "input",
+      defaultInputs: "Поиск...",
+      select: "",
+    },
+    {
+      titleName: "Цена ₽",
       type: "range",
       typeDataProduct: "price",
       max: dataProducts.eLiquids.sort((a, b) => b.price - a.price)[0].price,
@@ -220,7 +241,7 @@ const dataFilters = {
       select: "Любой",
     },
     {
-      titleName: "Объем",
+      titleName: "Объем мл",
       type: "range",
       typeDataProduct: "volume",
       max: dataProducts.eLiquids.sort((a, b) => b.volume - a.volume)[0].volume,

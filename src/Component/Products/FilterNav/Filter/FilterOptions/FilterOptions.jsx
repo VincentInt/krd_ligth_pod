@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import Input from "../../../../../UI/Input/Input.jsx";
 import RadioInput from "../../../../../UI/RadioInput/RadioInput";
 import RangeInput from "../../../../../UI/RangeInput/RangeInput";
 import SelectInput from "../../../../../UI/SelectInput/SelectInput";
@@ -16,7 +17,20 @@ const FilterOptions = ({
       typeProductsParams={typeProductsParams}
       nameFilterItem={item.titleName}
     >
-      {item.type === "range" ? (
+      {item.type === "input" ? (
+        <Input
+          item={item}
+          onChange={(valueSelect) => {
+            setStateFilterOptions((prev) => {
+              const clone = [...prev];
+              clone[indexFilterOptions].select = valueSelect;
+              return clone;
+            });
+          }}
+          placeholder={item.defaultInputs}
+          key={indexFilterOptions}
+        />
+      ) : item.type === "range" ? (
         <RangeInput
           item={item}
           onChange={(selectMin, selectMax) =>

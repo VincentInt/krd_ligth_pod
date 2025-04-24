@@ -15,7 +15,10 @@ const filterParamsOptions = (dataFilterOptions, filterParams) => {
           })
           .filter((item) => item !== undefined)[0]
       ];
-    if (itemFilterOptions?.type === "range") {
+    if (itemFilterOptions.type === "input") {
+      const valueSelect = itemParams.value.toLowerCase();
+      itemFilterOptions.select = valueSelect;
+    } else if (itemFilterOptions?.type === "range") {
       const valueRange = itemParams.value.split(",");
       const keysRange = ["selectMin", "selectMax"];
       valueRange.forEach((item, index) => {

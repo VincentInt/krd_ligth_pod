@@ -16,6 +16,13 @@ const ProductsItems = ({ stateFilterOptions, sortState }) => {
             ?.map((itemFilter) => {
               const stateProduct = itemProducts[[itemFilter.typeDataProduct]];
               switch (itemFilter.type) {
+                case "input": {
+                  if (itemFilter.select) {
+                    return stateProduct
+                      .toLowerCase()
+                      .includes(itemFilter.select.toLowerCase());
+                  } else return true;
+                }
                 case "range": {
                   if (
                     stateProduct >= itemFilter.selectMin &&

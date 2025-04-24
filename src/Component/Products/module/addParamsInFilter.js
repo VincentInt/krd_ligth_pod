@@ -1,7 +1,11 @@
 const addParamsInFilter = (stateFilterOptions, dataFilterOptions) => {
   const addParamsFilterOptions = stateFilterOptions
     ?.filter((itemFilterOptions, index) => {
-      if (itemFilterOptions.type === "range") {
+      if (itemFilterOptions.type === "input") {
+        if (itemFilterOptions.select.length) {
+          return true;
+        }
+      } else if (itemFilterOptions.type === "range") {
         const keysRange = ["selectMin", "selectMax"];
         for (const key in keysRange) {
           if (
@@ -26,7 +30,10 @@ const addParamsInFilter = (stateFilterOptions, dataFilterOptions) => {
     })
     ?.map((item) => {
       let textParams = `${item.typeDataProduct}=`;
-      if (item.type === "range") {
+      
+      if (item.type === "input") {
+        textParams = `${textParams}${item.select}`;
+      } else if (item.type === "range") {
         const keysRange = ["selectMin", "selectMax"];
         keysRange.forEach((keys, index) => {
           if (index > 0) textParams = `${textParams},${item[keys]}`;
@@ -38,10 +45,11 @@ const addParamsInFilter = (stateFilterOptions, dataFilterOptions) => {
           else textParams = `${textParams}${item}`;
         });
       } else if (item.type === "radio") {
-        textParams = `${textParams}${item.select}`
+        textParams = `${textParams}${item.select}`;
       }
       return textParams;
-    })?.join(";");
+    })
+    ?.join(";");
   return addParamsFilterOptions;
 };
 

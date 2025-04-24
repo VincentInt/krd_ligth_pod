@@ -25,9 +25,13 @@ const RangeInput = ({ item, onChange }) => {
   }, [item]);
 
   useEffect(() => {
+    let timeOut;
     if (rangeState) {
-      onChange(rangeState.minRange.state, rangeState.maxRange.state);
+      timeOut = setTimeout(() => {
+        onChange(rangeState.minRange.state, rangeState.maxRange.state);
+      }, 500);
     }
+    return () => clearTimeout(timeOut);
   }, [rangeState]);
 
   function onChangeInput(event, rangeType) {
@@ -113,7 +117,6 @@ const RangeInput = ({ item, onChange }) => {
             type="number"
           />
         </div>
-        <h6 className="before_text">{item.before}</h6>
       </div>
       <div ref={containerRangeRef} className="container_range">
         <div

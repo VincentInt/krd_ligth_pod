@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 240px;
   .container_input {
     position: relative;
     display: flex;
@@ -24,7 +23,6 @@
       input {
         font-size: clamp(14px, 1.5vw, 18px);
         font-weight: 500;
-        max-width: 100px;
         width: 100%;
         padding: 5px 2px;
         outline: none;
@@ -37,16 +35,9 @@
         -webkit-appearance: none;
       }
     }
-    .before_text {
-      z-index: 6;
-      position: absolute;
-      left: 98%;
-      bottom: 0px;
-      font-weight: 400;
-    }
   }
   .container_range {
-    width: 90%;
+    width: 96%;
     user-select: none;
     position: relative;
     display: flex;

@@ -63,37 +63,56 @@ const RangeInput = ({ item, onChange }) => {
   }
   function onChangeRangeBall(event, rangeType) {
     const startBall = rangeState[rangeType].position;
+    const maxWidth = containerRangeRef.current.clientWidth;
 
-    window.onmousemove = (mouseMove) => {
-      const maxWidth = containerRangeRef.current.clientWidth;
-      const startMouseDown = event.clientX;
-      const movePosition = mouseMove.clientX;
+    if (event.type === "mousedown") {
+      window.onmousemove = (mouseMove) => {
+        const startMouse = event.clientX;
+        const movePosition = mouseMove.clientX;
+        onMove(startMouse, movePosition, rangeType, maxWidth, startBall);
+      };
+      window.onmouseup = () => {
+        return (window.onmousemove = () => {});
+      };
+    } else if (event.type === "touchstart") {
+      window.ontouchmove = (toucheMove) => {
+        const startTouche = event.changedTouches[0].clientX;
+        const moveTouchePosition = toucheMove.changedTouches[0].clientX;
+        onMove(startTouche, moveTouchePosition, rangeType, maxWidth, startBall);
+      };
+      window.ontouchend = () => {
+        window.ontouchmove = () => {};
+      };
+    }
+  }
+  function onMove(
+    startMouseDown,
+    movePosition,
+    rangeType,
+    maxWidth,
+    startBall
+  ) {
+    const position =
+      Math.floor(((movePosition - startMouseDown) / maxWidth) * 100) +
+      startBall;
 
-      const position =
-        Math.floor(((movePosition - startMouseDown) / maxWidth) * 100) +
-        startBall;
-
-      if (position >= 0 && position <= 100) {
-        if (
-          (rangeType === "minRange" &&
-            position < rangeState.maxRange.position - 7) ||
-          (rangeType === "maxRange" &&
-            position - 7 > rangeState.minRange.position)
-        ) {
-          setRangeState((prev) => {
-            const clone = { ...prev };
-            const stateRange =
-              (item.max - item.min) * (position / 100) + item.min;
-            clone[rangeType].position = position;
-            clone[rangeType].state = Math.floor(stateRange);
-            return clone;
-          });
-        }
+    if (position >= 0 && position <= 100) {
+      if (
+        (rangeType === "minRange" &&
+          position < rangeState.maxRange.position - 7) ||
+        (rangeType === "maxRange" &&
+          position - 7 > rangeState.minRange.position)
+      ) {
+        setRangeState((prev) => {
+          const clone = { ...prev };
+          const stateRange =
+            (item.max - item.min) * (position / 100) + item.min;
+          clone[rangeType].position = position;
+          clone[rangeType].state = Math.floor(stateRange);
+          return clone;
+        });
       }
-    };
-    window.onmouseup = () => {
-      return (window.onmousemove = () => {});
-    };
+    }
   }
   return (
     <div className="container_range_input">
@@ -122,12 +141,14 @@ const RangeInput = ({ item, onChange }) => {
         <div
           style={{ left: `${rangeState?.minRange?.position}%` }}
           onMouseDown={(e) => onChangeRangeBall(e, "minRange")}
+          onTouchStart={(e) => onChangeRangeBall(e, "minRange")}
           className="ball"
         ></div>
         <div className="line"></div>
         <div
           style={{ left: `${rangeState?.maxRange?.position}%` }}
           onMouseDown={(e) => onChangeRangeBall(e, "maxRange")}
+          onTouchStart={(e) => onChangeRangeBall(e, "maxRange")}
           className="ball"
         ></div>
       </div>

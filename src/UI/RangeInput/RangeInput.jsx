@@ -3,7 +3,12 @@ import { useEffect, useRef, useState } from "react";
 
 const RangeInput = ({ item, onChange }) => {
   const [rangeState, setRangeState] = useState(null);
+
   const containerRangeRef = useRef(null);
+  const [rangeInputs, setRangeInputs] = useState({
+    maxRange: item.selectMax,
+    minRange: item.selectMin,
+  });
 
   useEffect(() => {
     setRangeState({
@@ -30,15 +35,20 @@ const RangeInput = ({ item, onChange }) => {
       timeOut = setTimeout(() => {
         onChange(rangeState.minRange.state, rangeState.maxRange.state);
       }, 500);
+
+      setRangeInputs({
+        maxRange: rangeState.maxRange.state,
+        minRange: rangeState.minRange.state,
+      });
     }
+
     return () => clearTimeout(timeOut);
   }, [rangeState]);
 
   function onChangeInput(event, rangeType) {
-    setRangeState((prev) => {
+    setRangeInputs((prev) => {
       const clone = { ...prev };
-      clone[rangeType].state = event.target.value;
-
+      clone[rangeType] = +event.target.value;
       return clone;
     });
   }
@@ -46,16 +56,16 @@ const RangeInput = ({ item, onChange }) => {
     setRangeState((prev) => {
       const clone = { ...prev };
       if (
-        clone[rangeType].state >= clone.min &&
-        clone[rangeType].state <= clone.max
+        rangeInputs[rangeType] >= clone.min &&
+        rangeInputs[rangeType] <= clone.max
       ) {
         clone[rangeType].position = Math.floor(
-          ((clone[rangeType].state - clone.min) / (clone.max - clone.min)) * 100
+          ((rangeInputs[rangeType] - clone.min) / (clone.max - clone.min)) * 100
         );
       }
-      if (clone[rangeType].state >= clone.max) {
+      if (rangeInputs[rangeType] >= clone.max) {
         clone[rangeType].state = clone.max;
-      } else if (clone[rangeType].state <= clone.min) {
+      } else if (rangeInputs[rangeType] <= clone.min) {
         clone[rangeType].state = clone.min;
       }
       return clone;
@@ -120,9 +130,12 @@ const RangeInput = ({ item, onChange }) => {
         <div className="container_item_input">
           <h6>от</h6>
           <input
-            value={rangeState ? Math.floor(rangeState.minRange.state) : 0}
+            value={rangeState ? Math.floor(rangeInputs.minRange) : 0}
             onChange={(e) => onChangeInput(e, "minRange")}
             onBlur={() => onEnterInput("minRange")}
+            onKeyUp={(e) =>
+              e.code === "Enter" ? onEnterInput("minRange") : ""
+            }
             type="number"
           />
         </div>
@@ -130,9 +143,12 @@ const RangeInput = ({ item, onChange }) => {
         <div className="container_item_input">
           <h6>до</h6>
           <input
-            value={rangeState ? Math.floor(rangeState.maxRange.state) : 0}
+            value={rangeState ? Math.floor(rangeInputs.maxRange) : 0}
             onChange={(e) => onChangeInput(e, "maxRange")}
             onBlur={() => onEnterInput("maxRange")}
+            onKeyUp={(e) =>
+              e.code === "Enter" ? onEnterInput("maxRange") : ""
+            }
             type="number"
           />
         </div>

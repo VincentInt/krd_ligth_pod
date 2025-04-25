@@ -36,7 +36,7 @@ const Products = () => {
       sortName: "по релевантности",
       sortType: "убывание",
     });
-  }, [typeProductsParams]);
+  }, [typeProductsParams, filterParams]);
 
   useEffect(() => {
     if (stateFilterOptions.length) {
@@ -49,7 +49,7 @@ const Products = () => {
       );
       navigate({ pathname: `/products/${typeProductsParams}/${paramsFilter}` });
     }
-  }, [stateFilterOptions]);
+  }, [stateFilterOptions, ]);
 
   useEffect(() => {
     if (stateDropFilter) {

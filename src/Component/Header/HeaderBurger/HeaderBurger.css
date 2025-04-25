@@ -15,7 +15,7 @@
     width: 40%;
     height: 80vh;
     gap: 22px;
-    padding: 20px 45px;
+    padding: clamp(10px, 5vw, 20px) clamp(30px, 6vw,45px);
     padding-bottom: 200px;
     background-color: black;
     transition: all 0.2s ease;
@@ -70,6 +70,13 @@
       .text_link {
         font-weight: 600;
       }
+    }
+  }
+}
+@media (max-width: 460px) {
+  .header_burger {
+    .drop_burger_menu {
+      width: 60%;
     }
   }
 }

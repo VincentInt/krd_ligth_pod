@@ -44,7 +44,6 @@ const Header = () => {
     if (dropHeader.status) {
       dropBurgerMenuRef.current.style.display = "block";
       dropBurgerMenuRef.current.style.opacity = "100%";
-      dropBurgerMenuRef.current.style.top = `${headerRef.current.offsetHeight}px`;
       dropBurgerMenuRef.current.children[0].style.transform = "translateX(0%)";
 
       document.body.style.overflowY = "hidden";

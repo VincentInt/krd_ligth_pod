@@ -3,10 +3,10 @@
   width: 100%;
   border: 1px solid black;
   background-color: white;
-  .current_btn{
+  .current_btn {
     display: flex;
     justify-content: space-between;
-    img{
+    img {
       object-fit: contain;
       width: 15px;
     }

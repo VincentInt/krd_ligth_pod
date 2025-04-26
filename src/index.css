@@ -12,7 +12,7 @@ p {
 .p_big_text {
   font-weight: 500;
 }
-h2{
+h2 {
   font-size: clamp(24px, 2.5vw, 48px);
 }
 h3 {
@@ -21,11 +21,11 @@ h3 {
 h4 {
   font-size: clamp(18px, 2.5vw, 28px);
 }
-h5{
-  font-size: clamp(16px, 1.5vw, 22px)
+h5 {
+  font-size: clamp(14px, 2vw, 22px);
 }
 h6 {
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(11px, 2vw, 16px);
 }
 a,
 h1,

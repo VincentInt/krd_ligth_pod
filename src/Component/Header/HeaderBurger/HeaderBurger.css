@@ -15,7 +15,7 @@
     width: 40%;
     height: 80vh;
     gap: 22px;
-    padding: clamp(10px, 5vw, 20px) clamp(30px, 6vw,45px);
+    padding: clamp(10px, 5vw, 20px) clamp(30px, 6vw, 45px);
     padding-bottom: 200px;
     background-color: black;
     transition: all 0.2s ease;
@@ -51,7 +51,7 @@
           gap: 10px;
           .container_selected_links {
             margin-top: 10px;
-            margin-left: 20px;
+            margin-left: clamp(10px, 4.5vw, 20px);
             a {
               &::before {
                 content: "-";

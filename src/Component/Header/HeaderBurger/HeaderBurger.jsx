@@ -90,7 +90,7 @@ const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader }) => {
             return (
               <Link key={index} to={item.path}>
                 <img src={item.img} alt="header_btn_img" />
-                <h6>{item.name}</h6>
+                <h5>{item.name}</h5>
               </Link>
             );
           })}

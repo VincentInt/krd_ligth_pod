@@ -2,7 +2,7 @@ import "./Products.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import FilterNav from "./FilterNav/FilterNav";
-import SortNav from "./sortNav/SortNav";
+import SortNav from "./SortNav/SortNav.jsx";
 import ProductsItems from "./ProductsItems/ProductsItems";
 import dataFilters from "../../../public/data/dataFilters";
 import dataProducts from "../../../public/data/dataProducts";
@@ -17,7 +17,7 @@ const Products = () => {
 
   const [stateDropFilter, setStateDropFilter] = useState(null);
   const [sortState, setSortState] = useState({
-    sortName: "по релевантности",
+    sortName: "по популярности",
     sortType: "убывание",
   });
   const [stateFilterOptions, setStateFilterOptions] = useState([]);
@@ -33,7 +33,7 @@ const Products = () => {
     );
 
     setSortState({
-      sortName: "по релевантности",
+      sortName: "по популярности",
       sortType: "убывание",
     });
   }, [typeProductsParams, filterParams]);
@@ -49,7 +49,7 @@ const Products = () => {
       );
       navigate({ pathname: `/products/${typeProductsParams}/${paramsFilter}` });
     }
-  }, [stateFilterOptions, ]);
+  }, [stateFilterOptions]);
 
   useEffect(() => {
     if (stateDropFilter) {
@@ -79,9 +79,9 @@ const Products = () => {
         <div className="container_title">
           <div className="title">
             <h3>Одноразовые</h3>
-            <h4 className="text_count_product">
+            <h5 className="text_count_product">
               {dataProducts[typeProductsParams].length} товаров
-            </h4>
+            </h5>
           </div>
           {stateFilterOptions ? (
             <div className="container_btn_drop_filter">

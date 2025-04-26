@@ -59,3 +59,20 @@
     }
   }
 }
+@media (max-width: 460px) {
+  .section_products {
+    .container_products {
+      .container_title {
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+        .container_btn_drop_filter {
+          width: 100%;
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

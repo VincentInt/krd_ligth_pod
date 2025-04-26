@@ -57,7 +57,7 @@ const ProductsItems = ({ stateFilterOptions, sortState }) => {
       let keySort = null;
 
       switch (sortState.sortName) {
-        case "по релевантности":
+        case "по популярности":
           keySort = "popularity";
           break;
         case "по цене":

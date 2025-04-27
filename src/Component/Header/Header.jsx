@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 
 const Header = () => {
   const params = useParams();
-  
+
   const [dropHeader, setDropHeader] = useState({ click: {}, status: false });
   const [dropCatalog, setDropCatalog] = useState(false);
   const [stateDropProducts, setStateDropProducts] = useState({
@@ -30,6 +30,7 @@ const Header = () => {
     if (window.scrollY > headerRef.current.offsetHeight + 150) {
       headerFixedRef.current.style.top = "0px";
     }
+    dropBurgerMenuRef.current.style.top = `${headerRef.current.offsetHeight}px`;
   }, []);
   window.onscroll = () => {
     if (window.scrollY > headerRef.current.offsetHeight * 4) {
@@ -48,8 +49,10 @@ const Header = () => {
       dropBurgerMenuRef.current.style.opacity = "0%";
       setTimeout(() => {
         dropBurgerMenuRef.current.style.display = "none";
+        setDropHeader({ click: {}, status: false });
       }, 200);
     }
+    dropBurgerMenuRef.current.style.top = `${headerRef.current.offsetHeight}px`;
   };
   useEffect(() => {
     if (dropHeader.status) {

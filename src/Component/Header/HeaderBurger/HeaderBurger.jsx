@@ -39,14 +39,10 @@ const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
   useEffect(() => {
     if (dropHeader.status === false) {
       setDropCatalog(false);
+      setDropProductsCatalog([])
     }
   }, [dropHeader]);
 
-  window.onresize = () => {
-    if (window.screen.width >= 960) {
-      setDropHeader((prev) => ({ click: {}, status: false }));
-    }
-  };
   return (
     <header
       ref={dropBurgerMenuRef}

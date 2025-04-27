@@ -83,6 +83,7 @@ const HeaderContent = ({
                 {dataLinksHeader.productsBtn.map((item, index) => {
                   return (
                     <Link
+                      key={index}
                       className={
                         stateDropProducts.name === item.type ||
                         stateDropProducts.name === ""

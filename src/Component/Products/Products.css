@@ -68,7 +68,9 @@
         gap: 10px;
         .container_btn_drop_filter {
           width: 100%;
+          margin-top: 10px;
           button {
+            padding: 10px 0px;
             width: 100%;
           }
         }

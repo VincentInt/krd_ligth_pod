@@ -18,13 +18,12 @@
       margin-top: 10px;
       .title_name_card {
         overflow: hidden;
-        height: 50px;
+        height: clamp(35px, 5vw, 50px);
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
       }
       .container_info_text {
-        margin-top: 3px;
         .container_rating {
           display: flex;
           align-items: center;
@@ -36,8 +35,8 @@
             align-items: center;
             gap: 2px;
             .star {
-              width: 18px;
-              height: 18px;
+              width: clamp(14px, 3vw, 18px);
+              height: clamp(14px, 3vw, 18px);
               background: black;
               mask-image: url(/public/img/icon/icons8-звезда-50.png);
               mask-size: contain;
@@ -67,28 +66,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
+            padding: clamp(8px, 0.8vw, 10px);
             border-radius: 64px;
             img {
-              width: 24px;
-              height: 24px;
+              width: clamp(18px, 3vw, 24px);
+              height: clamp(18px, 3vw, 24px);
               object-fit: contain;
             }
-          }
-          .btn_delete_basket {
-            background-color: rgb(144, 1, 1);
           }
         }
       }
     }
   }
 }
-@media (max-width: 720px) {
+@media (max-width: 760px) {
   .container_item_card {
     width: 33%;
   }
 }
-@media (max-width: 520px) {
+@media (max-width: 550px) {
   .container_item_card {
     width: 50%;
   }

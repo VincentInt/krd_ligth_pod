@@ -2,8 +2,11 @@ import "./Header.css";
 import HeaderContent from "./HeaderContent/HeaderContent";
 import HeaderBurger from "./HeaderBurger/HeaderBurger";
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router";
 
 const Header = () => {
+  const params = useParams();
+  
   const [dropHeader, setDropHeader] = useState({ click: {}, status: false });
   const [dropCatalog, setDropCatalog] = useState(false);
   const [stateDropProducts, setStateDropProducts] = useState({
@@ -15,6 +18,14 @@ const Header = () => {
   const headerFixedRef = useRef(null);
   const dropBurgerMenuRef = useRef(null);
 
+  useEffect(() => {
+    setDropHeader({ click: {}, status: false });
+    setDropCatalog(false);
+    setStateDropProducts({
+      name: "",
+      value: [],
+    });
+  }, [params]);
   useEffect(() => {
     if (window.scrollY > headerRef.current.offsetHeight + 150) {
       headerFixedRef.current.style.top = "0px";
@@ -83,6 +94,7 @@ const Header = () => {
       </header>
       <HeaderBurger
         dropBurgerMenuRef={dropBurgerMenuRef}
+        dropHeader={dropHeader}
         setDropHeader={setDropHeader}
       />
     </>

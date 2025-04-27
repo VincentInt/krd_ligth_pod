@@ -35,7 +35,7 @@
   }
   .container_selects_sort {
     display: none;
-    margin-top: 15px;
+    margin-top: 10px;
   }
 }
 @media (max-width: 460px) {

@@ -1,6 +1,6 @@
 import "./ProductCard.css";
 import addBasketImg from "../../../../../public/img/icon/icons8-shopping-basket-add-24.png";
-import deleteBasketImg from "../../../../../public/img/icon/icons8-multiply-24.png";
+import deleteBasketImg from "../../../../../public/img/icon/icons8-галочка-50.png";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -28,7 +28,7 @@ const ProductCard = ({ item, typeProducts }) => {
       (itemFind) => itemFind.id === item.id && itemFind.type === typeProducts
     );
     setAddBasketStatus(!Boolean(findBasket || findBasketCookie));
-  }, [item, basketSelector]);
+  }, [item, basketSelector, cookieSelector]);
 
   useEffect(() => {
     if (!statusBlurImg !== cookieSelector?.adult) {

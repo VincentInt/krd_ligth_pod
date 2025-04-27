@@ -34,7 +34,7 @@ const RangeInput = ({ item, onChange }) => {
     if (rangeState) {
       timeOut = setTimeout(() => {
         onChange(rangeState.minRange.state, rangeState.maxRange.state);
-      }, 500);
+      }, 0);
 
       setRangeInputs({
         maxRange: rangeState.maxRange.state,
@@ -59,6 +59,7 @@ const RangeInput = ({ item, onChange }) => {
         rangeInputs[rangeType] >= clone.min &&
         rangeInputs[rangeType] <= clone.max
       ) {
+        clone[rangeType].state = rangeInputs[rangeType];
         clone[rangeType].position = Math.floor(
           ((rangeInputs[rangeType] - clone.min) / (clone.max - clone.min)) * 100
         );
@@ -68,6 +69,7 @@ const RangeInput = ({ item, onChange }) => {
       } else if (rangeInputs[rangeType] <= clone.min) {
         clone[rangeType].state = clone.min;
       }
+
       return clone;
     });
   }

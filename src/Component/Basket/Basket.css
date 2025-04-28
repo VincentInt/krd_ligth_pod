@@ -1,39 +1,58 @@
 .section_basket {
   display: flex;
   justify-content: center;
+  max-width: 100%;
   min-height: 100vh;
   padding: clamp(30px, 7vw, 60px) 20px;
   background-color: white;
+
+  .basket {
+    width: 1400px;
+    .container_title {
+      margin-bottom: 20px;
+    }
+    .container_empty_basket {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 150px;
+      gap: 15px;
+    }
+  }
   .container_basket {
     display: flex;
+    flex-direction: row-reverse;
     align-items: start;
     justify-content: space-between;
-    width: 1400px;
-    margin: 80px 15px;
-    gap: 40px;
+    gap: clamp(15px, 1.5vw, 40px);
     .container_main_basket {
-      min-width: 70%;
+      width: 100%;
       .container_basket_products {
         display: flex;
         flex-direction: column;
-        gap: 14px;
-        margin-top: 40px;
+        gap: clamp(8px, 1.4vw, 15px);
       }
     }
     .container_basket_nav {
       display: flex;
       flex-direction: column;
-      padding: 30px 40px;
-      gap: 20px;
+      max-width: clamp(200px, 13vw, 300px);
+      width: 100%;
+      padding: clamp(15px, 3vw, 30px) clamp(20px, 3vw, 40px);
+      gap: clamp(6px, 1.4vw, 20px);
       border: 1px solid black;
       border-radius: 12px;
       .item_basket_nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         .p_text {
-          font-size: 12px;
+          font-size: clamp(11px, 1.7vw, 16px);
           font-weight: 500;
           line-height: 16px;
         }
-        .btn_send {
+        .btn_send,
+        .btn_clear {
           width: 100%;
         }
         .btn_promo {
@@ -42,8 +61,20 @@
           background-color: transparent;
           h6 {
             font-weight: 500;
+            text-align: left;
           }
         }
+      }
+    }
+  }
+}
+@media (max-width: 960px) {
+  .section_basket {
+    .container_basket {
+      width: 100%;
+      flex-direction: column;
+      .container_basket_nav {
+        max-width: -webkit-fill-available;
       }
     }
   }

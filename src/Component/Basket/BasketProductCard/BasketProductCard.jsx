@@ -105,18 +105,35 @@ const BasketProductCard = ({ item }) => {
               </h4>
             </div>
             <div className="container_nav">
-              <button  onClick={() => onChangeDelete()}>
-                <img
-                  className="icon"
-                  src={trashImg}
-                  alt="trash_img"
-                />
+              <button onClick={() => onChangeDelete()}>
+                <img className="icon" src={trashImg} alt="trash_img" />
               </button>
               <button>
                 <img className="icon" src={favoriteImg} alt="favorite_img" />
               </button>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="container_adaptive_nav">
+        <div className="container_count_items">
+          <button onClick={() => onChangeCountItemsProducts(-1)}>
+            <h5>-</h5>
+          </button>
+          <div className="container_text_count">
+            <h5>{item.count}</h5>
+          </div>
+          <button onClick={() => onChangeCountItemsProducts(1)}>
+            <h5>+</h5>
+          </button>
+        </div>
+        <div className="container_price">
+          <h4>
+            {new Intl.NumberFormat("ru", {
+              maximumFractionDigits: 0,
+            }).format(item.price * item.count)}
+            ₽
+          </h4>
         </div>
       </div>
     </div>

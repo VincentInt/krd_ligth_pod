@@ -1,14 +1,17 @@
 .container_basket_product_card {
-  padding: 30px 40px;
+  padding: clamp(15px, 3vw, 30px) clamp(20px, 3vw, 40px);
   border: 1px solid black;
   border-radius: 12px;
+  .container_adaptive_nav {
+    display: none;
+  }
   .container_content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .item_content {
-      &:first-child {
-        width: 450px;
+      &:nth-child(1) {
+        width: clamp(250px, 30vw, 400px);
       }
       .container_flex {
         display: flex;
@@ -16,20 +19,20 @@
         .container_price {
           display: flex;
           justify-content: center;
-          text-align: center;
-          width: 120px;
+          text-align: right;
+          width: clamp(90px, 16vw, 140px);
         }
         .container_img {
           display: flex;
           justify-content: center;
           img {
             object-fit: contain;
-            width: clamp(50px, 7vw, 60px);
-            height: clamp(120px, 17vw, 200px);
+            width: clamp(40px, 7vw, 60px);
+            height: clamp(100px, 17vw, 200px);
           }
         }
         .container_text {
-          margin-left: 70px;
+          margin-left: clamp(20px, 2.5vw, 70px);
           h4 {
             overflow: hidden;
             display: -webkit-box;
@@ -40,7 +43,7 @@
           .container_rating {
             display: flex;
             align-items: center;
-            margin-top: 10px;
+            margin-top: clamp(4px, 1.2vw, 10px);
             gap: 3px;
             .container_stars {
               position: relative;
@@ -48,8 +51,8 @@
               align-items: center;
               gap: 5px;
               .star {
-                width: 18px;
-                height: 18px;
+                width: clamp(14px, 2.5vw, 18px);
+                height: clamp(14px, 2.5vw, 18px);
                 background: black;
                 mask-image: url(/public/img/icon/icons8-звезда-50.png);
                 mask-size: contain;
@@ -59,7 +62,7 @@
           .container_info {
             display: flex;
             flex-direction: column;
-            margin-top: 15px;
+            margin-top: clamp(5px, 1.3vw, 15px);
             gap: 4px;
             h6 {
               overflow: hidden;
@@ -74,21 +77,23 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          margin-left: clamp(0px, 1.2vw, 20px);
           gap: 10px;
-          margin-left: 20px;
           button {
-            padding: 10px;
+            padding: clamp(2px, 1.2vw, 10px);
             background-color: transparent;
+            img {
+              width: clamp(20px, 3vw, 30px);
+            }
           }
         }
       }
-
       .container_count_items {
         display: flex;
         align-items: start;
         justify-content: space-between;
         height: 100%;
-        gap: 25px;
+        gap: clamp(10px, 1.5vw, 25px);
         .container_text_count {
           display: flex;
           justify-content: center;
@@ -98,13 +103,56 @@
         button {
           display: flex;
           justify-content: center;
-          padding: 0px 8px;
+          padding: 0px clamp(2px, 1.1vw, 8px);
           border: 1px solid black;
           border-radius: 64px;
-          h5 {
-            width: 12px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 560px) {
+  .container_basket_product_card {
+    .container_content {
+      .item_content {
+        .container_flex {
+          .container_price {
+            display: none;
           }
         }
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+    .container_adaptive_nav {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      gap: 15px;
+      .container_count_items {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        height: 100%;
+        gap: clamp(10px, 1.5vw, 25px);
+        .container_text_count {
+          display: flex;
+          justify-content: center;
+          width: 20px;
+          text-align: center;
+        }
+        button {
+          display: flex;
+          justify-content: center;
+          padding: 0px clamp(2px, 1.1vw, 8px);
+          border: 1px solid black;
+          border-radius: 64px;
+        }
+      }
+      .container_price {
+        width: 100px;
+        text-align: right;
       }
     }
   }

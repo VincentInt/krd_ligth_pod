@@ -1,49 +1,50 @@
 import "./Footer.css";
-import logoImg from "../../../public/img/Logo.png";
 import telegramIconImg from "../../../public/img/icon/image 18.png";
 import phoneIconImg from "../../../public/img/icon/image 19.png";
 import { Link } from "react-router";
+import dataLinksFooter from "./data/dataLinksFooter";
 
 const Footer = () => {
   return (
     <footer>
       <div className="container_footer">
-        <div className="item_footer">
-          <img className="logo_footer" src={logoImg} alt="logo_img" />
-          <h6>
-            *Сайт является информационным и не выполняет функции купле продажи,
-            а предназначен для демонстрации практических умений в создании веб
-            сайтов
-          </h6>
-        </div>
-        <div className="item_footer">
+        <nav className="container_nav">
           <div className="container_links">
-            <Link to={"products/disposablePods"}>
-              <h6>Одноразовые</h6>
-            </Link>
-            <Link to={"products/podSystems"}>
-              <h6>Под-системы</h6>
-            </Link>
-            <Link to={"products/eLiquids"}>
-              <h6>Жидкости</h6>
-            </Link>
-            <Link to={"/"}>
-              <h6>Xros-Pro</h6>
-            </Link>
-            <Link to={"products/contact"}>
-              <h6>Контакты</h6>
-            </Link>
+            <div className="links">
+              {dataLinksFooter.mainLinks.map((item, index) => {
+                return (
+                  <Link key={index} to={item.path}>
+                    <h6>{item.name}</h6>
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="links">
+              {dataLinksFooter.productsLinks.map((item, index) => {
+                return (
+                  <Link key={index} to={item.path}>
+                    <h6>{item.name}</h6>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-          <div className="container_contact">
-            <a href="#">
-              <img src={telegramIconImg} alt="telegram_link_img" />
-              https://t.me/USLISHAL_ZOV
+          <div className="container_links">
+            <a className="a_contact" href="tel:7918988777">
+              <img src={telegramIconImg} alt="telegram_img" />
+              <h6>@USLISHAL_ZOV</h6>
             </a>
-            <a href="#">
-              <img src={phoneIconImg} alt="telegram_link_img" />
-              +7 918 988 777
+            <a className="a_contact" href="tel:7918988777">
+              <img src={phoneIconImg} alt="phone_img" />
+              <h6>+7 918 988 777</h6>
             </a>
           </div>
+        </nav>
+        <div className="container_warning">
+          <h6>
+            *Сайт не ранжируется по коммерческим запросам и являеться
+            информационным
+          </h6>
         </div>
       </div>
     </footer>

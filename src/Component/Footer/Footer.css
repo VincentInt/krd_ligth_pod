@@ -1,59 +1,48 @@
 footer {
   display: flex;
   justify-content: center;
-  padding: clamp(20px, 8vw, 100px) 20px;
-  background-color: black;
+  padding: clamp(20px, 5vw, 80px) 20px;
   color: white;
+  background-color: black;
   .container_footer {
-    display: flex;
-    justify-content: space-between;
-    width: 1400px;
-    gap: 10px;
-    .item_footer {
-      .logo_footer {
-        width: clamp(150px, 28vw, 250px);
-      }
+    width: 1200px;
+    .container_warning {
+      margin-top: 20px;
+      max-width: 300px;
       h6 {
-        font-size: clamp(8px, 2vw, 16px);
-        font-weight: 400;
-        margin-top: clamp(10px, 2.5vw, 30px);
-        max-width: 400px;
-      }
-      .container_links {
-        display: flex;
-        flex-wrap: wrap;
-        a {
-          margin: 2px 5px;
-          font-size: clamp(10px, 2vw, 16px);
-          &:first-child {
-            margin-left: 0px;
-          }
-        }
-      }
-      .container_contact {
-        display: flex;
-        flex-direction: column;
-        margin-top: clamp(5px, 2vw, 30px);
-        gap: 5px;
-        a {
-          display: flex;
-          align-items: center;
-          margin: 0;
-          font-size: clamp(10px, 2vw, 16px);
-          gap: clamp(5px, 2vw, 15px);
-          img {
-            width: clamp(15px, 2.5vw, 25px);
-          }
-        }
+        font-weight: 500;
+        color: rgb(150, 150, 150);
       }
     }
-  }
-}
-@media (max-width: 440px) {
-  footer {
-    .container_footer {
-      flex-wrap: wrap-reverse;
-      gap: 10px;
+    .container_nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      .container_links {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(8px, 1.5vw, 12px);
+        .a_contact {
+          display: flex;
+          align-items: center;
+          gap: clamp(10px, 1.5vw, 15px);
+          img {
+            object-fit: contain;
+            width: clamp(15px, 3vw, 22px);
+          }
+        }
+        .links {
+          display: flex;
+          gap: clamp( 20px, 5vw, 30px);
+          a {
+            h6 {
+              font-weight: 500;
+            }
+          }
+        }
+      }
     }
   }
 }

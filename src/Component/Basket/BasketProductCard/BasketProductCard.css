@@ -115,6 +115,9 @@
   .container_basket_product_card {
     .container_content {
       .item_content {
+        &:nth-child(1) {
+          width: 100%;
+        }
         .container_flex {
           .container_price {
             display: none;
@@ -129,12 +132,11 @@
       display: flex;
       align-items: center;
       margin-top: 15px;
-      gap: 15px;
+      gap: 20px;
       .container_count_items {
         display: flex;
-        align-items: start;
+        align-items: center;
         justify-content: space-between;
-        height: 100%;
         gap: clamp(10px, 1.5vw, 25px);
         .container_text_count {
           display: flex;
@@ -145,14 +147,18 @@
         button {
           display: flex;
           justify-content: center;
-          padding: 0px clamp(2px, 1.1vw, 8px);
+          align-items: center;
+          padding: clamp(3px, 1.1vw, 8px);
           border: 1px solid black;
           border-radius: 64px;
+          h5 {
+            line-height: 6px;
+          }
         }
       }
       .container_price {
-        width: 100px;
-        text-align: right;
+        width: 80px;
+        text-align: left;
       }
     }
   }

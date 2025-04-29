@@ -116,6 +116,14 @@ const BasketProductCard = ({ item }) => {
         </div>
       </div>
       <div className="container_adaptive_nav">
+        <div className="container_price">
+          <h4>
+            {new Intl.NumberFormat("ru", {
+              maximumFractionDigits: 0,
+            }).format(item.price * item.count)}
+            ₽
+          </h4>
+        </div>
         <div className="container_count_items">
           <button onClick={() => onChangeCountItemsProducts(-1)}>
             <h5>-</h5>
@@ -126,14 +134,6 @@ const BasketProductCard = ({ item }) => {
           <button onClick={() => onChangeCountItemsProducts(1)}>
             <h5>+</h5>
           </button>
-        </div>
-        <div className="container_price">
-          <h4>
-            {new Intl.NumberFormat("ru", {
-              maximumFractionDigits: 0,
-            }).format(item.price * item.count)}
-            ₽
-          </h4>
         </div>
       </div>
     </div>

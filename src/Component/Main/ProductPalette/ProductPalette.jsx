@@ -17,7 +17,7 @@ const ProductPalette = () => {
           </div>
           <div className="container_text_preview_product">
             <div>
-              <h3>Vaporesso XROS PRO</h3>
+              <h2>Vaporesso XROS PRO</h2>
               <div className="gradient_text">
                 <h3>Новый уровень вейпинга</h3>
               </div>

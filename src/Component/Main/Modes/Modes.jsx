@@ -5,14 +5,14 @@ const Modes = () => {
   return (
     <section className="section_modes">
       <div className="container_modes">
-        <h3>Удобства выбора</h3>
+        <h2>Удобства выбора</h2>
         <div className="container_modes_power">
           <div className="container_items_modes_power">
             {dataModes.map((item, index) => {
               return (
                 <div key={index} className="item_modes_power">
                   <img src={item.img} alt="modes_power_img" />
-                  <h5>{item.titleText}</h5>
+                  <h4>{item.titleText}</h4>
                 </div>
               );
             })}

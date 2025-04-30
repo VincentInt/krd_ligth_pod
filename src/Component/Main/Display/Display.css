@@ -15,7 +15,6 @@
     .container_text {
       display: flex;
       flex-direction: column;
-      max-width: clamp(200px, 60vw, 700px);
       gap: clamp(4px, 1.5vw, 20px);
       .gradient_text {
         color: transparent;

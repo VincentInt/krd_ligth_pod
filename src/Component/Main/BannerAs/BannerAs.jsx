@@ -7,9 +7,9 @@ const BannerAs = () => {
     <section className="section_banner_as">
       <div className="container_banner_as">
         <div>
-          <h3>
+          <h2>
             Не теряй время <br /> на поиск <span> XROS PRO</span>
-          </h3>
+          </h2>
           <Link>
             <h6>Подробнее</h6>
           </Link>
@@ -17,9 +17,9 @@ const BannerAs = () => {
         <img src={xrosAssortImg} alt="xros_assort_img" />
       </div>
       <div className="container_banner_as_adaptive">
-        <h3>
+        <h2>
           Не теряй время <br /> на поиск <span> XROS PRO</span>
-        </h3>
+        </h2>
         <img src={xrosAssortImg} alt="xros_assort_img" />
         <Link>
           <h6>Подробнее</h6>

@@ -16,8 +16,8 @@ const Main = () => {
       <BasedFunctional />
       <Modes />
       <BannerAd />
-      <Display />
       <Advantages />
+      <Display />
       <Cartridge />
       <BannerAs />
     </>

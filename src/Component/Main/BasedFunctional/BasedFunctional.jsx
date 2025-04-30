@@ -6,8 +6,8 @@ const BasedFunctional = () => {
     <section className="section_based_functional">
       <div className="container_based_functional">
         <div className="container_title">
-          <h3>Vaporesso XROS PRO</h3>
-          <h3 className="gradient">Ключевой Функционал</h3>
+          <h2>Vaporesso XROS PRO</h2>
+          <h2 className="gradient">Ключевой Функционал</h2>
         </div>
         <div className="container_functionals">
           {dataFunctionals.map((item, index) => {

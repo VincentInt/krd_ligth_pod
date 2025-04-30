@@ -13,6 +13,13 @@ const BannerAs = () => {
         </div>
         <img src={xrosAssortImg} alt="xros_assort_img" />
       </div>
+      <div className="container_banner_as_adaptive">
+        <h3>
+          Не теряй время <br /> на поиск <span> XROS PRO</span>
+        </h3>
+        <img src={xrosAssortImg} alt="xros_assort_img" />
+        <button>XROS PRO</button>
+      </div>
     </section>
   );
 };

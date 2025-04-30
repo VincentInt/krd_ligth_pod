@@ -43,10 +43,4 @@ export const dataProductLinePalette = [
     textColor: "orange",
     color: "orange",
   },
-  {
-    id: 7,
-    img: pinkXrosImg,
-    textColor: "pink",
-    color: "pink",
-  },
 ];

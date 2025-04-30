@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="container_links">
-            <a className="a_contact" href="tel:7918988777">
+            <a className="a_contact" href="https://t.me/USLISHAL_ZOV">
               <img src={telegramIconImg} alt="telegram_img" />
               <h6>@USLISHAL_ZOV</h6>
             </a>

@@ -3,7 +3,8 @@
   justify-content: center;
   margin: clamp(100px, 22vw, 200px) 20px;
   color: white;
-  .container_banner_as {
+  .container_banner_as,
+  .container_banner_as_adaptive {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,6 +32,26 @@
         rgba(0, 254, 203, 1) 0%,
         rgb(112, 231, 144) 100%
       );
+    }
+  }
+  .container_banner_as_adaptive {
+    display: none;
+  }
+}
+@media (max-width: 560px) {
+  .section_banner_as {
+    .container_banner_as {
+      display: none;
+    }
+    .container_banner_as_adaptive {
+      display: flex;
+      flex-direction: column;
+      img {
+        width: 100%;
+      }
+      h3 {
+        text-align: center;
+      }
     }
   }
 }

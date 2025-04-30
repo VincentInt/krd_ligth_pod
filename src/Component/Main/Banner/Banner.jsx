@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import "./Banner.css";
+import { useEffect, useState } from "react";
 import ItemPages from "./ItemPage/ItemPages";
 import StatePage from "./StatePage/StatePage";
 
@@ -12,7 +12,7 @@ const Banner = () => {
   ]);
 
   const [statePage, setStatePage] = useState(0);
-  const [previewState, setPreviewState] = useState(0);
+  const [previewState, setPreviewState] = useState(1);
   const [statusBack, setStatusBack] = useState(false);
 
   useEffect(() => {

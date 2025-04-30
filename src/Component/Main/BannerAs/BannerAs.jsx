@@ -21,7 +21,7 @@ const BannerAs = () => {
           Не теряй время <br /> на поиск <span> XROS PRO</span>
         </h2>
         <img src={xrosAssortImg} alt="xros_assort_img" />
-        <Link>
+        <Link to={"/products/podSystems/fullName=xros%20pro"}>
           <h6>Подробнее</h6>
         </Link>
       </div>

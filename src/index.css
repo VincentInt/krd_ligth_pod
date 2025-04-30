@@ -6,8 +6,8 @@ body {
   background-color: black;
 }
 p {
-  font-size: clamp(9px, 1.6vw, 20px);
-  line-height: clamp(12px, 2.8vw, 36px);
+  font-size: clamp(11px, 1.6vw, 20px);
+  line-height: clamp(14px, 2.8vw, 36px);
 }
 .p_big_text {
   font-weight: 500;

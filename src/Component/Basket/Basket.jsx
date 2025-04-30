@@ -53,7 +53,10 @@ const Basket = () => {
                     maximumFractionDigits: 0,
                   }).format(
                     stateProductsBasket?.reduce(
-                      (acc, a) => acc + a.price * a.count,
+                      (acc, a) =>
+                        a.discount
+                          ? acc + a.discount * a.count
+                          : acc + a.price * a.count,
                       0
                     )
                   )}

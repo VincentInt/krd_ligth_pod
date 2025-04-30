@@ -97,10 +97,25 @@ const BasketProductCard = ({ item }) => {
         <div className="item_content">
           <div className="container_flex">
             <div className="container_price">
+              {item.discount ? (
+                <h6>
+                  {new Intl.NumberFormat("ru", {
+                    maximumFractionDigits: 0,
+                  }).format(item.price * item.count)}
+                  ₽
+                </h6>
+              ) : (
+                ""
+              )}
+
               <h4>
                 {new Intl.NumberFormat("ru", {
                   maximumFractionDigits: 0,
-                }).format(item.price * item.count)}
+                }).format(
+                  item.discount
+                    ? item.discount * item.count
+                    : item.price * item.count
+                )}
                 ₽
               </h4>
             </div>
@@ -117,10 +132,25 @@ const BasketProductCard = ({ item }) => {
       </div>
       <div className="container_adaptive_nav">
         <div className="container_price">
+          {item.discount ? (
+            <h6>
+              {new Intl.NumberFormat("ru", {
+                maximumFractionDigits: 0,
+              }).format(item.price * item.count)}
+              ₽
+            </h6>
+          ) : (
+            ""
+          )}
+
           <h4>
             {new Intl.NumberFormat("ru", {
               maximumFractionDigits: 0,
-            }).format(item.price * item.count)}
+            }).format(
+              item.discount
+                ? item.discount * item.count
+                : item.price * item.count
+            )}
             ₽
           </h4>
         </div>

@@ -17,10 +17,19 @@
         display: flex;
         align-items: center;
         .container_price {
+          position: relative;
           display: flex;
+          flex-direction: column;
           justify-content: center;
           text-align: right;
           width: clamp(90px, 16vw, 140px);
+          h6 {
+            right: 0;
+            top: -70%;
+            position: absolute;
+            text-decoration: line-through;
+          }
+
         }
         .container_img {
           display: flex;
@@ -157,8 +166,14 @@
         }
       }
       .container_price {
+        position: relative;
         width: 80px;
         text-align: left;
+        h6 {
+          top: -70%;
+          position: absolute;
+          text-decoration: line-through;
+        }
       }
     }
   }

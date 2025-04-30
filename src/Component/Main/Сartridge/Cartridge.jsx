@@ -1,6 +1,5 @@
 import "./Cartridge.css";
 import lineCartridgeImg from "../../../../public/img/image 13.png";
-import cartridgeImg from "../../../../public/img/image 14.png";
 
 const Cartridge = () => {
   return (
@@ -16,22 +15,10 @@ const Cartridge = () => {
         <div className="container_line_cartridge">
           <img src={lineCartridgeImg} alt="line_cartridge_img" />
           <h6>
-            Картриджи поддерживают сопротивления 0.6Ω, 0.8Ω, 1.0Ω, 1.2Ω что
-            позволяет выбрать идеальный режим парения — от плотных облаков до
-            мягкой сигаретной затяжки. Совместимы со всей линейкой Xros Pro/3/
-            Nano
+            Широкий выбор картриджей (0.6Ω–1.2Ω) для любого стиля парения — от
+            мощных облаков до лёгкой затяжки. Полная совместимость с Xros
+            Pro/3/Nano.
           </h6>
-        </div>
-        <div className="container_info_cartridge">
-          <img src={cartridgeImg} alt="cartridge_img" />
-          <p>
-            Новые картриджи Xros Pro сочетают в себе передовые технологии и
-            удобство. Они оснащены Mesh-нагревателем для яркого вкуса и плотного
-            пара, а также Anti-Leak системой, которая предотвращает протекание.
-            они обеспечивают простую заправку через Top-Filling и долгий срок
-            службы — до 3 недель. Стильный дизайн и надёжность делают их
-            идеальным выбором для любого вейпера.
-          </p>
         </div>
       </div>
     </section>

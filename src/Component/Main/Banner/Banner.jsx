@@ -18,6 +18,7 @@ const Banner = () => {
   useEffect(() => {
     onEditDataPages();
   }, []);
+  
   useEffect(() => {
     const interval = setInterval(() => {
       onMovePage(1);

@@ -1,7 +1,6 @@
 button {
   cursor: pointer;
-  padding: clamp(8px, 1.5vw, 12px) clamp(20px, 3vw, 30px);
-  font-size: clamp(12px, 1.5vw, 22px);
+  padding: clamp(4px, 1.5vw, 12px) clamp(15px, 3vw, 30px);
   font-weight: 500;
   color: white;
   background-color: black;

@@ -1,5 +1,6 @@
 import "./BannerAs.css";
 import xrosAssortImg from "../../../../public/img/image 16.png";
+import { Link } from "react-router";
 
 const BannerAs = () => {
   return (
@@ -9,7 +10,9 @@ const BannerAs = () => {
           <h3>
             Не теряй время <br /> на поиск <span> XROS PRO</span>
           </h3>
-          <button>XROS PRO</button>
+          <Link>
+            <h6>Подробнее</h6>
+          </Link>
         </div>
         <img src={xrosAssortImg} alt="xros_assort_img" />
       </div>
@@ -18,7 +21,9 @@ const BannerAs = () => {
           Не теряй время <br /> на поиск <span> XROS PRO</span>
         </h3>
         <img src={xrosAssortImg} alt="xros_assort_img" />
-        <button>XROS PRO</button>
+        <Link>
+          <h6>Подробнее</h6>
+        </Link>
       </div>
     </section>
   );

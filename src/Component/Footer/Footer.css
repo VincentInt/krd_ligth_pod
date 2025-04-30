@@ -4,6 +4,9 @@ footer {
   padding: clamp(20px, 5vw, 80px) 20px;
   color: white;
   background-color: black;
+  a {
+    color: white;
+  }
   .container_footer {
     width: 1400px;
     .container_warning {
@@ -35,7 +38,7 @@ footer {
         }
         .links {
           display: flex;
-          gap: clamp( 20px, 5vw, 30px);
+          gap: clamp(20px, 5vw, 30px);
           a {
             h6 {
               font-weight: 500;

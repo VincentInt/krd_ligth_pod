@@ -61,9 +61,13 @@ const Products = () => {
 
   useEffect(() => {
     onCheckSize();
-    window.onresize = () => {
-      onCheckSize();
-    };
+    window.addEventListener(
+      "resize",
+      () => {
+        onCheckSize();
+      },
+      true
+    );
   }, []);
 
   function onCheckSize() {

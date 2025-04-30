@@ -90,12 +90,27 @@ const ProductCard = ({ item, typeProducts }) => {
               );
             })}
             <div className="container_price">
-              <h5 className="text_price">
-                {new Intl.NumberFormat("ru", {
-                  maximumFractionDigits: 0,
-                }).format(item.price)}
-                ₽
-              </h5>
+              <div className="price">
+                {item.discount ? (
+                  <h5
+                    style={{ content: item.discount }}
+                    className="text_discount"
+                  >
+                    {new Intl.NumberFormat("ru", {
+                      maximumFractionDigits: 0,
+                    }).format(item.price)}
+                    ₽
+                  </h5>
+                ) : (
+                  ""
+                )}
+                <h5 className="text_price">
+                  {new Intl.NumberFormat("ru", {
+                    maximumFractionDigits: 0,
+                  }).format(item.discount ? item.discount : item.price)}
+                  ₽
+                </h5>
+              </div>
               <button
                 onClick={
                   addBasketStatus ? onChangeAddBasket : onChangeDeleteBasket

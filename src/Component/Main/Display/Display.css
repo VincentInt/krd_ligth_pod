@@ -2,20 +2,20 @@
   display: flex;
   justify-content: center;
   margin: 0px 20px;
-  margin-top: clamp(130px, 22vw, 300px);
+  margin-top: clamp(60px, 15vw, 200px);
   color: white;
   .container_display {
     display: flex;
-    justify-content: space-between;
     width: 1200px;
-    gap: 30px;
+    gap: clamp(10px, 5vw, 150px);
     img {
-      width: clamp(120px, 25vw, 280px);
+      width: clamp(100px, 25vw, 280px);
       object-fit: contain;
     }
     .container_text {
       display: flex;
       flex-direction: column;
+      max-width: clamp(200px, 60vw, 700px);
       gap: clamp(4px, 1.5vw, 20px);
       .gradient_text {
         color: transparent;
@@ -28,7 +28,7 @@
         background-size: 150% 150%;
       }
       p {
-        max-width: clamp(500px, 60vw, 800px);
+        text-align: left;
       }
     }
   }

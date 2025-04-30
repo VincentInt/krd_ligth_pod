@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: clamp(130px, 22vw, 300px);
+  margin-top: clamp(60px, 15vw, 200px);
   background: linear-gradient(
     90deg,
     rgba(0, 254, 203, 1) 0%,
@@ -12,18 +12,24 @@
     display: flex;
     align-items: center;
     width: 1200px;
-    gap: clamp(10px, 2vw, 40px);
+    gap: clamp(20px, 5vw, 80px);
     img {
-      width: clamp(130px, 32vw, 510px);
+      width: clamp(130px, 32vw, 480px);
+      object-fit: contain;
     }
     .container_text_banner_ad {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(2px, 1.2vw, 20px);
       .container_price {
         display: flex;
         align-items: center;
-        margin-top: clamp(0px, 1.1vw, 10px);
-        gap: 30px;
-        h3 {
-          font-weight: 500;
+        gap: clamp(2px, 1.2vw, 20px);
+        a {
+          h4 {
+            font-weight: 800;
+            text-decoration: underline;
+          }
         }
       }
     }

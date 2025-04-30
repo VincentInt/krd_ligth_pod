@@ -23,20 +23,20 @@
   0% {
   }
   100% {
-    width: 20px;
+    width: clamp(15px, 4vw, 20px);
   }
 }
 @keyframes medium_state {
   0% {
   }
   100% {
-    width: 40px;
+    width: clamp(30px, 5vw, 40px);
   }
 }
 @keyframes select_state {
   0% {
   }
   100% {
-    width: 90px;
+    width: clamp(60px, 10vw, 90px);
   }
 }

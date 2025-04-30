@@ -6,19 +6,17 @@ export const advantagesData = [
   {
     img: lightningIconImg,
     cardText: "35 М",
-    advantagesText:
-      "Быстрая зарядка – долгие наслаждения! Каждый вдох, каждый момент!",
+    advantagesText: "Быстрая зарядка, больше удовольствия без остановки!",
   },
   {
     img: dropIconImg,
     cardText: "3 МЛ",
     advantagesText:
-      "Забудьте о постоянно заправке! Благодаря объему новых картриджей",
+      "Новые картриджи с увеличенным объемом!",
   },
   {
     img: bicepsIconImg,
     cardText: "30 W",
-    advantagesText:
-      "Использовать мощность стало проще! Благодаря точной регулировке!",
+    advantagesText: "Мощность под контролем! Точная настройка одним движением!",
   },
 ];

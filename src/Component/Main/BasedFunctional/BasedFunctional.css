@@ -1,7 +1,8 @@
 .section_based_functional {
   display: flex;
   justify-content: center;
-  margin: clamp(100px, 22vw, 200px) 20px;
+  margin: 0px 20px;
+  margin-top: clamp(40px, 12vw, 200px);
   color: white;
   .container_based_functional {
     width: 1200px;
@@ -21,8 +22,7 @@
     }
     .container_functionals {
       display: flex;
-      margin-top: 100px;
-      margin: clamp(40px, 15vw, 100px) 0px;
+      margin: clamp(20px, 10vw, 100px) 0px;
       gap: 25px;
       .item_functional {
         width: clamp(250px, 30vw, 310px);

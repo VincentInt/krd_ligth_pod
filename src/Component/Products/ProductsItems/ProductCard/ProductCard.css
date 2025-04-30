@@ -58,8 +58,15 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          .text_price {
-            margin-top: 10px;
+          .price {
+            position: relative;
+            margin-top: 20px;
+          }
+          .text_discount {
+            top: -60%;
+            position: absolute;
+            font-size: clamp(6px, 1.6vw, 14px);
+            text-decoration: line-through;
           }
           .btn_add_basket,
           .btn_delete_basket {

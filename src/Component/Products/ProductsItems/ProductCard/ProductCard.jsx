@@ -92,7 +92,7 @@ const ProductCard = ({ item, typeProducts }) => {
             <div className="container_price">
               <div className="price">
                 {item.discount ? (
-                  <h5
+                  <h6
                     style={{ content: item.discount }}
                     className="text_discount"
                   >
@@ -100,7 +100,7 @@ const ProductCard = ({ item, typeProducts }) => {
                       maximumFractionDigits: 0,
                     }).format(item.price)}
                     ₽
-                  </h5>
+                  </h6>
                 ) : (
                   ""
                 )}

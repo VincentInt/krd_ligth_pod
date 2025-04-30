@@ -29,7 +29,6 @@
             position: absolute;
             text-decoration: line-through;
           }
-
         }
         .container_img {
           display: flex;
@@ -140,13 +139,14 @@
     .container_adaptive_nav {
       display: flex;
       align-items: center;
-      margin-top: 15px;
+      margin-top: 25px;
       gap: 20px;
       .container_count_items {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: clamp(10px, 1.5vw, 25px);
+
         .container_text_count {
           display: flex;
           justify-content: center;

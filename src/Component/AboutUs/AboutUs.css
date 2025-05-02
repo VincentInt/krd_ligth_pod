@@ -20,6 +20,13 @@
           flex-direction: column;
           margin-left: 20px;
           gap: 30px;
+          .container_list {
+            .item_list {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+          }
           a {
             font-weight: 800;
           }

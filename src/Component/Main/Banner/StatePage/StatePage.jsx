@@ -6,7 +6,7 @@ const StatePage = ({ dataPages, statePage }) => {
       {dataPages.map((item, index) => {
         return (
           <div
-            key={item.id}
+            key={index}
             className={
               statePage === index
                 ? "select_item_state_page"

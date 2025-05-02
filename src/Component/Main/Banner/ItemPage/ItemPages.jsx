@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./ItemPages.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -41,8 +42,6 @@ const ItemPages = ({
           resolutionPages.selectPage.width) /
           2
       }px)`;
-      console.log(1);
-      
       setTimeout(() => {
         containerPagesRef.current.style.transition = "all 0.2s ease";
         containerPagesRef.current.style.transform = `translateX(-${
@@ -147,6 +146,7 @@ const ItemPages = ({
       {dataPages.map((item, index) => {
         return (
           <div
+            key={index}
             style={
               resolutionPages.selectPage.width
                 ? previewState === index
@@ -163,7 +163,6 @@ const ItemPages = ({
                   : () => onChangeMovePage(1)
                 : () => {}
             }
-            key={item.id}
             className={
               previewState === index ? "select_item_page" : "item_page"
             }
@@ -178,7 +177,19 @@ const ItemPages = ({
                 : (e) => onMouseEnterPage(e, index)
             }
           >
-            <div style={{ background: item.img }} className="page"></div>
+            <div
+              style={{ backgroundImage: `url(${item.img})` }}
+              className="page"
+            >
+              <div className="container_content_page">
+                <div className="container_text">
+                  <h5>{item.text}</h5>
+                  <Link to={item.path}>
+                    <h6>Подробнее</h6>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         );
       })}

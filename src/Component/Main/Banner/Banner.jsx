@@ -2,14 +2,10 @@ import "./Banner.css";
 import { useEffect, useState } from "react";
 import ItemPages from "./ItemPage/ItemPages";
 import StatePage from "./StatePage/StatePage";
+import pages from "./data/dataPages";
 
 const Banner = () => {
-  const [dataPages, setDataPages] = useState([
-    { id: 1, img: "red" },
-    { id: 2, img: "white" },
-    { id: 3, img: "blue" },
-    { id: 4, img: "yellow" },
-  ]);
+  const [dataPages, setDataPages] = useState([...pages]);
 
   const [statePage, setStatePage] = useState(0);
   const [previewState, setPreviewState] = useState(1);
@@ -18,7 +14,6 @@ const Banner = () => {
   useEffect(() => {
     onEditDataPages();
   }, []);
-  
   useEffect(() => {
     const interval = setInterval(() => {
       onMovePage(1);
@@ -36,25 +31,25 @@ const Banner = () => {
     onEditDataPages(move);
   }
   function onEditDataPages(move = 0) {
-    setPreviewState((prev) => {
-      if (prev + move === 0) {
-        setDataPages((prev) => [
-          prev[prev.length - 1],
-          ...prev.slice(0, prev.length - 1),
-        ]);
-        setStatusBack(true);
-        return prev + move + 1;
-      } else if (prev + move === dataPages.length - 1) {
-        setDataPages((prev) => {
-          return [...prev.slice(1, prev.length), prev[0]];
-        });
-        setStatusBack(true);
-        return prev + move - 1;
-      } else {
-        setStatusBack(false);
-        return prev + move;
-      }
-    });
+    const nextMove = move + previewState;
+
+    if (nextMove === 0) {
+      setDataPages((prev) => [
+        prev[prev.length - 1],
+        ...prev.slice(0, prev.length - 1),
+      ]);
+      setStatusBack(true);
+      setPreviewState(1);
+    } else if (nextMove === dataPages.length - 1) {
+      setDataPages((prev) => {
+        return [...prev.slice(1, prev.length), prev[0]];
+      });
+      setStatusBack(true);
+      setPreviewState(nextMove - 1);
+    } else {
+      setStatusBack(false);
+      setPreviewState(nextMove);
+    }
   }
   return (
     <section className="section_banner">

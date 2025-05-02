@@ -33,7 +33,7 @@ const Basket = () => {
     <section className="section_basket">
       <div className="basket">
         <div className="container_title">
-          <h3>Корзина</h3>
+          <h2>Корзина</h2>
         </div>
         {stateProductsBasket.length > 0 ? (
           <div className="container_basket">

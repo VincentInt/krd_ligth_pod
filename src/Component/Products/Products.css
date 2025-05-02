@@ -3,6 +3,7 @@
   justify-content: center;
   min-height: 100vh;
   padding: clamp(30px, 7vw, 60px) 20px;
+  padding-bottom: clamp(50px, 9vw, 120px);
   background-color: white;
   .container_products {
     width: 1400px;
@@ -38,13 +39,7 @@
 }
 @media (max-width: 960px) {
   .section_products {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    padding: clamp(30px, 7vw, 60px) 20px;
-    background-color: white;
     .container_products {
-      width: 1400px;
       .container_nav_product {
         display: flex;
         justify-content: space-between;

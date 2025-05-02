@@ -1,5 +1,5 @@
 import "./Products.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import FilterNav from "./FilterNav/FilterNav";
 import SortNav from "./SortNav/SortNav.jsx";
@@ -21,6 +21,19 @@ const Products = () => {
     sortType: "убывание",
   });
   const [stateFilterOptions, setStateFilterOptions] = useState([]);
+  
+  const titleText = useMemo(() => {
+    switch (typeProductsParams) {
+      case "disposablePods":
+        return "Одноразки";
+      case "podSystems":
+        return "Под-системы";
+      case "eLiquids":
+        return "Жидкости";
+      default:
+        return "";
+    }
+  }, [typeProductsParams]);
 
   useEffect(() => {
     const dataFilterOptions = dataFilters[typeProductsParams].map((item) => ({
@@ -31,7 +44,6 @@ const Products = () => {
         ? filterParamsOptions(dataFilterOptions, filterParams)
         : dataFilterOptions
     );
-
     setSortState({
       sortName: "по популярности",
       sortType: "убывание",
@@ -69,7 +81,6 @@ const Products = () => {
       true
     );
   }, []);
-
   function onCheckSize() {
     if (window.screen.width > 960) {
       setStateDropFilter(null);
@@ -82,7 +93,7 @@ const Products = () => {
       <div className="container_products">
         <div className="container_title">
           <div className="title">
-            <h3>Одноразовые</h3>
+            <h2>{titleText}</h2>
             <h5 className="text_count_product">
               {dataProducts[typeProductsParams].length} товаров
             </h5>

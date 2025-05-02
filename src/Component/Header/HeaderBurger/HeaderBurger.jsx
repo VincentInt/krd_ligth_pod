@@ -115,18 +115,14 @@ const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
           </div>
           <div className="container_items_header">
             <div className="container_contact">
-              <div className="item_contact">
+              <a href="https://t.me/USLISHAL_ZOV">
                 <img src={telegramImg} alt="telegram_img" />
-                <a href="https://t.me/USLISHAL_ZOV">
-                  <h5>USLISHAL_ZOV</h5>
-                </a>
-              </div>
-              <div className="item_contact">
+                <h5>USLISHAL_ZOV</h5>
+              </a>
+              <a href="tel:+7 918 988 777">
                 <img src={phoneImg} alt="phone_img" />
-                <a href="tel:+7 918 988 777">
-                  <h5>+7 918 988 777</h5>
-                </a>
-              </div>
+                <h5>+7 918 988 777</h5>
+              </a>
             </div>
           </div>
         </div>

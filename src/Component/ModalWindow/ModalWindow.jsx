@@ -1,36 +1,44 @@
-import { useDispatch, useSelector } from "react-redux";
-import Button from "../../UI/Button/Button";
 import "./ModalWindow.css";
+import Button from "../../UI/Button/Button";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { editCookie } from "../../store/cookieSlice/cookieSlice";
+import { editViewModalWindow } from "../../store/modalWindowSlice/modalWindowSlice";
 
-const ModalWindow = () => {
+const ModalWindow = ({ setStateBodyOverflow }) => {
   const dispatch = useDispatch();
+
   const editCookieReducer = editCookie;
+  const editOpenModalWindow = editViewModalWindow;
 
   const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
-
-  const [modalWindowOpen, setModalWindowOpen] = useState();
+  const modalWindowOpen = useSelector(
+    (state) => state.modalWindowReducer.modalWindow
+  );
 
   useEffect(() => {
-    setModalWindowOpen(() =>
-      typeof cookieSelector?.adult === "boolean" ? !cookieSelector?.adult : true
+    dispatch(
+      editOpenModalWindow(
+        typeof cookieSelector?.adult === "boolean"
+          ? !cookieSelector?.adult
+          : true
+      )
     );
   }, []);
 
   useEffect(() => {
-    if (modalWindowOpen) {
-      setTimeout(() => {
+    if (typeof modalWindowOpen === "boolean") {
+      if (modalWindowOpen) {
         window.scrollTo({ top: 0, behavior: "smooth" });
-        document.body.style.overflowY = "hidden";
-      }, 0);
-    } else {
-      document.body.style.overflowY = "scroll";
+        setStateBodyOverflow((prev) => ({ ...prev, modalWindow: "hidden" }));
+      } else {
+        setStateBodyOverflow((prev) => ({ ...prev, modalWindow: "scroll" }));
+      }
     }
   }, [modalWindowOpen]);
 
   function onChangeBtn(bool) {
-    setModalWindowOpen(false);
+    dispatch(editOpenModalWindow(false));
     dispatch(editCookieReducer({ adult: bool }));
   }
   return (
@@ -44,7 +52,7 @@ const ModalWindow = () => {
                 onClick={() => onChangeBtn(true)}
                 style={{ border: "2px solid black" }}
               >
-                Да
+                <h6>Да</h6>
               </Button>
               <Button
                 onClick={() => onChangeBtn(false)}
@@ -54,7 +62,7 @@ const ModalWindow = () => {
                   border: "2px solid black",
                 }}
               >
-                Нет
+                <h6> Нет</h6>
               </Button>
             </div>
           </div>

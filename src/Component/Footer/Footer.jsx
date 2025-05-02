@@ -13,7 +13,11 @@ const Footer = () => {
             <div className="links">
               {dataLinksFooter.mainLinks.map((item, index) => {
                 return (
-                  <Link key={index} to={item.path}>
+                  <Link
+                    key={index}
+                    onClick={() => window.scroll(0, 0)}
+                    to={item.path}
+                  >
                     <h6>{item.name}</h6>
                   </Link>
                 );
@@ -22,7 +26,11 @@ const Footer = () => {
             <div className="links">
               {dataLinksFooter.productsLinks.map((item, index) => {
                 return (
-                  <Link key={index} to={item.path}>
+                  <Link
+                    key={index}
+                    onClick={() => window.scroll(0, 0)}
+                    to={item.path}
+                  >
                     <h6>{item.name}</h6>
                   </Link>
                 );

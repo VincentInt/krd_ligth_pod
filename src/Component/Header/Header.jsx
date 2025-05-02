@@ -4,7 +4,7 @@ import HeaderBurger from "./HeaderBurger/HeaderBurger";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
 
-const Header = () => {
+const Header = ({ setStateBodyOverflow }) => {
   const params = useParams();
 
   const [dropHeader, setDropHeader] = useState({ click: {}, status: false });
@@ -59,20 +59,17 @@ const Header = () => {
       dropBurgerMenuRef.current.style.display = "block";
       dropBurgerMenuRef.current.style.opacity = "100%";
       dropBurgerMenuRef.current.children[0].style.transform = "translateX(0%)";
-
-      document.body.style.overflowY = "hidden";
+      setStateBodyOverflow((prev) => ({ ...prev, header: "hidden" }));
     } else if (
       Object.keys(dropHeader.click).length === 0 ||
-      dropHeader?.click?.target == dropBurgerMenuRef.current ||
+      dropHeader.click?.target == dropBurgerMenuRef.current ||
       dropHeader.status
     ) {
       dropBurgerMenuRef.current.children[0].style.transform =
         "translateX(100%)";
       dropBurgerMenuRef.current.style.opacity = "0%";
-      setTimeout(() => {
-        dropBurgerMenuRef.current.style.display = "none";
-        document.body.style.overflowY = "scroll";
-      }, 200);
+      dropBurgerMenuRef.current.style.display = "none";
+      setStateBodyOverflow((prev) => ({ ...prev, header: "scroll" }));
     }
   }, [dropHeader]);
   return (

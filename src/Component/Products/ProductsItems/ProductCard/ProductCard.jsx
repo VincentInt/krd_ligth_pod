@@ -7,12 +7,14 @@ import {
   addBasket,
   deleteBasket,
 } from "../../../../store/basketSlice/basketSlice";
+import { editViewModalWindow } from "../../../../store/modalWindowSlice/modalWindowSlice";
 
 const ProductCard = ({ item, typeProducts }) => {
   const dispatch = useDispatch();
 
   const addBasketReducer = addBasket;
   const deleteBasketReducer = deleteBasket;
+  const stateOpenModalWindow = editViewModalWindow;
 
   const basketSelector = useSelector((state) => state.basketReducer.basket);
   const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
@@ -46,12 +48,22 @@ const ProductCard = ({ item, typeProducts }) => {
   function onChangeDeleteBasket() {
     dispatch(deleteBasketReducer({ type: typeProducts, id: item.id }));
   }
+  function onChangeOpenModalWindow() {
+    dispatch(stateOpenModalWindow(true));
+  }
   return (
     <div className="container_item_card">
       <div className="item_card">
         <div className="container_img">
+          {statusBlurImg ? (
+            <button onClick={onChangeOpenModalWindow}>
+              <h3>+18</h3>
+            </button>
+          ) : (
+            ""
+          )}
           <img
-            style={statusBlurImg ? { filter: "blur(6px)" } : {}}
+            style={statusBlurImg ? { filter: "blur(8px)" } : {}}
             src={item.img}
             alt="card_img"
           />

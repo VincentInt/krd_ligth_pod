@@ -9,7 +9,7 @@ import dataLinksHeader from "../data/dataLinksHeader";
 
 const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
   const params = useParams();
-  
+
   const [dropCatalog, setDropCatalog] = useState(false);
   const [dropProductsCatalog, setDropProductsCatalog] = useState([]);
 
@@ -39,7 +39,7 @@ const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
   useEffect(() => {
     if (dropHeader.status === false) {
       setDropCatalog(false);
-      setDropProductsCatalog([])
+      setDropProductsCatalog([]);
     }
   }, [dropHeader]);
 
@@ -72,13 +72,20 @@ const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
                           </button>
                           {dropProductsCatalog.includes(item.type) ? (
                             <div className="container_selected_links">
-                              <Link to={item.path}>
+                              <Link
+                                onClick={() => window.scroll(0, 0)}
+                                to={item.path}
+                              >
                                 <h5 className="text_link">Все товары</h5>
                               </Link>
                               {dataDropProducts[item.type].map(
                                 (item, index) => {
                                   return (
-                                    <Link key={index} to={item.path}>
+                                    <Link
+                                      key={index}
+                                      onClick={() => window.scroll(0, 0)}
+                                      to={item.path}
+                                    >
                                       <h5 className="text_link">{item.name}</h5>
                                     </Link>
                                   );

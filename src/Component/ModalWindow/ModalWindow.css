@@ -1,6 +1,6 @@
 .section_modal_window {
   z-index: 10;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.512);
   .modal_window {
-    padding: 100px 120px;
+    padding: clamp(50px, 20vw, 100px) clamp(60px, 20vw, 120px);
     border-radius: 12px;
     background-color: white;
     .container_btn {

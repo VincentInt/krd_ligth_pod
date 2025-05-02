@@ -3,9 +3,9 @@ import logoImg from "../../../../public/img/Logo.png";
 import burgerMenuImg from "../../../../public/img/icon/icons8-гамбургер-меню-50.png";
 import catalogImg from "../../../../public/img/icon/icons8-каталог-64.png";
 import dataDropProducts from "../data/dataDropProducts";
+import dataLinksHeader from "../data/dataLinksHeader";
 import { Link, useParams } from "react-router";
 import { useEffect } from "react";
-import dataLinksHeader from "../data/dataLinksHeader";
 
 const HeaderContent = ({
   stateDropProducts,
@@ -69,7 +69,11 @@ const HeaderContent = ({
           </button>
           {dataLinksHeader.headerBtn.map((item, index) => {
             return (
-              <Link key={index} to={item.path}>
+              <Link
+                key={index}
+                onClick={() => window.scroll(0, 0)}
+                to={item.path}
+              >
                 <img src={item.img} alt="header_btn_img" />
                 <h6>{item.name}</h6>
               </Link>
@@ -84,6 +88,7 @@ const HeaderContent = ({
                   return (
                     <Link
                       key={index}
+                      onClick={() => window.scroll(0, 0)}
                       className={
                         stateDropProducts.name === item.type ||
                         stateDropProducts.name === ""
@@ -101,7 +106,11 @@ const HeaderContent = ({
               <div className="products_links">
                 {stateDropProducts.value?.map((item, index) => {
                   return (
-                    <Link to={item.path} key={index}>
+                    <Link
+                      key={index}
+                      onClick={() => window.scroll(0, 0)}
+                      to={item.path}
+                    >
                       <h6>{item.name}</h6>
                     </Link>
                   );

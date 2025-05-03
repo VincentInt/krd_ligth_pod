@@ -15,14 +15,14 @@ const dataPages = [
     img: bannerXrosImg,
   },
   {
-    text: "Широкий выбор только в наших магазинах",
-    path: "products/disposablePods/",
-    img: bannerVapeImg,
-  },
-  {
     text: "Множество жижь для ваших подов",
     path: "/products/eLiquids/",
     img: bannerWireImg,
+  },
+  {
+    text: "Широкий выбор только в наших магазинах",
+    path: "products/disposablePods/",
+    img: bannerVapeImg,
   },
 ];
 

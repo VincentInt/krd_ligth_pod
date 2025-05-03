@@ -19,6 +19,7 @@ const ItemPages = ({
       height: 0,
     },
   });
+  const [stateClick, setStateClick] = useState(false);
   const containerPagesRef = useRef(null);
 
   useEffect(() => {
@@ -34,6 +35,10 @@ const ItemPages = ({
   }, []);
   useEffect(() => {
     if (statusBack) {
+      const prevBannerPageElem = [...containerPagesRef.current.children][
+        previewState - 1
+      ];
+
       containerPagesRef.current.style.transition = "";
       containerPagesRef.current.style.transform = `translateX(-${
         resolutionPages.smallPage.width *
@@ -42,17 +47,22 @@ const ItemPages = ({
           resolutionPages.selectPage.width) /
           2
       }px)`;
+
+      prevBannerPageElem.style.animation = "select_page_item 0s ease forwards";
+
       setTimeout(() => {
-        containerPagesRef.current.style.transition = "all 0.2s ease";
+        prevBannerPageElem.style.animation =
+          "small_page_item 0.5s ease forwards";
+        containerPagesRef.current.style.transition = "all 0.5s ease";
         containerPagesRef.current.style.transform = `translateX(-${
           resolutionPages.smallPage.width * previewState -
           (containerPagesRef.current.offsetWidth -
             resolutionPages.selectPage.width) /
             2
         }px)`;
-      }, 100);
+      }, 10);
     } else {
-      containerPagesRef.current.style.transition = "all 0.2s ease";
+      containerPagesRef.current.style.transition = "all 0.5s ease";
       containerPagesRef.current.style.transform = `translateX(-${
         resolutionPages.smallPage.width * previewState -
         (containerPagesRef.current.offsetWidth -
@@ -70,48 +80,50 @@ const ItemPages = ({
       }
     }
   }, [statePage]);
+  useEffect(() => {
+    setStateClick(true);
+    setTimeout(() => {
+      setStateClick(false);
+    }, 500);
+  }, [statePage]);
 
   function onChangeMovePage(move) {
     onMovePage(move);
   }
   function onMouseEnterPage(event, index) {
+    const coord = +[...containerPagesRef.current.style.transform]
+      .filter((item) => item === "." || !isNaN(+item))
+      .join("");
+
     if (event.type === "mouseenter") {
       if (event.target.className === "item_page") {
         event.target.style.height = `${resolutionPages.selectPage.height}px`;
       } else if (event.target.parentElement.className === "item_page") {
         event.target.parentElement.style.height = `${resolutionPages.selectPage.height}px`;
       }
-
       if (index - previewState > 0) {
         containerPagesRef.current.style.transform = `translateX(-${
-          resolutionPages.smallPage.width * previewState +
-          50 -
-          (containerPagesRef.current.offsetWidth -
-            resolutionPages.selectPage.width) /
-            2
+          coord + 50
         }px)`;
       } else {
         containerPagesRef.current.style.transform = `translateX(-${
+          coord - 50
+        }px)`;
+      }
+    } else if (event.type === "mouseleave") {
+      if (!stateClick) {
+        if (event.target.className === "item_page") {
+          event.target.style.height = `${resolutionPages.smallPage.height}px`;
+        } else if (event.target.parentElement.className === "item_page") {
+          event.target.parentElement.style.height = `${resolutionPages.smallPage.height}px`;
+        }
+        containerPagesRef.current.style.transform = `translateX(-${
           resolutionPages.smallPage.width * previewState -
-          50 -
           (containerPagesRef.current.offsetWidth -
             resolutionPages.selectPage.width) /
             2
         }px)`;
       }
-    } else if (event.type === "mouseleave") {
-      if (event.target.className === "item_page") {
-        event.target.style.height = `${resolutionPages.smallPage.height}px`;
-      } else if (event.target.parentElement.className === "item_page") {
-        event.target.parentElement.style.height = `${resolutionPages.smallPage.height}px`;
-      }
-
-      containerPagesRef.current.style.transform = `translateX(-${
-        resolutionPages.smallPage.width * previewState -
-        (containerPagesRef.current.offsetWidth -
-          resolutionPages.selectPage.width) /
-          2
-      }px)`;
     }
   }
   function resolutionPagesFunc() {
@@ -150,8 +162,8 @@ const ItemPages = ({
             style={
               resolutionPages.selectPage.width
                 ? previewState === index
-                  ? { animation: "select_page_item 0.2s ease forwards" }
-                  : { animation: "small_page_item 0.2s ease forwards" }
+                  ? { animation: "select_page_item 0.5s ease forwards" }
+                  : { animation: "small_page_item 0.5s ease forwards" }
                 : previewState === index
                 ? { animation: "select_page_item 0s ease forwards" }
                 : { animation: "small_page_item 0s ease forwards" }
@@ -177,10 +189,8 @@ const ItemPages = ({
                 : (e) => onMouseEnterPage(e, index)
             }
           >
-            <div
-              style={{ backgroundImage: `url(${item.img})` }}
-              className="page"
-            >
+            <div className="page">
+              <img className="img_page" src={item.img} alt="img_banner_page" />
               <div className="container_content_page">
                 <div className="container_text">
                   <h5>{item.text}</h5>

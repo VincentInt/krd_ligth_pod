@@ -31,44 +31,60 @@ const Header = ({ setStateBodyOverflow }) => {
       headerFixedRef.current.style.top = "0px";
     }
     dropBurgerMenuRef.current.style.top = `${headerRef.current.offsetHeight}px`;
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (window.scrollY > headerRef.current.offsetHeight * 4) {
+          headerFixedRef.current.style.top = "0px";
+        } else {
+          headerFixedRef.current.style.top = "-100%";
+        }
+      },
+      true
+    );
+    window.addEventListener(
+      "resize",
+      () => {
+        if (
+          window.screen.width > 960 &&
+          dropBurgerMenuRef.current.style.display === "block"
+        ) {
+          dropBurgerMenuRef.current.children[0].style.transform =
+            "translateX(100%)";
+          dropBurgerMenuRef.current.style.opacity = "0%";
+          setTimeout(() => {
+            dropBurgerMenuRef.current.style.display = "none";
+            setDropHeader({ click: {}, status: false });
+          }, 200);
+        }
+        dropBurgerMenuRef.current.style.top = `${headerRef.current.offsetHeight}px`;
+      },
+      true
+    );
   }, []);
-  window.onscroll = () => {
-    if (window.scrollY > headerRef.current.offsetHeight * 4) {
-      headerFixedRef.current.style.top = "0px";
-    } else {
-      headerFixedRef.current.style.top = "-100%";
-    }
-  };
-  window.onresize = () => {
-    if (
-      window.screen.width > 960 &&
-      dropBurgerMenuRef.current.style.display === "block"
-    ) {
-      dropBurgerMenuRef.current.children[0].style.transform =
-        "translateX(100%)";
-      dropBurgerMenuRef.current.style.opacity = "0%";
-      setTimeout(() => {
-        dropBurgerMenuRef.current.style.display = "none";
-        setDropHeader({ click: {}, status: false });
-      }, 200);
-    }
-    dropBurgerMenuRef.current.style.top = `${headerRef.current.offsetHeight}px`;
-  };
+
   useEffect(() => {
+    const currentDropBurger = dropBurgerMenuRef.current;
     if (dropHeader.status) {
-      dropBurgerMenuRef.current.style.display = "block";
-      dropBurgerMenuRef.current.style.opacity = "100%";
-      dropBurgerMenuRef.current.children[0].style.transform = "translateX(0%)";
+      currentDropBurger.style.display = "block";
+
+      setTimeout(() => {
+        currentDropBurger.style.opacity = "100%";
+        currentDropBurger.children[0].style.transform = "translateX(0%)";
+      }, 0);
+
       setStateBodyOverflow((prev) => ({ ...prev, header: "hidden" }));
     } else if (
       Object.keys(dropHeader.click).length === 0 ||
-      dropHeader.click?.target == dropBurgerMenuRef.current ||
+      dropHeader.click?.target == currentDropBurger ||
       dropHeader.status
     ) {
-      dropBurgerMenuRef.current.children[0].style.transform =
-        "translateX(100%)";
-      dropBurgerMenuRef.current.style.opacity = "0%";
-      dropBurgerMenuRef.current.style.display = "none";
+      currentDropBurger.children[0].style.transform = "translateX(100%)";
+      currentDropBurger.style.opacity = "0%";
+      setTimeout(() => {
+        currentDropBurger.style.display = "none";
+      }, 500);
+
       setStateBodyOverflow((prev) => ({ ...prev, header: "scroll" }));
     }
   }, [dropHeader]);

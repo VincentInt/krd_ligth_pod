@@ -3,9 +3,9 @@ import telegramImg from "../../../../public/img/icon/image 18.png";
 import phoneImg from "../../../../public/img/icon/image 19.png";
 import catalogImg from "../../../../public/img/icon/icons8-каталог-64.png";
 import dataDropProducts from "../data/dataDropProducts";
+import dataLinksHeader from "../data/dataLinksHeader";
 import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
-import dataLinksHeader from "../data/dataLinksHeader";
 
 const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
   const params = useParams();

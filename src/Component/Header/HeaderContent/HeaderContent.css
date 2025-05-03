@@ -3,7 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1400px;
+  max-width: 1400px;
+  width: 100%;
   margin: 0px 15px;
   .logo {
     img {
@@ -41,10 +42,10 @@
           flex-direction: column;
           gap: 20px;
           &:first-child {
-            width: clamp(170px, 15vw ,200px);
+            width: clamp(170px, 15vw, 200px);
           }
           &:last-child {
-            width: clamp(180px, 15vw ,240px);
+            width: clamp(180px, 15vw, 240px);
           }
           .select {
             opacity: 100%;

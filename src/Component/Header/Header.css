@@ -7,10 +7,10 @@
 .header_fixed {
   display: flex;
   justify-content: center;
-  width: 100%;
   padding: 15px 0px;
+  width: 100%;
   background-color: black;
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
   z-index: 10;
   a {
     color: white;

@@ -95,11 +95,21 @@
           display: flex;
           justify-content: center;
           margin-top: clamp(15px, 3vw, 30px);
+          a {
+            cursor: pointer;
+            padding: clamp(4px, 1.5vw, 12px) clamp(15px, 3vw, 30px);
+            font-weight: 500;
+            color: white;
+            background-color: black;
+            border: none;
+            border-radius: clamp(10px, 3vw, 16px);
+          }
         }
       }
     }
   }
 }
+
 @media (max-width: 2160px) {
   .section_product_palette {
     .container_product_line {

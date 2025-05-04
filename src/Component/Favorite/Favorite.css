@@ -1,0 +1,26 @@
+.section_favorite {
+  display: flex;
+  justify-content: center;
+  min-height: 70vh;
+  padding: clamp(30px, 7vw, 60px) 20px;
+  padding-bottom: clamp(50px, 9vw, 120px);
+  background-color: white;
+  .container_favorite {
+    display: flex;
+    flex-direction: column;
+    width: 1400px;
+    gap: 20px;
+    .container_clear_favorite {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 150px;
+      gap: 15px;
+    }
+    .container_cards {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}

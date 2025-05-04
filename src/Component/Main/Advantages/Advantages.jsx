@@ -10,9 +10,9 @@ const Advantages = () => {
             <div className="gradient_text">
               <h2>1200 мАч</h2>
             </div>
-            <h3>
-              Наслаждайтесь до 400 мгновениями удовольствия на одной зарядке
-            </h3>
+            <h2>
+              Огромный запас для вас
+            </h2>
           </div>
         </div>
         <div className="container_advantages_items">

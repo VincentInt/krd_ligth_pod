@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import cookieSlice from "./cookieSlice/cookieSlice";
 import basketSlice from "./basketSlice/basketSlice";
 import modalWindowSlice from "./modalWindowSlice/modalWindowSlice";
+import favoriteSlice from "./favoriteSlice/favoriteSlice";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 export const store = configureStore(
@@ -10,6 +11,7 @@ export const store = configureStore(
       cookieReducer: cookieSlice,
       basketReducer: basketSlice,
       modalWindowReducer: modalWindowSlice,
+      favoriteReducer: favoriteSlice,
     },
   },
   composeWithDevTools()

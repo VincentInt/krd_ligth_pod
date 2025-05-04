@@ -3,7 +3,7 @@
   justify-content: center;
   color: white;
   margin: 0px 20px;
-  margin-top: clamp(10px, 8vw, 200px);
+  margin-top: clamp(150px, 15vw, 200px);
   .container_modes {
     width: 1200px;
     h2 {

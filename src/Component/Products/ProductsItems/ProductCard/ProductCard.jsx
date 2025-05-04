@@ -1,36 +1,56 @@
 import "./ProductCard.css";
 import addBasketImg from "../../../../../public/img/icon/icons8-shopping-basket-add-24.png";
 import deleteBasketImg from "../../../../../public/img/icon/icons8-галочка-50.png";
-import { useEffect, useState } from "react";
+import addFavoriteImg from "../../../../../public/img/icon/icons8-закладка-лента-50.png";
+import deleteFavoriteImg from "../../../../../public/img/icon/icons8-закладка-лента-24 (4).png";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addBasket,
   deleteBasket,
 } from "../../../../store/basketSlice/basketSlice";
 import { editViewModalWindow } from "../../../../store/modalWindowSlice/modalWindowSlice";
+import {
+  addFavorite,
+  editFavorite,
+} from "../../../../store/favoriteSlice/favoriteSlice";
 
 const ProductCard = ({ item, typeProducts }) => {
   const dispatch = useDispatch();
 
+  const addFavoriteReducer = addFavorite;
   const addBasketReducer = addBasket;
   const deleteBasketReducer = deleteBasket;
+  const editFavoriteReducer = editFavorite;
   const stateOpenModalWindow = editViewModalWindow;
 
+  const favoritesSelector = useSelector(
+    (state) => state.favoriteReducer.favorites
+  );
   const basketSelector = useSelector((state) => state.basketReducer.basket);
   const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
 
   const [statusBlurImg, setStatusBlurImg] = useState(true);
-  const [addBasketStatus, setAddBasketStatus] = useState(true);
 
-  useEffect(() => {
+  const addBasketStatus = useMemo(() => {
     const findBasket = basketSelector.find(
-      (itemFind) => itemFind.id === item.id && itemFind.type === typeProducts
+      (itemFind) => itemFind.id === item.id
     );
     const findBasketCookie = cookieSelector.basket.find(
-      (itemFind) => itemFind.id === item.id && itemFind.type === typeProducts
+      (itemFind) => itemFind.id === item.id
     );
-    setAddBasketStatus(!Boolean(findBasket || findBasketCookie));
+    return !Boolean(findBasket || findBasketCookie);
   }, [item, basketSelector, cookieSelector]);
+
+  const addFavoriteStatus = useMemo(() => {
+    const findFavorites = favoritesSelector.find(
+      (itemFind) => itemFind.id === item.id
+    );
+    const findFavoritesCookie = cookieSelector?.favorites?.find(
+      (itemFind) => itemFind.id === item.id
+    );
+    return !Boolean(findFavorites || findFavoritesCookie);
+  }, [item, favoritesSelector, cookieSelector]);
 
   useEffect(() => {
     if (!statusBlurImg !== cookieSelector?.adult) {
@@ -42,14 +62,26 @@ const ProductCard = ({ item, typeProducts }) => {
     }
   }, [statusBlurImg, cookieSelector]);
 
-  function onChangeAddBasket() {
-    dispatch(addBasketReducer([{ type: typeProducts, id: item.id, count: 1 }]));
-  }
-  function onChangeDeleteBasket() {
-    dispatch(deleteBasketReducer({ type: typeProducts, id: item.id }));
+  function onChangeBasket() {
+    if (addBasketStatus) {
+      dispatch(
+        addBasketReducer([{ type: typeProducts, id: item.id, count: 1 }])
+      );
+    } else {
+      dispatch(deleteBasketReducer({ type: typeProducts, id: item.id }));
+    }
   }
   function onChangeOpenModalWindow() {
     dispatch(stateOpenModalWindow(true));
+  }
+  function onChangeFavorite() {
+    if (addFavoriteStatus) {
+      dispatch(addFavoriteReducer([{ typeProducts: typeProducts, id: item.id }]));
+    } else {
+      dispatch(
+        editFavoriteReducer({ typeProducts: typeProducts, id: item.id })
+      );
+    }
   }
   return (
     <div className="container_item_card">
@@ -123,19 +155,30 @@ const ProductCard = ({ item, typeProducts }) => {
                   ₽
                 </h5>
               </div>
-              <button
-                onClick={
-                  addBasketStatus ? onChangeAddBasket : onChangeDeleteBasket
-                }
-                className={
-                  addBasketStatus ? "btn_add_basket" : "btn_delete_basket"
-                }
-              >
-                <img
-                  src={addBasketStatus ? addBasketImg : deleteBasketImg}
-                  alt="basket_img"
-                />
-              </button>
+              <div className="container_nav">
+                <button
+                  onClick={onChangeFavorite}
+                  className={
+                    addBasketStatus ? "btn_add_basket" : "btn_delete_basket"
+                  }
+                >
+                  <img
+                    src={addFavoriteStatus ? addFavoriteImg : deleteFavoriteImg}
+                    alt="favorite_img"
+                  />
+                </button>
+                <button
+                  onClick={onChangeBasket}
+                  className={
+                    addBasketStatus ? "btn_add_basket" : "btn_delete_basket"
+                  }
+                >
+                  <img
+                    src={addBasketStatus ? addBasketImg : deleteBasketImg}
+                    alt="basket_img"
+                  />
+                </button>
+              </div>
             </div>
           </div>
         </div>

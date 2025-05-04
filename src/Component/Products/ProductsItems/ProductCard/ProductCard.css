@@ -73,6 +73,11 @@
             position: relative;
             margin-top: 20px;
           }
+          .container_nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
           .text_discount {
             top: -60%;
             position: absolute;

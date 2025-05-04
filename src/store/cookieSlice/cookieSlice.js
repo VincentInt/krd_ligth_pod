@@ -7,7 +7,7 @@ function getCookie() {
     ?.split("=")[1];
   return value
     ? JSON.parse(decodeURIComponent(value))
-    : { adult: false, basket: [] };
+    : { adult: false, basket: [], favorites: [] };
 }
 const initialState = {
   cookie: getCookie(),

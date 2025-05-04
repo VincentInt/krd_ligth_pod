@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   margin: 0px 20px;
-  margin-top: clamp(60px, 15vw, 200px);
+  margin-top: clamp(60px, 15vw, 120px);
   color: white;
   .container_display {
     display: flex;

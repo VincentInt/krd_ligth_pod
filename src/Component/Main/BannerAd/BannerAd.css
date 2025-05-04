@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: clamp(100px, 15vw, 200px);
+  margin-top: clamp(150px, 15vw, 200px);
   background: linear-gradient(
     90deg,
     rgba(0, 254, 203, 1) 0%,
@@ -14,7 +14,7 @@
     width: 1200px;
     gap: clamp(20px, 5vw, 80px);
     img {
-      width: clamp(130px, 32vw, 480px);
+      width: clamp(180px, 32vw, 480px);
       object-fit: contain;
     }
     .container_text_banner_ad {
@@ -28,9 +28,17 @@
         a {
           h4 {
             font-weight: 800;
-            text-decoration: underline;
           }
         }
+      }
+    }
+  }
+}
+@media (max-width: 460px) {
+  .section_banner_ad {
+    .container_banner_ad {
+      img {
+        margin-left: -40px;
       }
     }
   }

@@ -2,6 +2,7 @@ import "./ProductPalette.css";
 import xrosNewLvlImg from "../../../../public/img/image.png";
 import { dataProductLinePalette } from "./data/dataProductLinePalette";
 import Button from "../../../UI/Button/Button";
+import { Link } from "react-router";
 
 const ProductPalette = () => {
   return (
@@ -35,9 +36,9 @@ const ProductPalette = () => {
         </div>
         <div className="container_product_line">
           <div className="container_title_product_line">
-            <h3>XROS PRO представлен в</h3>
+            <h2>XROS PRO представлен в</h2>
             <div className="gradient_text">
-              <h3>Палитре цветов</h3>
+              <h2>Палитре цветов</h2>
             </div>
           </div>
           <div className="container_product_line_palette">
@@ -62,7 +63,9 @@ const ProductPalette = () => {
               с эргономичным дизайном для удобного использования.
             </p>
             <div className="container_btn">
-              <Button>Подробнее</Button>
+              <Link to={"products/podSystems/fullName=vaporesso%20xros%20pro"}>
+                <h6>Подробнее</h6>
+              </Link>
             </div>
           </div>
         </div>

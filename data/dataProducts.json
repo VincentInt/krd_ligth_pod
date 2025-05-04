@@ -470,24 +470,24 @@
       ]
     },
     {
-      "id": 24,
-      "brand": "Lost Vape",
-      "model": "Orion Nano",
-      "fullName": "Lost Vape Orion Nano",
-      "price": 3490,
-      "rating": 4.5,
-      "activationMethod": "Автовдох",
+      "id": 25,
+      "brand": "Vaporesso",
+      "model": "XROS Pro",
+      "fullName": "Vaporesso XROS Pro",
+      "price": 4590,
+      "rating": 4.8,
+      "activationMethod": "Автовдох + кнопка",
       "coilType": "Меш",
-      "battery": 800,
-      "tankVolume": 2,
+      "battery": 1200,
+      "tankVolume": 3,
       "chargingPort": "Type-C",
       "img": "/krd_ligth_pod/img/6089152449.jpg",
-      "popularity": 7,
+      "popularity": 9,
       "cardInfo": [
-        { "infoName": "Активация", "info": "Автовдох" },
-        { "infoName": "Испаритель", "info": "Меш" },
-        { "infoName": "Аккумулятор", "info": "800 мАч" },
-        { "infoName": "Объем бака", "info": "2 мл" }
+        { "infoName": "Активация", "info": "Автовдох + кнопка" },
+        { "infoName": "Испаритель", "info": "Меш 0.4/0.6 Ом" },
+        { "infoName": "Аккумулятор", "info": "1200 мАч" },
+        { "infoName": "Объем бака", "info": "3 мл" }
       ]
     }
   ],

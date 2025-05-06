@@ -8,9 +8,13 @@ import dataFilters from "../../../public/data/dataFilters";
 import dataProducts from "../../../public/data/dataProducts";
 import filterParamsOptions from "./module/filterParamsOptions";
 import addParamsInFilter from "./module/addParamsInFilter";
+import { editScrollState } from "../../store/scrollStateSlice/scrollStateSlice.js";
+import { useDispatch } from "react-redux";
 
 const Products = () => {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const typeProductsParams = useParams().type;
   const filterParams = useParams().filter;
@@ -21,7 +25,7 @@ const Products = () => {
     sortType: "убывание",
   });
   const [stateFilterOptions, setStateFilterOptions] = useState([]);
-  
+
   const titleText = useMemo(() => {
     switch (typeProductsParams) {
       case "disposablePods":
@@ -64,10 +68,12 @@ const Products = () => {
   }, [stateFilterOptions]);
 
   useEffect(() => {
-    if (stateDropFilter) {
-      document.body.style.overflowY = "hidden";
-    } else {
-      document.body.style.overflowY = "scroll";
+    if (typeof stateDropFilter === "boolean") {
+      if (stateDropFilter) {
+        dispatch(editScrollState({ filterDrop: false }));
+      } else {
+        dispatch(editScrollState({ filterDrop: true }));
+      }
     }
   }, [stateDropFilter]);
 

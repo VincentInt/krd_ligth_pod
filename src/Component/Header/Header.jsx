@@ -3,8 +3,14 @@ import HeaderContent from "./HeaderContent/HeaderContent";
 import HeaderBurger from "./HeaderBurger/HeaderBurger";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
+import { useDispatch } from "react-redux";
+import { editScrollState } from "../../store/scrollStateSlice/scrollStateSlice";
 
-const Header = ({ setStateBodyOverflow }) => {
+const Header = () => {
+  const dispatch = useDispatch();
+
+  const editScrollStateReducer = editScrollState;
+
   const params = useParams();
 
   const [dropHeader, setDropHeader] = useState({ click: {}, status: false });
@@ -67,25 +73,23 @@ const Header = ({ setStateBodyOverflow }) => {
     const currentDropBurger = dropBurgerMenuRef.current;
     if (dropHeader.status) {
       currentDropBurger.style.display = "block";
-
+      dispatch(editScrollStateReducer({ header: false }));
       setTimeout(() => {
         currentDropBurger.style.opacity = "100%";
         currentDropBurger.children[0].style.transform = "translateX(0%)";
       }, 0);
-
-      setStateBodyOverflow((prev) => ({ ...prev, header: "hidden" }));
     } else if (
       Object.keys(dropHeader.click).length === 0 ||
       dropHeader.click?.target == currentDropBurger ||
       dropHeader.status
     ) {
+      dispatch(editScrollStateReducer({ header: true }));
+
       currentDropBurger.children[0].style.transform = "translateX(100%)";
       currentDropBurger.style.opacity = "0%";
       setTimeout(() => {
         currentDropBurger.style.display = "none";
       }, 500);
-
-      setStateBodyOverflow((prev) => ({ ...prev, header: "scroll" }));
     }
   }, [dropHeader]);
   return (

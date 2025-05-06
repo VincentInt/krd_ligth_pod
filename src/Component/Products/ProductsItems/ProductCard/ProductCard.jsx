@@ -76,7 +76,9 @@ const ProductCard = ({ item, typeProducts }) => {
   }
   function onChangeFavorite() {
     if (addFavoriteStatus) {
-      dispatch(addFavoriteReducer([{ typeProducts: typeProducts, id: item.id }]));
+      dispatch(
+        addFavoriteReducer([{ typeProducts: typeProducts, id: item.id }])
+      );
     } else {
       dispatch(
         editFavoriteReducer({ typeProducts: typeProducts, id: item.id })

@@ -60,14 +60,16 @@ const AboutUs = () => {
           </div>
           <div className="container_contact">
             <h3>Наши контакты</h3>
-            <a href="https://t.me/USLISHAL_ZOV">
-              <img src={telegramImg} alt="telegram_img" />
-              <h4>USLISHAL_ZOV</h4>
-            </a>
-            <a href="tel:+7 918 988 777">
-              <img src={phoneImg} alt="phone_img" />
-              <h4>+7 918 988 777</h4>
-            </a>
+            <div className="container_links">
+              <a href="https://t.me/USLISHAL_ZOV">
+                <img src={telegramImg} alt="telegram_img" />
+                <h4>USLISHAL_ZOV</h4>
+              </a>
+              <a href="tel:+7 918 988 777">
+                <img src={phoneImg} alt="phone_img" />
+                <h4>+7 918 988 777</h4>
+              </a>
+            </div>
           </div>
           <div className="container_warning">
             <h3>Предупреждение</h3>

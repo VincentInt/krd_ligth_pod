@@ -1,11 +1,13 @@
 import "./Select.css";
 import upArrowImg from "../../../public/img/icon/icons8-стрелка-100 (1).png";
 import downArrowImg from "../../../public/img/icon/icons8-стрелка-100.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Select = ({ selected, selects, onChange }) => {
   const [currentSelect, setCurrentSelect] = useState(selects[0]);
   const [statusOpen, setStatusOpen] = useState(false);
+
+  const containerSelectsRef = useRef(null);
 
   useEffect(() => {
     if (selected) {
@@ -17,7 +19,15 @@ const Select = ({ selected, selects, onChange }) => {
   }, [selected]);
 
   function onChangeOpenSelects() {
-    setStatusOpen((prev) => !prev);
+    if (statusOpen) {
+      containerSelectsRef.current.style.animation =
+        "closeSelects 0.8s ease forwards";
+      setTimeout(() => {
+        setStatusOpen(false);
+      }, 800);
+    } else {
+      setStatusOpen(true);
+    }
   }
   function onChangeSelect(select) {
     setCurrentSelect(select);
@@ -38,9 +48,9 @@ const Select = ({ selected, selects, onChange }) => {
         <h6>{currentSelect?.name}</h6>
         <img src={statusOpen ? upArrowImg : downArrowImg} alt="arrow_img" />
       </button>
-     
+
       {statusOpen ? (
-        <div className="container_selects">
+        <div ref={containerSelectsRef} className="container_selects">
           {selects?.map((item, index) => {
             return (
               <button

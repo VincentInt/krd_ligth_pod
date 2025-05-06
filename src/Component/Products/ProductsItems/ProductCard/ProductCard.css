@@ -2,7 +2,7 @@
   width: 25%;
   .item_card {
     margin: clamp(3px, 1.2vw, 10px);
-    padding: 20px;
+    padding: clamp(10px, 3vw, 20px);
     border: 1px solid black;
     border-radius: 12px;
     .container_img {
@@ -69,14 +69,14 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          margin-top: 20px;
           .price {
             position: relative;
-            margin-top: 20px;
           }
           .container_nav {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: clamp(5px, 1.5vw, 10px);
           }
           .text_discount {
             top: -60%;
@@ -88,7 +88,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: clamp(8px, 0.8vw, 10px);
+            padding: clamp(7px, 1vw, 10px);
             border-radius: 64px;
             img {
               width: clamp(18px, 3vw, 24px);
@@ -99,6 +99,11 @@
         }
       }
     }
+  }
+}
+@media (max-width: 1250px) {
+  .container_item_card {
+    width: 33%;
   }
 }
 @media (max-width: 760px) {

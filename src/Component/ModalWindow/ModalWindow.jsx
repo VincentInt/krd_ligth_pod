@@ -1,15 +1,17 @@
 import "./ModalWindow.css";
 import Button from "../../UI/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { editCookie } from "../../store/cookieSlice/cookieSlice";
 import { editViewModalWindow } from "../../store/modalWindowSlice/modalWindowSlice";
+import { editScrollState } from "../../store/scrollStateSlice/scrollStateSlice";
 
-const ModalWindow = ({ setStateBodyOverflow }) => {
+const ModalWindow = () => {
   const dispatch = useDispatch();
 
   const editCookieReducer = editCookie;
-  const editOpenModalWindow = editViewModalWindow;
+  const editOpenModalWindowReducer = editViewModalWindow;
+  const editScrollStateReducer = editScrollState;
 
   const cookieSelector = useSelector((state) => state.cookieReducer.cookie);
   const modalWindowOpen = useSelector(
@@ -18,7 +20,7 @@ const ModalWindow = ({ setStateBodyOverflow }) => {
 
   useEffect(() => {
     dispatch(
-      editOpenModalWindow(
+      editOpenModalWindowReducer(
         typeof cookieSelector?.adult === "boolean"
           ? !cookieSelector?.adult
           : true
@@ -30,15 +32,15 @@ const ModalWindow = ({ setStateBodyOverflow }) => {
     if (typeof modalWindowOpen === "boolean") {
       if (modalWindowOpen) {
         window.scrollTo({ top: 0, behavior: "smooth" });
-        setStateBodyOverflow((prev) => ({ ...prev, modalWindow: "hidden" }));
+        dispatch(editScrollStateReducer({ modalWindows: false }));
       } else {
-        setStateBodyOverflow((prev) => ({ ...prev, modalWindow: "scroll" }));
+        dispatch(editScrollStateReducer({ modalWindows: true }));
       }
     }
   }, [modalWindowOpen]);
 
   function onChangeBtn(bool) {
-    dispatch(editOpenModalWindow(false));
+    dispatch(editOpenModalWindowReducer(false));
     dispatch(editCookieReducer({ adult: bool }));
   }
   return (

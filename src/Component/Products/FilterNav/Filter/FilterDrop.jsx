@@ -7,10 +7,17 @@ const Filter = ({
   setStateDropFilter,
 }) => {
   const dropFilterRef = useRef(null);
+  const contentFilterRef = useRef(null);
 
   function onClickCloseDropFilter(e) {
     if (e.target === dropFilterRef.current) {
-      setStateDropFilter(false);
+      dropFilterRef.current.style.animation =
+        "closeBackgroundFilterDrop 0.5s ease forwards";
+      contentFilterRef.current.style.animation =
+        "closeFilterDrop 0.5s ease forwards";
+      setTimeout(() => {
+        setStateDropFilter(false);
+      }, 500);
     }
   }
   return (
@@ -19,7 +26,7 @@ const Filter = ({
       onClick={(e) => onClickCloseDropFilter(e)}
       className="drop_container_filter"
     >
-      <div className="content_filter">
+      <div ref={contentFilterRef} className="content_filter">
         <div className="filter">
           <div className="container_title">
             <h5 className="title_text">Фильтр</h5>

@@ -11,7 +11,7 @@
       display: flex;
       flex-direction: column;
       margin-top: clamp(20px, 3vw, 40px);
-      gap: clamp(20px, 3vw, 40px);
+      gap: clamp(40px, 3vw, 80px);
       .container_warning {
         display: flex;
         flex-direction: column;
@@ -19,12 +19,13 @@
           display: flex;
           flex-direction: column;
           margin-left: 20px;
-          gap: 30px;
+          gap: 20px;
           .container_list {
             .item_list {
+              position: relative;
               display: flex;
               align-items: center;
-              gap: 10px;
+              gap: clamp(5px, 2vw, 10px);
             }
           }
           a {
@@ -36,22 +37,28 @@
       .container_contact {
         display: flex;
         flex-direction: column;
-        gap: clamp(5px, 2vw, 20px);
-        a {
+
+        .container_links {
           display: flex;
-          align-items: center;
-          margin-left: 20px;
-          gap: clamp(8px, 3vw, 20px);
-          img {
-            width: clamp(22px, 5vw, 32px);
-            object-fit: contain;
+          flex-direction: column;
+          margin-top: clamp(10px, 3vw, 20px);
+          gap: clamp(5px, 2vw, 20px);
+          a {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            gap: clamp(8px, 3vw, 20px);
+            img {
+              width: clamp(22px, 5vw, 32px);
+              object-fit: contain;
+            }
           }
         }
       }
       .container_target {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: clamp(10px, 3vw, 20px);
         h4 {
           margin-left: 20px;
         }

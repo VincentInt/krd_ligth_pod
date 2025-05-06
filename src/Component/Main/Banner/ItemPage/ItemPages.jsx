@@ -34,11 +34,11 @@ const ItemPages = ({
     );
   }, []);
   useEffect(() => {
+    let timer = setTimeout(() => {}, 0);
     if (statusBack) {
       const prevBannerPageElem = [...containerPagesRef.current.children][
         previewState - 1
       ];
-
       containerPagesRef.current.style.transition = "";
       containerPagesRef.current.style.transform = `translateX(-${
         resolutionPages.smallPage.width *
@@ -48,11 +48,11 @@ const ItemPages = ({
           2
       }px)`;
 
-      prevBannerPageElem.style.animation = "select_page_item 0s ease forwards";
+      prevBannerPageElem.style.transition = "all 0s ease";
+      prevBannerPageElem.classList.remove("item_page");
+      prevBannerPageElem.classList.add("select_item_page");
 
-      setTimeout(() => {
-        prevBannerPageElem.style.animation =
-          "small_page_item 0.5s ease forwards";
+      timer = setTimeout(() => {
         containerPagesRef.current.style.transition = "all 0.5s ease";
         containerPagesRef.current.style.transform = `translateX(-${
           resolutionPages.smallPage.width * previewState -
@@ -61,6 +61,11 @@ const ItemPages = ({
             2
         }px)`;
       }, 10);
+      setTimeout(() => {
+        prevBannerPageElem.classList.remove("select_item_page");
+        prevBannerPageElem.classList.add("item_page");
+        prevBannerPageElem.style.transition = "all 0.5s ease";
+      }, 500);
     } else {
       containerPagesRef.current.style.transition = "all 0.5s ease";
       containerPagesRef.current.style.transform = `translateX(-${
@@ -70,16 +75,9 @@ const ItemPages = ({
           2
       }px)`;
     }
+    return () => clearTimeout(timer);
   }, [statePage, previewState, statusBack, resolutionPages]);
-  useEffect(() => {
-    for (const key in containerPagesRef.current.children) {
-      if (containerPagesRef.current.children[key].className === "item_page") {
-        containerPagesRef.current.children[
-          key
-        ].style.height = `${resolutionPages.smallPage.height}px`;
-      }
-    }
-  }, [statePage]);
+
   useEffect(() => {
     setStateClick(true);
     setTimeout(() => {
@@ -88,7 +86,9 @@ const ItemPages = ({
   }, [statePage]);
 
   function onChangeMovePage(move) {
-    onMovePage(move);
+    if (!stateClick) {
+      onMovePage(move);
+    }
   }
   function onMouseEnterPage(event, index) {
     const coord = +[...containerPagesRef.current.style.transform]
@@ -127,10 +127,10 @@ const ItemPages = ({
     }
   }
   function resolutionPagesFunc() {
-    let selectPageStyle = [...containerPagesRef.current.children].find(
+    let selectPageStyle = [...containerPagesRef.current?.children].find(
       (item) => item.className === "select_item_page"
     );
-    let smallPageStyle = [...containerPagesRef.current.children].find(
+    let smallPageStyle = [...containerPagesRef.current?.children].find(
       (item) => item.className === "item_page"
     );
     if (!resolutionPages.selectPage.width) {
@@ -159,15 +159,6 @@ const ItemPages = ({
         return (
           <div
             key={index}
-            style={
-              resolutionPages.selectPage.width
-                ? previewState === index
-                  ? { animation: "select_page_item 0.5s ease forwards" }
-                  : { animation: "small_page_item 0.5s ease forwards" }
-                : previewState === index
-                ? { animation: "select_page_item 0s ease forwards" }
-                : { animation: "small_page_item 0s ease forwards" }
-            }
             onClick={
               index !== previewState
                 ? previewState > index

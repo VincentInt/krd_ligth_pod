@@ -23,7 +23,7 @@ const Filter = ({
   return (
     <div
       ref={dropFilterRef}
-      onClick={(e) => onClickCloseDropFilter(e)}
+      // onClick={(e) => onClickCloseDropFilter(e)}
       className="drop_container_filter"
     >
       <div ref={contentFilterRef} className="content_filter">

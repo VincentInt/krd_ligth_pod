@@ -63,7 +63,10 @@ const Products = () => {
         stateFilterOptions,
         dataFilterOptions
       );
-      navigate({ pathname: `/products/${typeProductsParams}/${paramsFilter}` });
+      navigate(
+        { pathname: `/products/${typeProductsParams}/${paramsFilter}` },
+        { replace: true }
+      );
     }
   }, [stateFilterOptions]);
 

@@ -37,7 +37,7 @@ const ItemPages = ({
     let timer = setTimeout(() => {}, 0);
     if (statusBack) {
       const prevBannerPageElem = [...containerPagesRef.current.children][
-        previewState - 1
+        previewState === 1 ? 2 : dataPages.length - 3
       ];
       containerPagesRef.current.style.transition = "";
       containerPagesRef.current.style.transform = `translateX(-${
@@ -65,7 +65,7 @@ const ItemPages = ({
         prevBannerPageElem.classList.remove("select_item_page");
         prevBannerPageElem.classList.add("item_page");
         prevBannerPageElem.style.transition = "all 0.5s ease";
-      }, 500);
+      }, 200);
     } else {
       containerPagesRef.current.style.transition = "all 0.5s ease";
       containerPagesRef.current.style.transform = `translateX(-${
@@ -181,7 +181,7 @@ const ItemPages = ({
             }
           >
             <div className="page">
-              <img className="img_page" src={item.img} alt="img_banner_page" />
+              <img className="img_page" src={item?.img} alt="img_banner_page" />
               <div className="container_content_page">
                 <div className="container_text">
                   <h5>{item.text}</h5>

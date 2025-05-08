@@ -34,17 +34,7 @@
     }
   }
   .container_selects_sort {
-    display: none;
     margin-top: 10px;
   }
 }
-@media (max-width: 460px) {
-  .container_sort_btn {
-    .sort {
-      display: none;
-    }
-    .container_selects_sort {
-      display: block;
-    }
-  }
-}
+

@@ -29,9 +29,11 @@
     }
     .container_drop_catalog {
       position: absolute;
-      top: 20px;
+      overflow: hidden;
       padding-top: 32px;
       margin-left: -40px;
+      min-height: 100%;
+      animation: dropHeaderContent 0.8s ease forwards;
       .container_products_links {
         display: flex;
         padding: 30px 40px;
@@ -41,11 +43,15 @@
           display: flex;
           flex-direction: column;
           gap: 20px;
-          &:first-child {
+          &:nth-child(1) {
             width: clamp(170px, 15vw, 200px);
           }
-          &:last-child {
-            width: clamp(180px, 15vw, 240px);
+          &:nth-child(2) {
+            overflow: hidden;
+            animation: dropHeaderProductsContent 0.5s ease forwards;
+            h6 {
+              text-wrap: nowrap;
+            }
           }
           .select {
             opacity: 100%;
@@ -71,5 +77,36 @@
         width: clamp(12px, 3.5vw, 30px);
       }
     }
+  }
+}
+@keyframes dropHeaderProductsContent {
+  0% {
+    width: 0px;
+    max-height: 0px;
+  }
+  100% {
+    width: clamp(180px, 15vw, 240px);
+    max-height: 300px;
+  }
+}
+@keyframes closeHeaderContent {
+  0% {
+    top: 20px;
+    max-height: 300px;
+  }
+  100% {
+    top: 0px;
+    max-height: 0px;
+
+  }
+}
+@keyframes dropHeaderContent {
+  0% {
+    top: 0px;
+    max-height: 0px;
+  }
+  100% {
+    top: 20px;
+    max-height: 300px;
   }
 }

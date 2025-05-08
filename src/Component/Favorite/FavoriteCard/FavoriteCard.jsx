@@ -3,10 +3,7 @@ import basketAddBlackImg from "../../../../public/img/icon/icons8-добавит
 import basketAddWhiteImg from "../../../../public/img/icon/icons8-shopping-basket-add-24.png";
 import basketDeleteBlackImg from "../../../../public/img/icon/icons8-собранная-корзина-покупок-24 (2).png";
 import basketDeleteWhiteImg from "../../../../public/img/icon/icons8-галочка-50.png";
-
-import favoriteDeleteBlackImg from "../../../../public/img/icon/icons8-закладка-лента-24 (5).png";
-import favoriteDeleteWhiteImg from "../../../../public/img/icon/icons8-закладка-лента-24 (4).png";
-
+import favoriteDeleteImg from "../../../../public/img/icon/icons8-закладка-лента-24 (4).png";
 import { useDispatch, useSelector } from "react-redux";
 import { editFavorite } from "../../../store/favoriteSlice/favoriteSlice";
 import { useEffect, useMemo, useState } from "react";
@@ -146,7 +143,7 @@ const FavoriteCard = ({ item }) => {
               <button onClick={onChangeDeleteFavorite}>
                 <img
                   className="icon"
-                  src={favoriteDeleteBlackImg}
+                  src={favoriteDeleteImg}
                   alt="favorite_img"
                 />
               </button>
@@ -184,7 +181,7 @@ const FavoriteCard = ({ item }) => {
         </div>
         <div className="container_nav">
           <button onClick={onChangeDeleteFavorite}>
-            <img src={favoriteDeleteWhiteImg} alt="favorite_img" />
+            <img src={favoriteDeleteImg} alt="favorite_img" />
           </button>
           <button onClick={onChangeBasket}>
             <img

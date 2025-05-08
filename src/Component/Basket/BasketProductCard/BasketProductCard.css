@@ -1,5 +1,5 @@
 .container_basket_product_card {
-  padding: clamp(15px, 3vw, 30px) clamp(20px, 3vw, 40px);
+  padding: clamp(12px, 3vw, 30px) clamp(15px, 3vw, 40px);
   border: 1px solid black;
   border-radius: 12px;
   .container_adaptive_nav {
@@ -45,12 +45,12 @@
           }
           img {
             object-fit: contain;
-            width: clamp(40px, 7vw, 60px);
-            height: clamp(100px, 17vw, 200px);
+            width: clamp(60px, 7vw, 60px);
+            height: clamp(110px, 17vw, 200px);
           }
         }
         .container_text {
-          margin-left: clamp(20px, 2.5vw, 70px);
+          margin-left: clamp(15px, 2.5vw, 70px);
           h4 {
             overflow: hidden;
             display: -webkit-box;

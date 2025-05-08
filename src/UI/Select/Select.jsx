@@ -21,18 +21,22 @@ const Select = ({ selected, selects, onChange }) => {
   function onChangeOpenSelects() {
     if (statusOpen) {
       containerSelectsRef.current.style.animation =
-        "closeSelects 0.8s ease forwards";
+        "closeSelects 0.5s ease forwards";
       setTimeout(() => {
         setStatusOpen(false);
-      }, 800);
+      }, 500);
     } else {
       setStatusOpen(true);
     }
   }
   function onChangeSelect(select) {
-    setCurrentSelect(select);
-    onChange(select);
-    setStatusOpen((prev) => !prev);
+    containerSelectsRef.current.style.animation =
+      "closeSelects 0.5s ease forwards";
+    setTimeout(() => {
+      setCurrentSelect(select);
+      onChange(select);
+      setStatusOpen((prev) => !prev);
+    }, 500);
   }
 
   return (

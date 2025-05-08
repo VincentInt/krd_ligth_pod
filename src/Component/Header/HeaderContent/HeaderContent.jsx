@@ -5,7 +5,7 @@ import catalogImg from "../../../../public/img/icon/icons8-каталог-64.png
 import dataDropProducts from "../data/dataDropProducts";
 import dataLinksHeader from "../data/dataLinksHeader";
 import { Link, useParams } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const HeaderContent = ({
   stateDropProducts,
@@ -15,6 +15,8 @@ const HeaderContent = ({
   setDropHeader,
 }) => {
   const params = useParams();
+
+  const containerDropCatalogRef = useRef(null);
 
   function onChangeDropCatalog() {
     setDropCatalog(true);
@@ -36,8 +38,12 @@ const HeaderContent = ({
       }
       if (index === 6) {
         window.onmouseover = () => {};
-        setDropCatalog(false);
-        setStateDropProducts(false);
+        containerDropCatalogRef.current.style.animation =
+          "closeHeaderContent 0.5s ease forwards";
+        setTimeout(() => {
+          setDropCatalog(false);
+          setStateDropProducts(false);
+        }, 300);
       }
     };
   }
@@ -49,11 +55,6 @@ const HeaderContent = ({
       setStateDropProducts({ name: "", value: [] });
     }
   }, [dropCatalog]);
-  useEffect(() => {
-    setDropCatalog(false);
-    setStateDropProducts({ name: "", value: [] });
-  }, [params]);
-
   return (
     <div className="container_header">
       <Link to={"/"}>
@@ -81,7 +82,7 @@ const HeaderContent = ({
           })}
         </div>
         {dropCatalog ? (
-          <div className="container_drop_catalog">
+          <div ref={containerDropCatalogRef} className="container_drop_catalog">
             <div className="container_products_links">
               <div className="products_links">
                 {dataLinksHeader.productsBtn.map((item, index) => {
@@ -103,19 +104,23 @@ const HeaderContent = ({
                   );
                 })}
               </div>
-              <div className="products_links">
-                {stateDropProducts.value?.map((item, index) => {
-                  return (
-                    <Link
-                      key={index}
-                      onClick={() => window.scroll(0, 0)}
-                      to={item.path}
-                    >
-                      <h6>{item.name}</h6>
-                    </Link>
-                  );
-                })}
-              </div>
+              {stateDropProducts.value?.length ? (
+                <div className="products_links">
+                  {stateDropProducts.value?.map((item, index) => {
+                    return (
+                      <Link
+                        key={index}
+                        onClick={() => window.scroll(0, 0)}
+                        to={item.path}
+                      >
+                        <h6>{item.name}</h6>
+                      </Link>
+                    );
+                  })}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         ) : (

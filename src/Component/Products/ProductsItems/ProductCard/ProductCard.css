@@ -1,5 +1,9 @@
 .container_item_card {
   width: 25%;
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(103%);
+  }
   .item_card {
     margin: clamp(3px, 1.2vw, 10px);
     padding: clamp(10px, 3vw, 20px);

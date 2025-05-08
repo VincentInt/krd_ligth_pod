@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import FilterOptions from "./FilterOptions/FilterOptions";
 
 const Filter = ({
@@ -23,7 +23,7 @@ const Filter = ({
   return (
     <div
       ref={dropFilterRef}
-      // onClick={(e) => onClickCloseDropFilter(e)}
+      onClick={(e) => onClickCloseDropFilter(e)}
       className="drop_container_filter"
     >
       <div ref={contentFilterRef} className="content_filter">

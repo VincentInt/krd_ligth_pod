@@ -5,7 +5,7 @@ import catalogImg from "../../../../public/img/icon/icons8-каталог-64.png
 import dataDropProducts from "../data/dataDropProducts";
 import dataLinksHeader from "../data/dataLinksHeader";
 import { Link, useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
   const params = useParams();
@@ -13,19 +13,34 @@ const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
   const [dropCatalog, setDropCatalog] = useState(false);
   const [dropProductsCatalog, setDropProductsCatalog] = useState([]);
 
+  const selectedRef = useRef(null);
+  const linksRef = useRef(null);
+
   function onChangeCatalog() {
-    setDropCatalog((prev) => !prev);
+    const prevState = !dropCatalog;
+    if (prevState) {
+      setDropCatalog(prevState);
+    } else {
+      selectedRef.current.style.animation =
+        "closeContentHeader 0.5s ease forwards";
+      setTimeout(() => {
+        setDropCatalog(prevState);
+      }, 500);
+    }
   }
   function onChangeProductsCatalog(type) {
-    setDropProductsCatalog((prev) => {
-      const clone = [...prev];
-      if (clone.includes(type)) {
-        return clone.filter((item) => item !== type);
-      } else {
-        return [...clone, type];
-      }
-    });
+    const prevState = [...dropProductsCatalog];
+    if (prevState.includes(type)) {
+      linksRef.current.style.animation =
+        "closeContentHeader 0.5s ease forwards";
+      setTimeout(() => {
+        setDropProductsCatalog(prevState.filter((item) => item !== type));
+      }, 500);
+    } else {
+      setDropProductsCatalog([...prevState, type]);
+    }
   }
+
   function onChangeCloseHeader(e) {
     if (e.target === dropBurgerMenuRef.current) {
       setDropHeader((prev) => ({ click: e, status: !prev.status }));
@@ -58,7 +73,7 @@ const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
                 <h5 className="text_link">Каталог</h5>
               </button>
               {dropCatalog ? (
-                <div className="selected">
+                <div ref={selectedRef} className="selected">
                   <div className="container_selected_links">
                     {dataLinksHeader.productsBtn.map((item, index) => {
                       return (
@@ -71,7 +86,10 @@ const HeaderBurger = ({ dropBurgerMenuRef, setDropHeader, dropHeader }) => {
                             <h5 className="text_link">{item.name}</h5>
                           </button>
                           {dropProductsCatalog.includes(item.type) ? (
-                            <div className="container_selected_links">
+                            <div
+                              ref={linksRef}
+                              className="container_selected_links"
+                            >
                               <Link
                                 onClick={() => window.scroll(0, 0)}
                                 to={item.path}

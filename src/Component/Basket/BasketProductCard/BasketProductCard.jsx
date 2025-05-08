@@ -4,7 +4,7 @@ import favoriteAddWhiteImg from "../../../../public/img/icon/icons8-заклад
 import favoriteDeleteWhiteImg from "../../../../public/img/icon/icons8-закладка-лента-24 (4).png";
 import basketDeleteBlackImg from "../../../../public/img/icon/icons8-собранная-корзина-покупок-24 (2).png";
 import favoriteAddBlackImg from "../../../../public/img/icon/icons8-bookmark-24.png";
-import favoriteDeleteBlackImg from "../../../../public/img/icon/icons8-закладка-лента-24 (5).png";
+import favoriteDeleteBlackImg from "../../../../public/img/icon/icons8-закладка-лента-24 (4).png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteBasket,

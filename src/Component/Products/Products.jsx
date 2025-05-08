@@ -93,10 +93,14 @@ const Products = () => {
   function onCheckSize() {
     if (window.screen.width > 960) {
       setStateDropFilter(null);
-    } else if (stateDropFilter === null) {
-      setStateDropFilter(false);
+    } else {
+      setStateDropFilter((prev)=> prev === null ? false : prev);
     }
   }
+  function onChangeDropFilter() {
+    setStateDropFilter(true);
+  }
+
   return (
     <section className="section_products">
       <div className="container_products">
@@ -109,9 +113,7 @@ const Products = () => {
           </div>
           {stateFilterOptions ? (
             <div className="container_btn_drop_filter">
-              <button onClick={() => setStateDropFilter((prev) => !prev)}>
-                Фильтр
-              </button>
+              <button onClick={onChangeDropFilter}>Фильтр</button>
             </div>
           ) : (
             ""

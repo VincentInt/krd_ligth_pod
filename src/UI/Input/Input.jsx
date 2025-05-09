@@ -1,18 +1,12 @@
 import "./Input.css";
 import { useEffect, useState } from "react";
 
-const Input = ({ item, onChange, ...props }) => {
-  const [valueInput, setValueInput] = useState(item.select);
+const Input = ({ value, onChange, ...props }) => {
+  const [valueInput, setValueInput] = useState(value ? value : "");
 
   function onChangeValueInput(event) {
-    setValueInput(event.target.value);
+    setValueInput(onChange ? onChange(event.target.value) : event.target.value);
   }
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      onChange(valueInput);
-    }, 500);
-    return () => clearTimeout(timeout);
-  }, [valueInput]);
   return (
     <input
       {...props}

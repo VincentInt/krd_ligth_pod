@@ -107,9 +107,9 @@ const Products = () => {
         <div className="container_title">
           <div className="title">
             <h2>{titleText}</h2>
-            <h5 className="text_count_product">
+            <h3 className="text_count_product">
               {dataProducts[typeProductsParams].length} товаров
-            </h5>
+            </h3>
           </div>
           {stateFilterOptions ? (
             <div className="container_btn_drop_filter">

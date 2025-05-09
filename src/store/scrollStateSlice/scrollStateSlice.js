@@ -16,9 +16,11 @@ export const scrollStateSlice = createSlice({
 
       for (const key in state) {
         if (state[key]) {
-          document.documentElement.style.overflow = "scroll";
+          document.documentElement.style.overflowY = "scroll";
+          document.documentElement.style.overflowX = "auto";
         } else {
-          document.documentElement.style.overflow = "hidden";
+          document.documentElement.style.overflowY = "hidden";
+          document.documentElement.style.overflowX = "hidden";
           break;
         }
       }

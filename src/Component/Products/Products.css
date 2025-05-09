@@ -22,6 +22,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 10px;
       .container_btn_drop_filter {
         display: none;
       }

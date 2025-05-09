@@ -19,7 +19,7 @@ const FilterOptions = ({
     >
       {item.type === "input" ? (
         <Input
-          item={item}
+          value={item.select}
           onChange={(valueSelect) => {
             setStateFilterOptions((prev) => {
               const clone = [...prev];

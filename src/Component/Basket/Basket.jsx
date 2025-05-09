@@ -6,7 +6,7 @@ import BasketProductCard from "./BasketProductCard/BasketProductCard";
 import { clearBasket } from "../../store/basketSlice/basketSlice";
 import { useNavigate } from "react-router";
 
-const Basket = () => {
+const Basket = ({ setStatusOpenWindowOrderRegistration }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -64,7 +64,10 @@ const Basket = () => {
                 </h3>
               </div>
               <div className="item_basket_nav">
-                <button className="btn_send">
+                <button
+                  onClick={() => setStatusOpenWindowOrderRegistration(true)}
+                  className="btn_send"
+                >
                   <h6>Оформить</h6>
                 </button>
                 <button onClick={onChangeClearBasket} className="btn_clear">

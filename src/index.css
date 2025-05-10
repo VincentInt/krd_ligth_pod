@@ -1,6 +1,18 @@
 html {
   scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 5px;
+    background: rgb(255, 255, 255);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+  }
 }
+
 body {
   margin: 0;
   background-color: black;

@@ -69,9 +69,9 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
         <div className="container_order_registration">
           <div className="container_inputs_info">
             <h4 className="title_item">Данные получателя</h4>
-            <Input placeholder={"Фамилия"} onChange={() => {}} />
-            <Input placeholder={"Имя"} onChange={() => {}} />
-            <Input placeholder={"Телефон"} onChange={() => {}} />
+            <Input placeholder={"Фамилия"} />
+            <Input placeholder={"Имя"} />
+            <Input placeholder={"Телефон"} />
           </div>
           <div className="container_coordinate_info">
             <h4 className="title_item">Место получение</h4>
@@ -99,6 +99,7 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
                 dataPointShop.map((item, index) => {
                   return (
                     <RadioInput
+                      key={index}
                       onChange={() => onChangeSelectPointShop(index)}
                       state={statePlaceOfReceipt === index}
                     >
@@ -138,7 +139,7 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
             <div className="container_payment_method">
               {statePaymentMethod === "СПБ" ? (
                 <Input placeholder={"E-mail"} />
-              ) : statePaymentMethod === "Картой онлайн" ? (
+              ) : statePaymentMethod === "Картой" ? (
                 <div className="bank_card">
                   <div className="container_info">
                     <div className="container_input">
@@ -168,7 +169,7 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
                     </div>
                   </div>
                 </div>
-              ) : statePaymentMethod === "Наличкой при получении" ? (
+              ) : statePaymentMethod === "Наличкой" ? (
                 ""
               ) : (
                 ""
@@ -182,37 +183,72 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
           <div className="container_result">
             <h4 className="title_item">Итого:</h4>
             <div className="result">
-              <h5>
-                {new Intl.NumberFormat("ru", {
-                  maximumFractionDigits: 0,
-                }).format(
-                  basketSelector.reduce((acc, item) => {
-                    const clone = dataProducts[item.type].find(
-                      (itemFind) => itemFind.id === item.id
-                    );
-                    return Math.floor((acc += clone.price));
-                  }, 0)
-                )}
-                ₽
-              </h5>
-              <h2>
-                {new Intl.NumberFormat("ru", {
-                  maximumFractionDigits: 0,
-                }).format(
-                  basketSelector.reduce((acc, item) => {
-                    const clone = dataProducts[item.type].find(
-                      (itemFind) => itemFind.id === item.id
-                    );
-                    return Math.floor((acc += clone.discount));
-                  }, 0)
-                )}
-                ₽
-              </h2>
+              {basketSelector.find(
+                (itemFind) => dataProducts[itemFind.type][itemFind.id].discount
+              ) ? (
+                <>
+                  <h5>
+                    {new Intl.NumberFormat("ru", {
+                      maximumFractionDigits: 0,
+                    }).format(
+                      basketSelector.reduce((acc, item) => {
+                        const clone = dataProducts[item.type].find(
+                          (itemFind) => itemFind.id === item.id
+                        );
+                        return Math.floor((acc += clone.price * item.count));
+                      }, 0)
+                    )}
+                    ₽
+                  </h5>
+                  <h2>
+                    {new Intl.NumberFormat("ru", {
+                      maximumFractionDigits: 0,
+                    }).format(
+                      basketSelector.reduce((acc, item) => {
+                        const clone = dataProducts[item.type].find(
+                          (itemFind) => itemFind.id === item.id
+                        );
+                        return Math.floor(
+                          clone.discount
+                            ? (acc += clone.discount * item.count)
+                            : (acc += clone.price * item.count)
+                        );
+                      }, 0)
+                    )}
+                    ₽
+                  </h2>
+                </>
+              ) : (
+                <h2>
+                  {new Intl.NumberFormat("ru", {
+                    maximumFractionDigits: 0,
+                  }).format(
+                    basketSelector.reduce((acc, item) => {
+                      const clone = dataProducts[item.type].find(
+                        (itemFind) => itemFind.id === item.id
+                      );
+                      return Math.floor((acc += clone.price * item.count));
+                    }, 0)
+                  )}
+                  ₽
+                </h2>
+              )}
             </div>
           </div>
-          <button className="btn_send">
-            <h5>Оформить</h5>
-          </button>
+          <div className="container_btn_send">
+            <button
+              onClick={() => setStatusOpenWindowOrderRegistration(false)}
+              className="btn_send"
+            >
+              <h5>Оформить</h5>
+            </button>
+            <button
+              onClick={() => setStatusOpenWindowOrderRegistration(false)}
+              className="btn_close"
+            >
+              <h5>Отмена</h5>
+            </button>
+          </div>
         </div>
       </div>
     </section>

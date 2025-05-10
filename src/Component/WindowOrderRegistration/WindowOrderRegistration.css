@@ -1,27 +1,42 @@
 .section_order_registration {
-  z-index: 20;
-  position: fixed;
   top: 0;
+  z-index: 20;
+  position: absolute;
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.333);
   .window_order_registration {
     overflow-y: scroll;
-    width: 800px;
-    height: 85%;
-    padding: 40px 60px;
+    max-height: 90%;
+    padding: clamp(10px, 3vw, 40px) clamp(15px, 3vw, 60px);
+    margin: 2% 20px;
     background-color: white;
     border: 1px solid black;
     border-radius: 12px;
     input {
-      width: 300px;
+      width: 100%;
+      box-sizing: border-box;
     }
+    &::-webkit-scrollbar {
+      width: 5px;
+      background: rgba(255, 255, 255, 0);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: black;
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      margin: 7px;
+      background: rgba(255, 255, 255, 0);
+    }
+
     .container_pay_way,
     .container_place_of_receipt {
-      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: clamp(5px, 1.5vw, 15px);
       .btn_active {
         color: white;
         background-color: black;
@@ -44,8 +59,9 @@
     .container_order_registration {
       display: flex;
       flex-direction: column;
-      gap: 25px;
-      margin: 25px 30px;
+      gap: clamp(10px, 2vw, 25px);
+      margin: clamp(10px, 2vw, 25px) clamp(15px, 2vw, 30px);
+      max-width: clamp(260px, 60vw, 500px);
       .title_item {
         position: relative;
         &::before {
@@ -57,36 +73,17 @@
       .container_inputs_info {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        align-items: start;
+        gap: clamp(5px, 1.5vw, 10px);
       }
       .container_coordinate_info {
-        .container_place_of_receipt {
-          margin-top: 15px;
-          .btn_active {
-            color: white;
-            background-color: black;
-          }
-          .btn_disable {
-            color: black;
-            background-color: white;
-          }
-          button {
-            border: 1px solid black;
-            &:first-child {
-              border-radius: 8px 0px 0px 8px;
-            }
-            &:last-child {
-              border-radius: 0px 8px 8px 0px;
-            }
-          }
-        }
         .container_point_shop {
           display: flex;
           flex-direction: column;
-          margin-top: 15px;
-          gap: 10px;
+          margin-top: clamp(5px, 1.5vw, 15px);
+          gap: clamp(5px, 1.5vw, 10px);
           .container_radio_input {
-            padding: 12px 20px;
+            padding: clamp(5px, 1.6vw, 12px) clamp(8px, 1.6vw, 20px);
             border: 1px solid black;
             border-radius: 12px;
             .item_point_shop {
@@ -99,26 +96,30 @@
       }
       .container_pay {
         .container_payment_method {
-          margin-top: 15px;
+          margin-top: clamp(5px, 1.5vw, 15px);
           .bank_card {
-            width: 350px;
-            height: 200px;
+            max-width: 350px;
+            max-height: 200px;
+            width: 100%;
+            height: 100%;
+            padding: clamp(8px, 3vw, 20px) 0px;
             border-radius: 12px;
             background-color: black;
             .container_info {
               display: flex;
               flex-direction: column;
               justify-content: center;
-              padding: 20px;
-              gap: 20px;
+              padding: clamp(15px, 3vw, 20px);
+              gap: clamp(10px, 2.5vw, 20px);
               color: white;
               .container_input {
-                width: 100%;
+                input {
+                  width: 100%;
+                }
                 h6 {
                   font-weight: 500;
                 }
               }
-
               .flex_info {
                 display: flex;
                 justify-content: space-between;
@@ -126,8 +127,6 @@
                 gap: 20px;
               }
               input {
-                position: relative;
-                width: 75%;
                 padding-left: 0;
                 padding-right: 0;
                 color: white;
@@ -142,26 +141,53 @@
       }
       .container_promo {
         input {
-          margin-top: 15px;
+          margin-top: clamp(5px, 1.5vw, 15px);
         }
       }
       .container_result {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
+        margin-top: clamp(5px, 1.5vw, 15px);
+        text-align: left;
         .result {
           display: flex;
           flex-direction: column;
           max-width: max-content;
-          align-items: end;
-          margin-top: 15px;
+          margin-top: clamp(5px, 1.5vw, 15px);
           h5 {
             text-decoration: line-through;
           }
         }
       }
-      .btn_send {
-        padding: 18px;
+      .container_btn_send {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .btn_send,
+        .btn_close {
+          border: 1px solid black;
+          padding: clamp(5px, 1.5vw, 12px) clamp(15px, 2vw, 30px);
+        }
+        .btn_close {
+          color: black;
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 560px) {
+  .section_order_registration {
+    .window_order_registration {
+      .container_order_registration {
+        max-width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 360px) {
+  .section_order_registration {
+    .window_order_registration {
+      .container_pay_way {
+        gap: 5px;
       }
     }
   }

@@ -1,20 +1,14 @@
 import "./Input.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Input = ({ value, onChange, ...props }) => {
   const [valueInput, setValueInput] = useState(value ? value : "");
 
   function onChangeValueInput(event) {
-    setValueInput(onChange ? onChange(event.target.value) : event.target.value);
+    const valueChange = onChange ? onChange(event, valueInput) : null;
+    setValueInput(valueChange ? valueChange : event.target.value);
   }
-  return (
-    <input
-      {...props}
-      onChange={onChangeValueInput}
-      value={valueInput}
-      type="text"
-    />
-  );
+  return <input {...props} onChange={onChangeValueInput} value={valueInput} />;
 };
 
 export default Input;

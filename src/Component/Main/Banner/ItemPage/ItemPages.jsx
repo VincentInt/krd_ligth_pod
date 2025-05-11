@@ -24,7 +24,6 @@ const ItemPages = ({
 
   useEffect(() => {
     resolutionPagesFunc();
-
     window.addEventListener(
       "resize",
       () => {
@@ -127,31 +126,35 @@ const ItemPages = ({
     }
   }
   function resolutionPagesFunc() {
-    let selectPageStyle = [...containerPagesRef.current?.children].find(
-      (item) => item.className === "select_item_page"
-    );
-    let smallPageStyle = [...containerPagesRef.current?.children].find(
-      (item) => item.className === "item_page"
-    );
-    if (!resolutionPages.selectPage.width) {
-      containerPagesRef.current.style.transform = `translateX(-${
-        smallPageStyle.offsetWidth * previewState -
-        (containerPagesRef.current.offsetWidth - selectPageStyle.offsetWidth) /
-          2
-      }px)`;
+    const containerPages = containerPagesRef.current;
+    if (containerPages) {
+      let selectPageStyle = [...containerPages.children]?.find(
+        (item) => item.className === "select_item_page"
+      );
+      let smallPageStyle = [...containerPages.children]?.find(
+        (item) => item.className === "item_page"
+      );
+      if (!resolutionPages.selectPage.width) {
+        containerPagesRef.current.style.transform = `translateX(-${
+          smallPageStyle.offsetWidth * previewState -
+          (containerPagesRef.current.offsetWidth -
+            selectPageStyle.offsetWidth) /
+            2
+        }px)`;
+      }
+      setResolutionPages(() => {
+        return {
+          selectPage: {
+            width: selectPageStyle.offsetWidth,
+            height: selectPageStyle.offsetHeight,
+          },
+          smallPage: {
+            width: smallPageStyle.offsetWidth,
+            height: smallPageStyle.offsetHeight,
+          },
+        };
+      });
     }
-    setResolutionPages(() => {
-      return {
-        selectPage: {
-          width: selectPageStyle.offsetWidth,
-          height: selectPageStyle.offsetHeight,
-        },
-        smallPage: {
-          width: smallPageStyle.offsetWidth,
-          height: smallPageStyle.offsetHeight,
-        },
-      };
-    });
   }
   return (
     <div ref={containerPagesRef} className="container_pages">

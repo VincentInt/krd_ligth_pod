@@ -24,7 +24,7 @@ const HeaderContent = ({
     window.onmouseover = (e) => {
       let index = 0;
       let parentElem = e.target;
-
+      const containerDropCatalog = containerDropCatalogRef.current;
       while (index !== true && index < 6) {
         if (
           parentElem?.className === "catalog_btn" ||
@@ -38,8 +38,11 @@ const HeaderContent = ({
       }
       if (index === 6) {
         window.onmouseover = () => {};
-        containerDropCatalogRef.current.style.animation =
-          "closeHeaderContent 0.5s ease forwards";
+        if (containerDropCatalog) {
+          containerDropCatalog.style.animation =
+            "closeHeaderContent 0.5s ease forwards";
+        }
+
         setTimeout(() => {
           setDropCatalog(false);
           setStateDropProducts(false);

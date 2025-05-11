@@ -1,14 +1,34 @@
 import "./WindowOrderRegistration.css";
 import Input from "../../UI/Input/Input";
 import RadioInput from "../../UI/RadioInput/RadioInput";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dataPointShop from "./data/dataPointShop";
 import dataProducts from "../../../public/data/dataProducts.json";
 import { btnsPaymentMethod, btnsPlaceOfReceipt } from "./data/dataBtns";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearBasket } from "../../store/basketSlice/basketSlice";
 
 const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
+  const dispatch = useDispatch();
+
   const basketSelector = useSelector((state) => state.basketReducer.basket);
+
+  const clearBasketReducer = clearBasket;
+
+  const [formOrderRegistration, setFormOrderRegistration] = useState({
+    fullName: "",
+    name: "",
+    communicatePhone: "",
+    methodPayed: [
+      { name: "СПБ", phone: "" },
+      { name: "Картой", number: "", ccv: "", deadline: "" },
+      { name: "Наличкой" },
+    ],
+    promo: "",
+  });
+
+  const [statusSendError, setStatusSendError] = useState(false);
+  const [statusClickSend, setStatusClickSend] = useState(false);
 
   const [statePlaceOfReceiptMethod, setStatePlaceOfReceiptMethod] = useState(
     btnsPlaceOfReceipt[0].name
@@ -20,6 +40,76 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
 
   const windowOrderRegistrationRef = useRef(null);
 
+  useEffect(() => {
+    if (statusClickSend) {
+      let statusSend = true;
+      for (const key in formOrderRegistration) {
+        const elem = formOrderRegistration[key];
+        if (key === "communicatePhone") {
+          if (elem.length !== 18) {
+            statusSend = false;
+            setStatusClickSend(false);
+            setStatusSendError(true);
+            break;
+          }
+        } else if (key === "methodPayed") {
+          const indexFind = elem.findIndex(
+            (itemFind) => itemFind.name === statePaymentMethod
+          );
+
+          if (elem[indexFind].name === "СПБ") {
+            if (elem[indexFind].phone.length !== 18) {
+              statusSend = false;
+              setStatusClickSend(false);
+              setStatusSendError(true);
+              break;
+            }
+          } else if (elem[indexFind].name === "Картой") {
+            if (
+              elem[indexFind].number.length !== 19 ||
+              elem[indexFind].ccv.length !== 3 ||
+              elem[indexFind].deadline.length !== 5
+            ) {
+              statusSend = false;
+              setStatusClickSend(false);
+              setStatusSendError(true);
+              break;
+            }
+          }
+        } else if (key !== "promo") {
+          if (elem.length === 0) {
+            statusSend = false;
+            setStatusClickSend(false);
+            setStatusSendError(true);
+            break;
+          }
+        }
+      }
+      if (statusSend) {
+        dispatch(clearBasketReducer());
+        setStatusClickSend(false);
+        setStatusOpenWindowOrderRegistration(false);
+      }
+    }
+  }, [statusClickSend]);
+
+  function onChangeInputs(value, type, typePay) {
+    setFormOrderRegistration((prev) => {
+      const clone = { ...prev };
+      if (type === "methodPayed") {
+        const indexFind = clone.methodPayed.findIndex(
+          (itemFind) => itemFind?.name === statePaymentMethod
+        );
+        if (indexFind !== -1) {
+          clone.methodPayed[indexFind][typePay] = value;
+        }
+      } else {
+        clone[type] = value;
+      }
+      return clone;
+    });
+    return value;
+  }
   function onChangeCloseWindow(target) {
     if (target === windowOrderRegistrationRef.current) {
       setStatusOpenWindowOrderRegistration(false);
@@ -34,23 +124,32 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
   function onChangeSelectPointShop(point) {
     setStatePlaceOfReceipt(point);
   }
-  function onChangeNumberBankCard(value) {
+  function onChangeNumberBankCard(event, prev) {
+    const value = event?.target?.value ? event.target.value : event;
+
+    if (!value.length) return "";
+
     const clone = [...value]
       .filter((item) => item !== " " && !isNaN(+item))
       .slice(0, 16)
-      .map((item, index) => (index % 4 === 0 ? " " + item : item))
+      .map((item, index) =>
+        index !== 0 && index % 4 === 0 ? " " + item : item
+      )
       .join("");
-
     return clone;
   }
-  function onChangeCCVNumberBankCard(value) {
+  function onChangeCCVNumberBankCard(event) {
+    const value = event?.target?.value ? event.target.value : event;
+    if (!value.length) return "";
     const clone = [...value]
       .filter((item) => !isNaN(item) && item !== " ")
       .slice(0, 3)
       .join("");
     return clone;
   }
-  function onChangeDeadlineBankCard(value) {
+  function onChangeDeadlineBankCard(event) {
+    const value = event?.target?.value ? event.target.value : event;
+    if (!value.length) return "";
     const clone = [...value]
       .filter((item) => !isNaN(item) && item !== " ")
       .slice(0, 4)
@@ -58,10 +157,43 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
       .join("");
     return clone;
   }
+  function onChangePhoneNumber(event, prev) {
+    const value = event.target.value;
+    const clone = [...value].filter(
+      (item, index) =>
+        item !== " " && !(index === 1 && item === "7") && !isNaN(+item)
+    );
+    const clonePrev = [...prev].filter(
+      (item, index) =>
+        item !== " " && !(index === 1 && item === "7") && !isNaN(+item)
+    );
+    const circumcisionIndex =
+      clonePrev.length < clone.length ? 10 : clonePrev.length - 1;
+    return clone
+      .slice(0, circumcisionIndex)
+      .map((item, index) => {
+        switch (index) {
+          case 0:
+            return "+7 (" + item;
+          case 2:
+            return item + ") ";
+          case 5:
+            return item + "-";
+          case 7: {
+            return item + "-";
+          }
+          default:
+            return item;
+        }
+      })
+      .join("");
+  }
   return (
     <section
       ref={windowOrderRegistrationRef}
-      onClick={(e) => onChangeCloseWindow(e.target)}
+      onClick={(e) => {
+        onChangeCloseWindow(e.target);
+      }}
       className="section_order_registration"
     >
       <div className="window_order_registration">
@@ -69,9 +201,22 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
         <div className="container_order_registration">
           <div className="container_inputs_info">
             <h4 className="title_item">Данные получателя</h4>
-            <Input placeholder={"Фамилия"} />
-            <Input placeholder={"Имя"} />
-            <Input placeholder={"Телефон"} />
+            <Input
+              onChange={(e) => onChangeInputs(e.target.value, "fullName")}
+              placeholder={"Фамилия"}
+            />
+            <Input
+              onChange={(e) => onChangeInputs(e.target.value, "name")}
+              placeholder={"Имя"}
+            />
+            <Input
+              type={"tel"}
+              inputMode="numeric"
+              onChange={(e, prev) =>
+                onChangeInputs(onChangePhoneNumber(e, prev), "communicatePhone")
+              }
+              placeholder={"Телефон для связи"}
+            />
           </div>
           <div className="container_coordinate_info">
             <h4 className="title_item">Место получение</h4>
@@ -138,14 +283,32 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
             </div>
             <div className="container_payment_method">
               {statePaymentMethod === "СПБ" ? (
-                <Input placeholder={"E-mail"} />
+                <Input
+                  type={"tel"}
+                  inputMode="numeric"
+                  onChange={(e, prev) =>
+                    onChangeInputs(
+                      onChangePhoneNumber(e, prev),
+                      "methodPayed",
+                      "phone"
+                    )
+                  }
+                  placeholder={"Телефон"}
+                />
               ) : statePaymentMethod === "Картой" ? (
                 <div className="bank_card">
                   <div className="container_info">
                     <div className="container_input">
                       <h6>Номер карты</h6>
                       <Input
-                        onChange={onChangeNumberBankCard}
+                        inputMode="numeric"
+                        onChange={(e, prev) =>
+                          onChangeInputs(
+                            onChangeNumberBankCard(e, prev),
+                            "methodPayed",
+                            "number"
+                          )
+                        }
                         placeholder={onChangeNumberBankCard(
                           "11111111111111111"
                         )}
@@ -155,14 +318,28 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
                       <div className="container_input">
                         <h6>CCV</h6>
                         <Input
-                          onChange={onChangeCCVNumberBankCard}
+                          inputMode="numeric"
+                          onChange={(e, prev) =>
+                            onChangeInputs(
+                              onChangeCCVNumberBankCard(e, prev),
+                              "methodPayed",
+                              "ccv"
+                            )
+                          }
                           placeholder={onChangeCCVNumberBankCard("123")}
                         />
                       </div>
                       <div className="container_input">
                         <h6>Срок</h6>
                         <Input
-                          onChange={onChangeDeadlineBankCard}
+                          inputMode="numeric"
+                          onChange={(e, prev) =>
+                            onChangeInputs(
+                              onChangeDeadlineBankCard(e, prev),
+                              "methodPayed",
+                              "deadline"
+                            )
+                          }
                           placeholder={onChangeDeadlineBankCard("1111")}
                         />
                       </div>
@@ -178,14 +355,19 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
           </div>
           <div className="container_promo">
             <h4 className="title_item">Промокод</h4>
-            <Input placeholder={"Промокод"} onChange={() => {}} />
+            <Input
+              onChange={(e) => onChangeInputs(e.target.value, "promo")}
+              placeholder={"Промокод"}
+            />
           </div>
           <div className="container_result">
             <h4 className="title_item">Итого:</h4>
             <div className="result">
-              {basketSelector.find(
-                (itemFind) => dataProducts[itemFind.type][itemFind.id].discount
-              ) ? (
+              {basketSelector.find((itemFind) => {
+                return dataProducts[itemFind.type].find(
+                  (findProducts) => findProducts.id === itemFind.id
+                )?.discount;
+              }) ? (
                 <>
                   <h5>
                     {new Intl.NumberFormat("ru", {
@@ -235,19 +417,25 @@ const WindowOrderRegistration = ({ setStatusOpenWindowOrderRegistration }) => {
               )}
             </div>
           </div>
-          <div className="container_btn_send">
-            <button
-              onClick={() => setStatusOpenWindowOrderRegistration(false)}
-              className="btn_send"
-            >
-              <h5>Оформить</h5>
-            </button>
-            <button
-              onClick={() => setStatusOpenWindowOrderRegistration(false)}
-              className="btn_close"
-            >
-              <h5>Отмена</h5>
-            </button>
+          <div className="container_send">
+            {statusSendError ? <h6>Заполните анкету полностью</h6> : ""}
+            <div className="container_btn_send">
+              <button
+                className="btn_send"
+                onClick={() => setStatusClickSend(true)}
+              >
+                <h5>Оформить</h5>
+              </button>
+              <button
+                onClick={() => {
+                  setStatusClickSend(false);
+                  setStatusOpenWindowOrderRegistration(false);
+                }}
+                className="btn_close"
+              >
+                <h5>Отмена</h5>
+              </button>
+            </div>
           </div>
         </div>
       </div>

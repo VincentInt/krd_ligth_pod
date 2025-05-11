@@ -48,6 +48,23 @@ const Basket = ({ setStatusOpenWindowOrderRegistration }) => {
                 </button>
               </div>
               <div className="item_basket_nav">
+                {stateProductsBasket.find((itemFind) => {
+                  return itemFind.discount;
+                }) ? (
+                  <h5 className="text_discount">
+                    {new Intl.NumberFormat("ru", {
+                      maximumFractionDigits: 0,
+                    }).format(
+                      stateProductsBasket?.reduce(
+                        (acc, a) => acc + a.price * a.count,
+                        0
+                      )
+                    )}
+                    ₽
+                  </h5>
+                ) : (
+                  ""
+                )}
                 <h3>
                   {new Intl.NumberFormat("ru", {
                     maximumFractionDigits: 0,
